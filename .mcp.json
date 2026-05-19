@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "activecampaign": {
+      "type": "http",
+      "url": "https://foodsmart1.activehosted.com/api/agents/mcp/http"
+    }
+  }
+}
