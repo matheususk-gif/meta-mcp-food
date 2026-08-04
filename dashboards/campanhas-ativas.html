@@ -1,0 +1,382 @@
+<title>Dashboard — Campanhas Ativas</title>
+<style>
+  :root{
+    --bg:#0c0d10; --bg2:#101216; --card:#16181d; --card2:#1b1e24;
+    --border:#262a31; --border2:#2f343d;
+    --text:#e9eaed; --muted:#9096a0; --faint:#6b7280;
+    --vet:#3b82f6; --nutri:#10b981; --eng:#f59e0b; --outras:#a855f7; --estud:#6b7280; --boletim:#14b8a6;
+    --today:#38bdf8; --pos:#34d399; --neg:#f87171; --warn:#f5b544;
+    --warn-bg:rgba(245,181,68,.09); --warn-bd:rgba(245,181,68,.35);
+    --off-bg:rgba(148,163,184,.10); --off-bd:rgba(148,163,184,.30);
+    --today-bg:rgba(56,189,248,.09); --today-bd:rgba(56,189,248,.30);
+    --track:#22262e;
+    --shadow:0 1px 0 rgba(255,255,255,.02) inset, 0 10px 30px rgba(0,0,0,.30);
+    --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f4f6f9; --bg2:#eceff3; --card:#ffffff; --card2:#f7f9fb;
+      --border:#e3e7ec; --border2:#d5dae1; --text:#141821; --muted:#586071; --faint:#8a919e;
+      --estud:#97a2b2; --track:#e7ebf1;
+      --warn-bg:rgba(176,116,8,.08); --warn-bd:rgba(176,116,8,.30); --warn:#a2710a;
+      --off-bg:rgba(100,116,139,.08); --off-bd:rgba(100,116,139,.25);
+      --today-bg:rgba(14,140,196,.08); --today-bd:rgba(14,140,196,.28);
+      --shadow:0 1px 2px rgba(20,24,33,.04), 0 10px 30px rgba(20,24,33,.07);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0c0d10; --bg2:#101216; --card:#16181d; --card2:#1b1e24;
+    --border:#262a31; --border2:#2f343d; --text:#e9eaed; --muted:#9096a0; --faint:#6b7280;
+    --estud:#6b7280; --track:#22262e;
+    --warn-bg:rgba(245,181,68,.09); --warn-bd:rgba(245,181,68,.35); --warn:#f5b544;
+    --off-bg:rgba(148,163,184,.10); --off-bd:rgba(148,163,184,.30);
+    --today-bg:rgba(56,189,248,.09); --today-bd:rgba(56,189,248,.30);
+    --shadow:0 1px 0 rgba(255,255,255,.02) inset, 0 10px 30px rgba(0,0,0,.30);
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f6f9; --bg2:#eceff3; --card:#ffffff; --card2:#f7f9fb;
+    --border:#e3e7ec; --border2:#d5dae1; --text:#141821; --muted:#586071; --faint:#8a919e;
+    --estud:#97a2b2; --track:#e7ebf1;
+    --warn-bg:rgba(176,116,8,.08); --warn-bd:rgba(176,116,8,.30); --warn:#a2710a;
+    --off-bg:rgba(100,116,139,.08); --off-bd:rgba(100,116,139,.25);
+    --today-bg:rgba(14,140,196,.08); --today-bd:rgba(14,140,196,.28);
+    --shadow:0 1px 2px rgba(20,24,33,.04), 0 10px 30px rgba(20,24,33,.07);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5; -webkit-font-smoothing:antialiased; font-variant-numeric:tabular-nums;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:40px 24px 72px}
+  .mono{font-family:var(--mono); font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+
+  /* header */
+  .topbar{display:flex; justify-content:space-between; align-items:flex-start; gap:16px}
+  .eyebrow{font-size:11.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); font-weight:600}
+  h1{font-size:31px; line-height:1.12; margin:10px 0 14px; letter-spacing:-.015em; text-wrap:balance}
+  .tags{display:flex; flex-wrap:wrap; gap:9px; align-items:center}
+  .period{display:inline-flex; align-items:center; gap:9px; background:var(--card2); border:1px solid var(--border); border-radius:9px; padding:8px 14px; font-size:13.5px}
+  .period b{font-weight:650}.period .sep{color:var(--faint)}
+  .tag{display:inline-flex; align-items:center; gap:7px; font-size:12.5px; color:var(--muted); background:var(--card2); border:1px solid var(--border); border-radius:99px; padding:6px 12px}
+  .lede{color:var(--muted); font-size:14px; max-width:80ch; margin:14px 0 0}
+  .lede b{color:var(--text); font-weight:600}
+  .theme-btn{flex:none; background:var(--card2); border:1px solid var(--border); color:var(--muted); border-radius:8px; padding:7px 12px; font-size:12.5px; cursor:pointer; font-family:inherit}
+  .theme-btn:hover{border-color:var(--border2); color:var(--text)}
+  .theme-btn:focus-visible{outline:2px solid var(--vet); outline-offset:2px}
+
+  /* banners */
+  .banner{display:flex; gap:12px; border-radius:12px; padding:16px 18px; margin:22px 0 0; font-size:13.5px}
+  .banner.off{background:var(--off-bg); border:1px solid var(--off-bd)}
+  .banner.today{background:var(--today-bg); border:1px solid var(--today-bd)}
+  .banner .ic{flex:none; font-size:16px; line-height:1.4}
+  .banner b{font-weight:650}
+
+  section{margin-top:24px}
+  .panel{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px 22px 24px; box-shadow:var(--shadow)}
+  .panel.today-panel{border-color:color-mix(in srgb,var(--today) 40%,var(--border))}
+  .panel-h{font-size:16px; font-weight:650; margin:0 0 3px; letter-spacing:-.01em; display:flex; align-items:center; gap:9px}
+  .panel-sub{color:var(--muted); font-size:13px; margin:0 0 18px}
+  .live-dot{width:8px;height:8px;border-radius:99px;background:var(--today);flex:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--today) 25%,transparent)}
+
+  /* KPIs */
+  .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+  @media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  .kpi{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px 18px 16px; box-shadow:var(--shadow); position:relative; overflow:hidden}
+  .kpi::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--accent,transparent)}
+  .kpi .lab{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:600; min-height:26px}
+  .kpi .big{font-size:36px; font-weight:650; letter-spacing:-.02em; margin:6px 0 4px}
+  .kpi .sub{font-size:12.5px; color:var(--muted)}
+  .kpi .delta{font-size:12.5px; font-weight:600; margin-top:8px}
+  .delta.up{color:var(--pos)} .delta.down{color:var(--neg)} .delta.flat{color:var(--muted)}
+
+  /* today mini table */
+  .today-tbl{width:100%; border-collapse:collapse; font-size:13.5px; margin-top:8px}
+  .today-tbl th{text-align:left; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); font-weight:600; padding:0 10px 10px 0; border-bottom:1px solid var(--border)}
+  .today-tbl th.r, .today-tbl td.r{text-align:right}
+  .today-tbl td{padding:11px 10px 11px 0; border-bottom:1px solid var(--border); vertical-align:top}
+  .today-tbl tr:last-child td{border-bottom:0}
+  .today-tbl .fn{font-weight:600}
+  .today-tbl .fn small{display:block; color:var(--muted); font-weight:400; font-size:11.5px; margin-top:2px}
+  .today-tbl .num{font-family:var(--mono); font-weight:600}
+
+  /* comparison table */
+  .cmp{width:100%; border-collapse:collapse; font-size:13.5px}
+  .cmp th{text-align:left; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); font-weight:600; padding:0 10px 10px 0; border-bottom:1px solid var(--border)}
+  .cmp th.r, .cmp td.r{text-align:right}
+  .cmp td{padding:11px 10px 11px 0; border-bottom:1px solid var(--border)}
+  .cmp tr:last-child td{border-bottom:0}
+  .cmp tr.sub td.metric{padding-left:16px; color:var(--muted); font-weight:400}
+  .cmp tr.sub td.metric::before{content:"— "; color:var(--faint)}
+  .cmp .metric{font-weight:600}
+  .cmp .num{font-family:var(--mono); font-weight:600}
+  .cmp .val{font-family:var(--mono); font-weight:650}
+  .val.up{color:var(--pos)} .val.down{color:var(--neg)} .val.flat{color:var(--muted)}
+
+  /* composition */
+  .legend{display:flex; flex-wrap:wrap; gap:14px 18px; margin:0 0 20px; font-size:12.5px; color:var(--muted)}
+  .legend span{display:inline-flex; align-items:center; gap:7px}
+  .dot{width:11px; height:11px; border-radius:3px; flex:none}
+  .comp-row{margin-bottom:20px}.comp-row:last-child{margin-bottom:0}
+  .comp-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:8px}
+  .comp-head .name{font-size:14px; font-weight:600}
+  .comp-head .name small{color:var(--muted); font-weight:400}
+  .comp-head .meta{font-size:12.5px; color:var(--muted); white-space:nowrap; font-family:var(--mono)}
+  .stack{display:flex; height:36px; border-radius:8px; overflow:hidden; background:var(--track)}
+  .stack > div{display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; color:#fff; min-width:0; white-space:nowrap; overflow:hidden}
+  .stack.empty{align-items:center; justify-content:flex-start; background:var(--card2); border:1px dashed var(--border2); color:var(--muted); font-size:12.5px; font-weight:500; padding:0 14px}
+
+  /* campaign cards */
+  .camp{background:var(--card); border:1px solid var(--border); border-left-width:4px; border-radius:14px; padding:18px 20px 20px; box-shadow:var(--shadow); margin-top:16px}
+  .camp-h{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:16px}
+  .camp-h .t{font-size:16px; font-weight:650; letter-spacing:-.01em}
+  .camp-h .t .idx{color:var(--faint); font-weight:600; margin-right:4px}
+  .camp-h .k{font-size:12.5px; color:var(--muted); margin-top:2px}
+  .pill{display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:650; padding:4px 10px; border-radius:99px; white-space:nowrap; flex:none}
+  .pill.info{background:color-mix(in srgb,var(--boletim) 18%,transparent); color:var(--boletim)}
+  .cols{display:grid; grid-template-columns:repeat(5,1fr); gap:18px}
+  @media(max-width:820px){.cols{grid-template-columns:repeat(2,1fr)}}
+  .col .lab{font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:6px}
+  .col .v{font-size:22px; font-weight:600; letter-spacing:-.01em; font-family:var(--mono)}
+  .col .n{font-size:12px; color:var(--muted); margin-top:3px; font-family:inherit}
+  .cbar{display:flex; height:6px; border-radius:99px; overflow:hidden; background:var(--track); margin-top:14px}
+  .cbar > span{display:block;height:100%}
+  .camp-note{margin-top:14px; padding-top:14px; border-top:1px solid var(--border); font-size:12.5px; color:var(--muted)}
+  .camp-note b{color:var(--text); font-weight:600}
+
+  /* footer */
+  .readings{list-style:none; padding:0; margin:8px 0 0; display:flex; flex-direction:column; gap:11px; font-size:13.5px}
+  .readings li{display:flex; gap:10px; color:var(--muted)}
+  .readings b{color:var(--text); font-weight:650}
+  .rdot{width:10px; height:10px; border-radius:99px; flex:none; margin-top:5px}
+  .foot{margin-top:22px; font-size:13px; color:var(--muted)}
+  .foot p{margin:10px 0}.foot b{color:var(--text); font-weight:600}
+  .hr{height:1px; background:var(--border); border:0; margin:26px 0}
+  .tot-chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+  .chip{display:inline-flex; align-items:center; gap:7px; background:var(--card2); border:1px solid var(--border); border-radius:99px; padding:5px 11px; font-size:12.5px}
+  .chip b{color:var(--text)}
+  .offlist{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+  .offchip{display:inline-flex; align-items:center; gap:7px; background:var(--off-bg); border:1px solid var(--off-bd); border-radius:99px; padding:5px 11px; font-size:12.5px; color:var(--muted)}
+  .offchip b{color:var(--text)}
+  .updated{font-size:11.5px; color:var(--faint); margin-top:26px; text-align:right}
+</style>
+
+<div class="wrap">
+
+  <div class="topbar">
+    <div>
+      <div class="eyebrow">Foodsmart · Leads reais por formação</div>
+      <h1>Dashboard — Campanhas Ativas</h1>
+      <div class="tags">
+        <div class="period"><span>📅</span><span><b>Hoje: 04 de agosto de 2026</b></span><span class="sep">·</span><span>última semana fechada: 24→31 jul</span></div>
+        <span class="tag">🔵 3 campanhas ativas nesta análise</span>
+      </div>
+      <p class="lede">Cobre só as campanhas <b>ativas</b>: Webinário Diário, 5 Aulas e Boletim Smart. <b>RT Class e Lista de Espera (Página VET) estão pausadas</b> e ficam de fora. O Boletim Smart é campanha de <b>vídeo (engajamento)</b>, não de captação — por isso tem métricas próprias.</p>
+    </div>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Alternar tema">◐ tema</button>
+  </div>
+
+  <div class="banner today">
+    <span class="ic">🕐</span>
+    <div><b>Dados de hoje são parciais.</b> Coletados às 10h40 (horário de consulta) — o dia ainda não terminou, então leads e investimento vão continuar subindo até a meia-noite. CPL de hoje tende a parecer mais alto que a média porque o investimento do dia já rodou mais do que os leads tiveram tempo de chegar.</div>
+  </div>
+
+  <!-- HOJE -->
+  <section>
+    <div class="panel today-panel">
+      <div class="panel-h"><span class="live-dot"></span>Hoje — 04/08, até 10h40</div>
+      <div class="panel-sub">Webinário Diário + 5 Aulas (captação) e Boletim Smart (vídeo). Sem dado de atendimento comercial hoje.</div>
+      <div class="kpis">
+        <div class="kpi" style="--accent:var(--today)">
+          <div class="lab">Investimento hoje</div>
+          <div class="big mono">R$ 145</div>
+          <div class="sub">3 campanhas · Meta Ads</div>
+        </div>
+        <div class="kpi" style="--accent:var(--vet)">
+          <div class="lab">Leads reais hoje</div>
+          <div class="big mono">10</div>
+          <div class="sub">Webinário + 5 Aulas</div>
+        </div>
+        <div class="kpi" style="--accent:var(--nutri)">
+          <div class="lab">Qualificados hoje</div>
+          <div class="big mono">8</div>
+          <div class="sub">80% dos leads de hoje</div>
+        </div>
+        <div class="kpi" style="--accent:var(--vet)">
+          <div class="lab">Veterinários hoje</div>
+          <div class="big mono">3</div>
+          <div class="sub">30% dos leads de hoje</div>
+        </div>
+      </div>
+
+      <table class="today-tbl">
+        <thead><tr><th>Campanha</th><th class="r">Investimento</th><th class="r">Leads / métrica</th><th class="r">Detalhe</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="fn">Webinário Diário</td>
+            <td class="r num">R$ 77,37</td>
+            <td class="r num">3 leads</td>
+            <td class="r">100% Veterinário · CPL R$ 25,79</td>
+          </tr>
+          <tr>
+            <td class="fn">5 Aulas <small>(NRTC)</small></td>
+            <td class="r num">R$ 41,11</td>
+            <td class="r num">7 leads</td>
+            <td class="r">3 Nutri · 2 Eng · 2 Estud. · 5 qualificados</td>
+          </tr>
+          <tr>
+            <td class="fn">Boletim Smart <small>vídeo, não lead</small></td>
+            <td class="r num">R$ 26,07</td>
+            <td class="r num">32 ThruPlays</td>
+            <td class="r">2.748 impr. · R$ 0,81/ThruPlay · 0 leads via form.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section>
+    <div class="panel">
+      <div class="panel-h">Última semana fechada: 24→31 jul vs 17→24 jul</div>
+      <div class="panel-sub">Comparação semanal (histórico, não atualiza diariamente) — apenas Webinário Diário e 5 Aulas, as 2 campanhas de captação ativas nos dois períodos.</div>
+      <table class="cmp">
+        <thead><tr><th>Métrica</th><th class="r">17→24 jul</th><th class="r">24→31 jul</th><th class="r">Variação</th></tr></thead>
+        <tbody>
+          <tr><td class="metric">Leads reais (total)</td><td class="r num">198</td><td class="r num">152</td><td class="r val down">−23,2%</td></tr>
+          <tr class="sub"><td class="metric">Veterinários</td><td class="r num">116</td><td class="r num">90</td><td class="r val down">−22,4%</td></tr>
+          <tr class="sub"><td class="metric">Nutricionistas</td><td class="r num">24</td><td class="r num">25</td><td class="r val up">+4,2%</td></tr>
+          <tr class="sub"><td class="metric">Eng. de Alimentos</td><td class="r num">18</td><td class="r num">6</td><td class="r val down">−66,7%</td></tr>
+          <tr class="sub"><td class="metric">Estudante/Outros</td><td class="r num">40</td><td class="r num">31</td><td class="r val down">−22,5%</td></tr>
+          <tr><td class="metric">Qualificados (formados)</td><td class="r num">158</td><td class="r num">121</td><td class="r val down">−23,4%</td></tr>
+          <tr><td class="metric">Investimento (Webinário + 5 Aulas)</td><td class="r num">R$ 1.541</td><td class="r num">R$ 1.253</td><td class="r val flat">−18,7%</td></tr>
+          <tr><td class="metric">Custo por qualificado</td><td class="r num">R$ 9,76</td><td class="r num">R$ 10,35</td><td class="r val down">+6,0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Composition -->
+  <section>
+    <div class="panel">
+      <div class="panel-h">Composição por formação — última semana fechada (24–31 jul)</div>
+      <div class="panel-sub">% dos leads reais de cada campanha por formação.</div>
+      <div class="legend">
+        <span><i class="dot" style="background:var(--vet)"></i>Veterinário</span>
+        <span><i class="dot" style="background:var(--nutri)"></i>Nutricionista</span>
+        <span><i class="dot" style="background:var(--eng)"></i>Eng. Alimentos</span>
+        <span><i class="dot" style="background:var(--estud)"></i>Estudante/Outros</span>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-head"><div class="name">Webinário Diário</div><div class="meta">84 leads · 90% VET</div></div>
+        <div class="stack">
+          <div style="width:90.5%;background:var(--vet)">VET 76 · 90%</div>
+          <div style="width:1.2%;background:var(--nutri)"></div>
+          <div style="width:8.3%;background:var(--estud)">7</div>
+        </div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-head"><div class="name">5 Aulas <small>(NRTC)</small></div><div class="meta">68 leads · só 21% VET</div></div>
+        <div class="stack">
+          <div style="width:20.6%;background:var(--vet)">VET 14</div>
+          <div style="width:35.3%;background:var(--nutri)">Nutri 24 · 35%</div>
+          <div style="width:8.8%;background:var(--eng)">6</div>
+          <div style="width:35.3%;background:var(--estud)">Estud. 24 · 35%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Campaign cards -->
+  <section>
+    <div class="camp" style="border-left-color:var(--vet)">
+      <div class="camp-h">
+        <div><div class="t"><span class="idx">1 ·</span>Webinário Diário</div><div class="k">captação de leads · funil mais aderente ao ICP · semana 24–31/jul</div></div>
+      </div>
+      <div class="cols">
+        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 715</div><div class="n">CPL real R$ 8,51</div></div>
+        <div class="col"><div class="lab">Leads reais</div><div class="v">84</div><div class="n">vs 109 · −23%</div></div>
+        <div class="col"><div class="lab">Veterinários</div><div class="v">76</div><div class="n">90,5% do funil</div></div>
+        <div class="col"><div class="lab">Demais formações</div><div class="v">8</div><div class="n">1 Nutri · 7 Estud.</div></div>
+        <div class="col"><div class="lab">Custo / qualificado</div><div class="v">R$ 9,28</div><div class="n">77 qualificados</div></div>
+      </div>
+      <div class="cbar"><span style="width:90.5%;background:var(--vet)"></span><span style="width:1.2%;background:var(--nutri)"></span><span style="width:8.3%;background:var(--estud)"></span></div>
+    </div>
+
+    <div class="camp" style="border-left-color:var(--eng)">
+      <div class="camp-h">
+        <div><div class="t"><span class="idx">2 ·</span>5 Melhores Aulas (NRTC)</div><div class="k">captação de leads · maior diversidade de formações · semana 24–31/jul</div></div>
+      </div>
+      <div class="cols">
+        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 538</div><div class="n">CPL real R$ 7,91</div></div>
+        <div class="col"><div class="lab">Leads reais</div><div class="v">68</div><div class="n">vs 89 · −24%</div></div>
+        <div class="col"><div class="lab">Veterinários</div><div class="v">14</div><div class="n">20,6% do funil</div></div>
+        <div class="col"><div class="lab">Demais formações</div><div class="v">30</div><div class="n">24 Nutri · 6 Eng</div></div>
+        <div class="col"><div class="lab">Custo / qualificado</div><div class="v">R$ 12,22</div><div class="n">44 qualificados (65%)</div></div>
+      </div>
+      <div class="cbar"><span style="width:20.6%;background:var(--vet)"></span><span style="width:35.3%;background:var(--nutri)"></span><span style="width:8.8%;background:var(--eng)"></span><span style="width:35.3%;background:var(--estud)"></span></div>
+    </div>
+
+    <div class="camp" style="border-left-color:var(--boletim)">
+      <div class="camp-h">
+        <div><div class="t"><span class="idx">3 ·</span>Boletim Smart</div><div class="k">C2 · distribuição de conteúdo · lançada 28/jul · semana 24–31/jul</div></div>
+        <span class="pill info">campanha de vídeo, não de leads</span>
+      </div>
+      <div class="cols">
+        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 340</div><div class="n">custo por ThruPlay R$ 0,87</div></div>
+        <div class="col"><div class="lab">Impressões</div><div class="v">26.264</div><div class="n">alcance 4.069</div></div>
+        <div class="col"><div class="lab">Reproduções de vídeo</div><div class="v">22.595</div><div class="n">início de reprodução</div></div>
+        <div class="col"><div class="lab">ThruPlays (15s+)</div><div class="v">392</div><div class="n">1,7% das reproduções</div></div>
+        <div class="col"><div class="lab">Visualizações completas</div><div class="v">113</div><div class="n">vídeo assistido 100%</div></div>
+      </div>
+      <div class="camp-note">Esta campanha mede <b>consumo de vídeo</b>, não captação. À parte, o formulário capturou <b>3 leads incidentais</b> em 31/jul (bônus, não o objetivo da campanha) — e nenhum lead hoje (04/08).</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section>
+    <div class="panel">
+      <div class="panel-h">Leituras principais</div>
+      <div class="panel-sub">Considerando só as 3 campanhas ativas.</div>
+      <ul class="readings">
+        <li><span class="rdot" style="background:var(--today)"></span><span><b>Hoje (04/08, parcial):</b> 10 leads reais captados até 10h40, 80% qualificados. Ritmo similar ao da última semana fechada, mas ainda é manhã — o dia deve fechar com mais volume.</span></li>
+        <li><span class="rdot" style="background:var(--vet)"></span><span><b>Webinário Diário</b> continua o funil mais certeiro para o ICP veterinário (90,5% na semana, 100% hoje) e o mais barato por qualificado (R$ 9,28).</span></li>
+        <li><span class="rdot" style="background:var(--eng)"></span><span><b>5 Aulas (NRTC)</b> é o mais barato por lead bruto, mas com menor aderência ao ICP vet — hoje trouxe mais nutricionistas e engenheiros do que veterinários.</span></li>
+        <li><span class="rdot" style="background:var(--boletim)"></span><span><b>Boletim Smart</b> segue sem leads via formulário há 1 dia (03/08 foi o último) — normal, já que não é o objetivo da campanha. O foco é ThruPlay, que está estável (~R$0,80–0,87).</span></li>
+      </ul>
+
+      <hr class="hr">
+      <div class="foot">
+        <p><b>Composição total — última semana fechada (152 leads reais, Webinário + 5 Aulas):</b></p>
+        <div class="tot-chips">
+          <span class="chip"><i class="dot" style="background:var(--vet)"></i><b>Veterinário 90</b> · 59,2%</span>
+          <span class="chip"><i class="dot" style="background:var(--nutri)"></i><b>Nutricionista 25</b> · 16,4%</span>
+          <span class="chip"><i class="dot" style="background:var(--eng)"></i><b>Eng. Alimentos 6</b> · 3,9%</span>
+          <span class="chip"><i class="dot" style="background:var(--estud)"></i><b>Estudante/Outros 31</b> · 20,4%</span>
+        </div>
+        <p style="margin-top:14px"><b>Fora desta análise (campanhas pausadas):</b></p>
+        <div class="offlist">
+          <span class="offchip">RT Class — <b>R$ 1.285</b> investidos · <b>97</b> leads reais (semana 24–31/jul)</span>
+          <span class="offchip">Lista de Espera + Página VET — <b>R$ 2.286</b> investidos · <b>64</b> leads reais (semana 24–31/jul)</span>
+        </div>
+        <p style="margin-top:16px"><b>Metodologia:</b> Webinário Diário e 5 Aulas são baixados por completo (sem cortes), com linhas de teste removidas e deduplicadas por e-mail. "Qualificado" = qualquer formação exceto Estudante/Outros e vazio. Investimento é gasto real do Meta Ads (por campanha, conta "CA oficial — Food Smart"); não incluímos a contagem de leads que o Meta reporta via pixel, só os confirmados em planilha. O Boletim Smart usa métricas de vídeo do Meta (impressões, reproduções, ThruPlay) — não é comparável a CPL de captação. A seção "Hoje" é recalculada diariamente; a comparação semanal e a composição por formação refletem a última semana fechada (24–31/jul) e são atualizadas manualmente quando uma nova semana se encerra.</p>
+      </div>
+      <div class="updated" id="updatedAt">Atualizado em 04/08/2026, 10:40 (parcial)</div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  (function(){
+    var btn=document.getElementById('themeBtn'), root=document.documentElement;
+    btn.addEventListener('click',function(){
+      var cur=root.getAttribute('data-theme');
+      if(!cur){cur=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+      root.setAttribute('data-theme',cur==='dark'?'light':'dark');
+    });
+  })();
+</script>
