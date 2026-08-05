@@ -179,34 +179,38 @@
 
   <div class="banner today">
     <span class="ic">🕐</span>
-    <div><b>Dados de hoje são parciais.</b> Coletados às 10h42 (horário de consulta) — o dia ainda não terminou, então leads e investimento vão continuar subindo até a meia-noite. CPL de hoje tende a parecer mais alto que a média porque o investimento do dia já rodou mais do que os leads tiveram tempo de chegar.</div>
+    <div><b>Dados de hoje são parciais</b> — coletados às 10h42, o dia ainda não terminou. Por isso <b>a comparação abaixo é sempre com ontem no mesmo horário de coleta (~10h4x)</b>, não com a média da semana: comparar um dia pela metade com um dia fechado infla o CPL artificialmente, já que o investimento "corre na frente" dos leads ao longo do dia.</div>
   </div>
 
   <!-- HOJE -->
   <section>
     <div class="panel today-panel">
       <div class="panel-h"><span class="live-dot"></span>Hoje — 05/08, até 10h42</div>
-      <div class="panel-sub">Webinário Diário + 5 Aulas (captação) e Boletim Smart (vídeo). Sem dado de atendimento comercial hoje.</div>
+      <div class="panel-sub">Webinário Diário + 5 Aulas (captação) e Boletim Smart (vídeo), comparado a ontem (04/08) até 10h40. Sem dado de atendimento comercial hoje.</div>
       <div class="kpis">
         <div class="kpi" style="--accent:var(--today)">
           <div class="lab">Investimento hoje</div>
           <div class="big mono">R$ 217</div>
           <div class="sub">3 campanhas · Meta Ads</div>
+          <div class="delta flat">vs ontem (R$ 145): +50,2%</div>
         </div>
         <div class="kpi" style="--accent:var(--vet)">
           <div class="lab">Leads reais hoje</div>
           <div class="big mono">14</div>
           <div class="sub">Webinário + 5 Aulas</div>
+          <div class="delta up">vs ontem (10): +40,0%</div>
         </div>
         <div class="kpi" style="--accent:var(--nutri)">
           <div class="lab">Qualificados hoje</div>
           <div class="big mono">13</div>
           <div class="sub">93% dos leads de hoje</div>
+          <div class="delta up">vs ontem (8 · 80%): +62,5%</div>
         </div>
         <div class="kpi" style="--accent:var(--vet)">
           <div class="lab">Veterinários hoje</div>
           <div class="big mono">9</div>
           <div class="sub">64% dos leads de hoje</div>
+          <div class="delta up">vs ontem (3 · 30%): +200%</div>
         </div>
       </div>
 
@@ -233,8 +237,23 @@
           </tr>
         </tbody>
       </table>
+
+      <table class="cmp" style="margin-top:20px">
+        <thead><tr><th>CPL / custo — hoje vs ontem (mesmo horário, ~10h4x)</th><th class="r">Ontem</th><th class="r">Hoje</th><th class="r">Variação</th></tr></thead>
+        <tbody>
+          <tr><td class="metric">CPL global (Webinário + 5 Aulas)</td><td class="r num">R$ 14,46</td><td class="r num">R$ 15,50</td><td class="r val down">+7,2%</td></tr>
+          <tr><td class="metric">Custo por qualificado</td><td class="r num">R$ 18,07</td><td class="r num">R$ 16,70</td><td class="r val up">−7,6%</td></tr>
+          <tr class="sub"><td class="metric">CPL Webinário Diário</td><td class="r num">R$ 25,79</td><td class="r num">R$ 14,57</td><td class="r val up">−43,5%</td></tr>
+          <tr class="sub"><td class="metric">CPL 5 Aulas (NRTC)</td><td class="r num">R$ 5,87</td><td class="r num">R$ 11,78</td><td class="r val down">+100,7%</td></tr>
+          <tr class="sub"><td class="metric">Custo/ThruPlay Boletim Smart</td><td class="r num">R$ 0,81</td><td class="r num">R$ 1,12</td><td class="r val down">+38,0%</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
+
+  <script type="application/json" id="daySnapshot">
+  {"date":"2026-08-05","cutoff":"10:42","investment_total":217.04,"leads_total":14,"qualified_total":13,"qualified_rate":0.929,"vet_total":9,"vet_rate":0.643,"cpl_global":15.50,"cost_per_qualified":16.70,"campaigns":{"webinario":{"investment":131.16,"leads":9,"vet":8,"cpl":14.57},"aulas":{"investment":58.91,"leads":5,"cpl":11.78},"boletim":{"investment":26.97,"thruplays":24,"impressions":2601,"cost_per_thruplay":1.12,"leads_incidental":1}}}
+  </script>
 
   <!-- Comparison -->
   <section>
@@ -362,7 +381,7 @@
           <span class="offchip">RT Class — <b>R$ 1.285</b> investidos · <b>97</b> leads reais (semana 24–31/jul)</span>
           <span class="offchip">Lista de Espera + Página VET — <b>R$ 2.286</b> investidos · <b>64</b> leads reais (semana 24–31/jul)</span>
         </div>
-        <p style="margin-top:16px"><b>Metodologia:</b> Webinário Diário e 5 Aulas são baixados por completo (sem cortes), com linhas de teste removidas e deduplicadas por e-mail. "Qualificado" = qualquer formação exceto Estudante/Outros e vazio. Investimento é gasto real do Meta Ads (por campanha, conta "CA oficial — Food Smart"); não incluímos a contagem de leads que o Meta reporta via pixel, só os confirmados em planilha. O Boletim Smart usa métricas de vídeo do Meta (impressões, reproduções, ThruPlay) — não é comparável a CPL de captação. A seção "Hoje" é recalculada diariamente; a comparação semanal e a composição por formação refletem a última semana fechada (24–31/jul) e são atualizadas manualmente quando uma nova semana se encerra.</p>
+        <p style="margin-top:16px"><b>Metodologia:</b> Webinário Diário e 5 Aulas são baixados por completo (sem cortes), com linhas de teste removidas e deduplicadas por e-mail. "Qualificado" = qualquer formação exceto Estudante/Outros e vazio. Investimento é gasto real do Meta Ads (por campanha, conta "CA oficial — Food Smart"); não incluímos a contagem de leads que o Meta reporta via pixel, só os confirmados em planilha. O Boletim Smart usa métricas de vídeo do Meta (impressões, reproduções, ThruPlay) — não é comparável a CPL de captação. A seção "Hoje" é recalculada diariamente e comparada com <b>ontem no mesmo horário de coleta</b> (não com a semana fechada), para não distorcer o CPL de um dia ainda pela metade. A comparação semanal e a composição por formação refletem a última semana fechada (24–31/jul) e são atualizadas manualmente quando uma nova semana se encerra.</p>
       </div>
       <div class="updated" id="updatedAt">Atualizado em 05/08/2026, 10:42 (parcial)</div>
     </div>

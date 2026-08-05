@@ -33,9 +33,22 @@ Conta Meta Ads: **`8434968583195601`** ("CA (oficial) - Food Smart") — única 
 
 ## O que atualizar no HTML
 
-Só a seção **"Hoje"** (bloco com `id`/classe `today-panel` e a tabela `.today-tbl`) e o rodapé `#updatedAt` devem ser recalculados a cada execução. As seções "Última semana fechada" (comparação 17→24 vs 24→31/jul, composição por formação, cards de campanha) são **histórico estático** — só mudar quando o usuário pedir explicitamente para fechar uma nova semana.
+Só a seção **"Hoje"** (bloco com `id`/classe `today-panel`, a tabela `.today-tbl`, a tabela `.cmp` de CPL hoje-vs-ontem e o `#daySnapshot`) e o rodapé `#updatedAt` devem ser recalculados a cada execução. As seções "Última semana fechada" (comparação 17→24 vs 24→31/jul, composição por formação, cards de campanha) são **histórico estático** — só mudar quando o usuário pedir explicitamente para fechar uma nova semana.
 
 **Não incluir** métricas de atendimento comercial na seção "Hoje" — esse dado vem de fora (time humano) e só deve aparecer se o usuário fornecer explicitamente.
+
+## Comparação diária — hoje vs ontem no MESMO horário (importante)
+
+A rotina roda todo dia por volta do mesmo horário, então os dados de "hoje" e "ontem" são coletados em pontos parecidos do dia — isso é o que torna a comparação justa. **Nunca compare o "hoje" parcial com a média/total da última semana fechada** para CPL ou custo — um dia pela metade sempre parece pior, porque o investimento é gasto de forma mais linear ao longo do dia do que os leads chegam (o Meta "gasta na frente"). A comparação certa é sempre **hoje até HHhMM vs ontem até um HHhMM parecido**.
+
+Passo a passo:
+1. **Antes de editar o arquivo**, leia o `<script type="application/json" id="daySnapshot">` que já está no `dashboards/campanhas-ativas.html` (versão ainda não atualizada) — esse JSON é o snapshot de **ontem**, salvo pela execução anterior. Ele tem `investment_total`, `leads_total`, `qualified_total`, `vet_total`, `cpl_global`, `cost_per_qualified` e o detalhe por campanha (`campaigns.webinario`, `campaigns.aulas`, `campaigns.boletim`).
+2. Calcule os números de **hoje** normalmente (passos abaixo).
+3. Calcule as variações % de hoje vs esse snapshot de ontem (investimento, leads, qualificados, veterinários, CPL global, custo por qualificado, CPL por campanha, custo/ThruPlay do Boletim).
+4. Atualize os KPIs (`.kpi .delta`), a tabela `.today-tbl` e a tabela `.cmp` de "CPL / custo — hoje vs ontem" com os novos valores e variações.
+5. **Substitua** o `#daySnapshot` pelo snapshot de **hoje** (mesmo formato JSON), para que a execução de amanhã use os números de hoje como "ontem".
+6. Sentido das cores (classes `.delta`/`.val`): investimento usa `flat` (neutro, é só informativo). Leads, qualificados e veterinários usam `up` quando sobem (bom). CPL, custo por qualificado e custo/ThruPlay usam `up` quando **caem** (bom, fica mais barato) e `down` quando sobem (fica mais caro) — o sinal da cor é sobre o que é bom/ruim pro negócio, não sobre a seta do número.
+7. Se por algum motivo não houver `#daySnapshot` no arquivo (primeira execução após uma mudança estrutural), registre isso na dashboard em vez de travar, e apenas grave o snapshot de hoje normalmente.
 
 ## Regras gerais
 - Nunca usar o total de leads que o Meta reporta via pixel/conta — só os confirmados em planilha.
