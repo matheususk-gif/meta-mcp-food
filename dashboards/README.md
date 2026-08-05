@@ -33,7 +33,12 @@ Conta Meta Ads: **`8434968583195601`** ("CA (oficial) - Food Smart") — única 
 
 ## O que atualizar no HTML
 
-Só a seção **"Hoje"** (bloco com `id`/classe `today-panel`, a tabela `.today-tbl`, a tabela `.cmp` de CPL hoje-vs-ontem e o `#daySnapshot`) e o rodapé `#updatedAt` devem ser recalculados a cada execução. As seções "Última semana fechada" (comparação 17→24 vs 24→31/jul, composição por formação, cards de campanha) são **histórico estático** — só mudar quando o usuário pedir explicitamente para fechar uma nova semana.
+A cada execução, recalcule **todos** os blocos marcados abaixo com dados de hoje e ontem (mesmo horário de coleta):
+- O painel **"Hoje"** (`today-panel`): KPIs com delta, tabela `.today-tbl`, tabela `.cmp` de CPL hoje-vs-ontem, e o `#daySnapshot`.
+- A seção **"Composição por formação — comparativo [ontem]→[hoje]"** (fica logo depois da seção de composição da semana fechada): 2 barras empilhadas por campanha (Webinário Diário e 5 Aulas), uma para "Ontem" e uma para "Hoje", com o texto de leitura no final do painel. Atualize o título com as datas do dia (`comparativo DD→DD/MM`), os leads/percentuais no `.comp-head .meta`, as larguras/rótulos das `.stack` e a frase de leitura.
+- O rodapé `#updatedAt`.
+
+As seções "Última semana fechada" (comparação 17→24 vs 24→31/jul, composição por formação da semana, cards de campanha da semana) são **histórico estático** — só mudar quando o usuário pedir explicitamente para fechar uma nova semana. Não apague nem resuma essas seções ao atualizar as diárias.
 
 **Não incluir** métricas de atendimento comercial na seção "Hoje" — esse dado vem de fora (time humano) e só deve aparecer se o usuário fornecer explicitamente.
 
