@@ -88,7 +88,10 @@
 
   /* KPIs */
   .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
-  @media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  .kpis.k5{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .kpis.k5 .big{font-size:31px}
+  @media(max-width:1040px){.kpis.k5{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)} .kpis.k5{grid-template-columns:repeat(2,minmax(0,1fr))}}
   .kpi{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px 18px 16px; box-shadow:var(--shadow); position:relative; overflow:hidden}
   .kpi::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--accent,transparent)}
   .kpi .lab{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:600; min-height:26px}
@@ -197,7 +200,7 @@
   <p class="sec-sub">Números fechados do período corrente, somando as 3 campanhas ativas. É a foto de "onde estamos agora".</p>
 
   <section>
-    <div class="kpis">
+    <div class="kpis k5">
       <div class="kpi" style="--accent:var(--today)">
         <div class="lab">Investimento total</div>
         <div class="big mono">R$ 2.625</div>
@@ -221,6 +224,12 @@
         <div class="big mono">104</div>
         <div class="sub">50,7% dos leads do período</div>
         <div class="delta flat">89 do Webinário · 15 das 5 Aulas</div>
+      </div>
+      <div class="kpi" style="--accent:var(--outras)">
+        <div class="lab">Passados p/ o comercial</div>
+        <div class="big mono">135</div>
+        <div class="sub">65,9% dos leads do período</div>
+        <div class="delta flat">85% dos 159 qualificados</div>
       </div>
     </div>
 
@@ -580,6 +589,7 @@
           <span class="offchip">Lista de Espera + Página VET — <b>R$ 2.286</b> investidos · <b>64</b> leads reais (24–31/jul)</span>
         </div>
         <p style="margin-top:16px"><b>Metodologia:</b> Webinário Diário e 5 Aulas são baixados por completo das planilhas (sem cortes), com linhas de teste removidas e deduplicadas por e-mail. "Qualificado" = qualquer formação exceto Estudante/Outros e vazio. Investimento é gasto real do Meta Ads por campanha (conta "CA oficial — Food Smart"); não usamos a contagem de leads que o Meta reporta via pixel, só os confirmados em planilha. O Boletim Smart entra no investimento total, mas usa métricas de vídeo (impressões, reproduções, ThruPlay) — não é comparável a CPL de captação, e seus leads incidentais não entram na contagem de leads reais.</p>
+        <p><b>Leads passados para o comercial:</b> os <b>135</b> leads repassados ao time comercial no período são um dado <b>informado pelo time</b>, não extraído da planilha nem do Meta Ads — por isso não têm comparativo com o período anterior e não entram no cálculo de CPL ou custo por qualificado. Os percentuais (65,9% dos 205 leads reais e 85% dos 159 qualificados) são calculados sobre as bases desta dashboard.</p>
         <p><b>Sobre os períodos:</b> os dois períodos comparados têm 8 dias corridos e são calculados exatamente na mesma base (24/07→31/07 e 31/07→07/08, ambos inclusivos — a data de virada 31/07 entra nos dois). O período atual <b>inclui hoje, ainda em andamento</b>, então tende a crescer até o fim do dia. Os leads do período 24/07→31/07 foram <b>recalculados</b> nesta versão para ficarem na mesma base do período atual — por isso o total (158) difere levemente do número publicado em versões anteriores da dashboard (152). A seção diária compara sempre <b>hoje contra ontem no mesmo horário de coleta</b>, nunca contra a média do período.</p>
       </div>
       <div class="updated" id="updatedAt">Atualizado em 07/08/2026, 11:23 · período atual parcial (inclui hoje)</div>

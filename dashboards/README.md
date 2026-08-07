@@ -54,6 +54,8 @@ A dashboard está organizada em 4 blocos nesta ordem — **manter essa ordem**, 
 
 **Não incluir** métricas de atendimento comercial na seção "Hoje" — esse dado vem de fora (time humano) e só deve aparecer se o usuário fornecer explicitamente.
 
+**Leads passados para o comercial** (KPI `Passados p/ o comercial`, 5º card do bloco "Período atual"): dado informado manualmente pelo usuário, **não** buscável via planilha ou Meta Ads. Valor atual: **135** para o período 31/07→07/08. Ao rolar o período, **não recalcule nem invente** esse número — mantenha o último valor informado e o período a que ele se refere, ou pergunte ao usuário. Se ele ficar defasado em relação ao período exibido, sinalize isso na dashboard em vez de deixar implícito que é do período corrente. Os percentuais ao lado (% dos leads reais e % dos qualificados) são derivados das bases da própria dashboard e devem ser recalculados junto.
+
 ## Comparação diária — hoje vs ontem no MESMO horário (importante)
 
 A rotina roda todo dia por volta do mesmo horário, então os dados de "hoje" e "ontem" são coletados em pontos parecidos do dia — isso é o que torna a comparação justa. **Nunca compare o "hoje" parcial com a média/total da última semana fechada** para CPL ou custo — um dia pela metade sempre parece pior, porque o investimento é gasto de forma mais linear ao longo do dia do que os leads chegam (o Meta "gasta na frente"). A comparação certa é sempre **hoje até HHhMM vs ontem até um HHhMM parecido**.
