@@ -31,14 +31,26 @@ Conta Meta Ads: **`8434968583195601`** ("CA (oficial) - Food Smart") — única 
 6. **Investimento de hoje**: `mcp__Meta_Ads__ads_get_ad_entities` nível `campaign`, `ad_account_id: "8434968583195601"`, `filtering` por `campaign.id IN [os 3 IDs acima]`, `time_range: {since: HOJE, until: HOJE}`, campos `amount_spent`.
 7. **Vídeo (Boletim Smart)**: mesma chamada, campanha `120253256887400728`, campos `impressions, reach, video_play_actions, video_p100_watched_actions, video_thruplay_watched_actions, cost_per_thruplay`.
 
+## Estrutura da dashboard (ordem das seções)
+
+A dashboard está organizada em 4 blocos nesta ordem — **manter essa ordem**, foi pedido explicitamente pelo usuário:
+
+1. **Período atual** (`sec-h` nº 1) — KPIs com investimento total das 3 campanhas + métricas do período, tabela por campanha com total no `<tfoot>`, composição por formação (inclui barra "Total do período") e os 3 cards de campanha.
+2. **Comparativo entre períodos** (`sec-h` nº 2) — tabela consolidada (com coluna de contexto do período anterior ao anterior) e tabela aberta por campanha.
+3. **Acompanhamento diário** (`sec-h` nº 3) — banners, painel "Hoje", `#daySnapshot` e composição ontem-vs-hoje.
+4. **Leituras principais e metodologia** (`sec-h` nº 4) — rodapé.
+
 ## O que atualizar no HTML
 
-A cada execução, recalcule **todos** os blocos marcados abaixo com dados de hoje e ontem (mesmo horário de coleta):
+**A cada execução diária**, recalcule com dados de hoje e ontem (mesmo horário de coleta):
 - O painel **"Hoje"** (`today-panel`): KPIs com delta, tabela `.today-tbl`, tabela `.cmp` de CPL hoje-vs-ontem, e o `#daySnapshot`.
-- A seção **"Composição por formação — comparativo [ontem]→[hoje]"** (fica logo depois da seção de composição da semana fechada): 2 barras empilhadas por campanha (Webinário Diário e 5 Aulas), uma para "Ontem" e uma para "Hoje", com o texto de leitura no final do painel. Atualize o título com as datas do dia (`comparativo DD→DD/MM`), os leads/percentuais no `.comp-head .meta`, as larguras/rótulos das `.stack` e a frase de leitura.
+- A seção **"Composição por formação — ontem vs hoje"**: 2 barras empilhadas por campanha (Webinário Diário e 5 Aulas), uma para "Ontem" e uma para "Hoje". Atualize o título (`ontem vs hoje (DD→DD/MM)`), os leads/percentuais no `.comp-head .meta`, as larguras/rótulos das `.stack` e a frase de leitura.
+- O banner de campanha pausada (`.banner.off`), se houver campanha sem gasto no dia — checar `effective_status` antes de afirmar que está pausada.
 - O rodapé `#updatedAt`.
 
-As seções "Última semana fechada" (comparação 17→24 vs 24→31/jul, composição por formação da semana, cards de campanha da semana) são **histórico estático** — só mudar quando o usuário pedir explicitamente para fechar uma nova semana. Não apague nem resuma essas seções ao atualizar as diárias.
+**O bloco "Período atual" e o "Comparativo" também precisam rolar** conforme o tempo passa: o período atual é a janela de 8 dias que termina hoje, e o período anterior é a janela de 8 dias imediatamente anterior (ambas inclusivas, compartilhando a data de virada). Ao rolar, recalcule os dois períodos **na mesma base** (mesmo filtro de teste, mesma dedup, mesmo classificador) — nunca reaproveite números de versões antigas da dashboard, que podem ter sido calculados com outro critério.
+
+> Nota: o total de leads de 24/07→31/07 foi **recalculado** e passou de 152 (versões antigas) para 158. O investimento bate exatamente com o Meta (R$ 714,86 + R$ 537,64 + R$ 339,75). Isso está documentado no rodapé da dashboard.
 
 **Não incluir** métricas de atendimento comercial na seção "Hoje" — esse dado vem de fora (time humano) e só deve aparecer se o usuário fornecer explicitamente.
 

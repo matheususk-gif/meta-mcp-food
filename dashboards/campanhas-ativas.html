@@ -66,6 +66,12 @@
   .theme-btn:hover{border-color:var(--border2); color:var(--text)}
   .theme-btn:focus-visible{outline:2px solid var(--vet); outline-offset:2px}
 
+  /* section headers */
+  .sec-h{display:flex; align-items:baseline; gap:12px; margin:44px 0 4px; flex-wrap:wrap}
+  .sec-h .n{font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--faint); background:var(--card2); border:1px solid var(--border); border-radius:99px; padding:3px 9px}
+  .sec-h h2{font-size:21px; margin:0; letter-spacing:-.015em; font-weight:650}
+  .sec-sub{color:var(--muted); font-size:13.5px; margin:0 0 4px; max-width:90ch}
+
   /* banners */
   .banner{display:flex; gap:12px; border-radius:12px; padding:16px 18px; margin:22px 0 0; font-size:13.5px}
   .banner.off{background:var(--off-bg); border:1px solid var(--off-bd)}
@@ -100,6 +106,7 @@
   .today-tbl .fn{font-weight:600}
   .today-tbl .fn small{display:block; color:var(--muted); font-weight:400; font-size:11.5px; margin-top:2px}
   .today-tbl .num{font-family:var(--mono); font-weight:600}
+  .today-tbl tfoot td{border-top:2px solid var(--border2); border-bottom:0; font-weight:700; padding-top:12px}
 
   /* comparison table */
   .cmp{width:100%; border-collapse:collapse; font-size:13.5px}
@@ -109,9 +116,11 @@
   .cmp tr:last-child td{border-bottom:0}
   .cmp tr.sub td.metric{padding-left:16px; color:var(--muted); font-weight:400}
   .cmp tr.sub td.metric::before{content:"— "; color:var(--faint)}
+  .cmp tr.grp td{background:var(--card2); font-weight:650; font-size:12px; letter-spacing:.03em; text-transform:uppercase; color:var(--muted); padding:8px 10px 8px 0}
   .cmp .metric{font-weight:600}
   .cmp .num{font-family:var(--mono); font-weight:600}
   .cmp .val{font-family:var(--mono); font-weight:650}
+  .cmp .ctx{font-family:var(--mono); color:var(--faint); font-weight:500}
   .val.up{color:var(--pos)} .val.down{color:var(--neg)} .val.flat{color:var(--muted)}
 
   /* composition */
@@ -135,6 +144,7 @@
   .camp-h .k{font-size:12.5px; color:var(--muted); margin-top:2px}
   .pill{display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:650; padding:4px 10px; border-radius:99px; white-space:nowrap; flex:none}
   .pill.info{background:color-mix(in srgb,var(--boletim) 18%,transparent); color:var(--boletim)}
+  .pill.off{background:var(--off-bg); color:var(--muted); border:1px solid var(--off-bd)}
   .cols{display:grid; grid-template-columns:repeat(5,1fr); gap:18px}
   @media(max-width:820px){.cols{grid-template-columns:repeat(2,1fr)}}
   .col .lab{font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:6px}
@@ -169,29 +179,268 @@
       <div class="eyebrow">Foodsmart · Leads reais por formação</div>
       <h1>Dashboard — Campanhas Ativas</h1>
       <div class="tags">
-        <div class="period"><span>📅</span><span><b>Hoje: 07 de agosto de 2026</b></span><span class="sep">·</span><span>última semana fechada: 24→31 jul</span></div>
+        <div class="period"><span>📅</span><span><b>Período atual: 31/07 → 07/08</b></span><span class="sep">·</span><span>período anterior: 24/07 → 31/07</span></div>
         <span class="tag">🔵 3 campanhas ativas nesta análise</span>
       </div>
-      <p class="lede">Cobre só as campanhas <b>ativas</b>: Webinário Diário, 5 Aulas e Boletim Smart. <b>RT Class e Lista de Espera (Página VET) estão pausadas</b> e ficam de fora. O Boletim Smart é campanha de <b>vídeo (engajamento)</b>, não de captação — por isso tem métricas próprias.</p>
+      <p class="lede">Cobre só as campanhas <b>ativas</b>: Webinário Diário, 5 Aulas e Boletim Smart. <b>RT Class e Lista de Espera (Página VET) estão pausadas</b> e ficam de fora. O Boletim Smart é campanha de <b>vídeo (engajamento)</b>, não de captação — por isso entra no investimento total, mas não no cálculo de CPL.</p>
     </div>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="Alternar tema">◐ tema</button>
   </div>
 
   <div class="banner today">
     <span class="ic">🕐</span>
-    <div><b>Dados de hoje são parciais</b> — coletados às 11h23, o dia ainda não terminou. Por isso <b>a comparação abaixo é sempre com ontem no mesmo horário de coleta (~11h23)</b>, não com a média da semana: comparar um dia pela metade com um dia fechado infla o CPL artificialmente, já que o investimento "corre na frente" dos leads ao longo do dia. Como a execução de 06/08 foi pulada, o corte de ontem foi reconstruído via breakdown por hora do Meta Ads (não pelo snapshot salvo, que era de 05/08).</div>
+    <div><b>O período atual (31/07 → 07/08) inclui o dia de hoje, ainda em andamento</b> — os números de 07/08 vão só até 11h23. Os dois períodos têm 8 dias corridos e compartilham a data de virada (31/07), que entra nos dois.</div>
   </div>
+
+  <!-- ============ 1 · PERÍODO ATUAL ============ -->
+  <div class="sec-h"><span class="n">1</span><h2>Período atual — 31/07 a 07/08</h2></div>
+  <p class="sec-sub">Números fechados do período corrente, somando as 3 campanhas ativas. É a foto de "onde estamos agora".</p>
+
+  <section>
+    <div class="kpis">
+      <div class="kpi" style="--accent:var(--today)">
+        <div class="lab">Investimento total</div>
+        <div class="big mono">R$ 2.625</div>
+        <div class="sub">as 3 campanhas ativas · Meta Ads</div>
+        <div class="delta flat">Webinário 50% · 5 Aulas 26% · Boletim 24%</div>
+      </div>
+      <div class="kpi" style="--accent:var(--vet)">
+        <div class="lab">Leads reais</div>
+        <div class="big mono">205</div>
+        <div class="sub">Webinário + 5 Aulas (captação)</div>
+        <div class="delta flat">CPL global R$ 9,71</div>
+      </div>
+      <div class="kpi" style="--accent:var(--nutri)">
+        <div class="lab">Qualificados</div>
+        <div class="big mono">159</div>
+        <div class="sub">77,6% dos leads do período</div>
+        <div class="delta flat">custo por qualificado R$ 12,52</div>
+      </div>
+      <div class="kpi" style="--accent:var(--vet)">
+        <div class="lab">Veterinários</div>
+        <div class="big mono">104</div>
+        <div class="sub">50,7% dos leads do período</div>
+        <div class="delta flat">89 do Webinário · 15 das 5 Aulas</div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:22px">
+      <div class="panel-h">Investimento e resultado por campanha — 31/07 a 07/08</div>
+      <div class="panel-sub">O Boletim Smart entra no investimento total, mas mede vídeo (ThruPlay), não captação — por isso não tem CPL.</div>
+      <table class="today-tbl">
+        <thead><tr><th>Campanha</th><th class="r">Investimento</th><th class="r">Leads / métrica</th><th class="r">Custo unitário</th><th class="r">Composição</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="fn">Webinário Diário</td>
+            <td class="r num">R$ 1.312,76</td>
+            <td class="r num">97 leads</td>
+            <td class="r num">CPL R$ 13,53</td>
+            <td class="r">89 Vet (92%) · 8 Estud.</td>
+          </tr>
+          <tr>
+            <td class="fn">5 Aulas <small>(NRTC)</small></td>
+            <td class="r num">R$ 678,44</td>
+            <td class="r num">108 leads</td>
+            <td class="r num">CPL R$ 6,28</td>
+            <td class="r">15 Vet · 40 Nutri · 15 Eng · 38 Estud.</td>
+          </tr>
+          <tr>
+            <td class="fn">Boletim Smart <small>vídeo, não captação</small></td>
+            <td class="r num">R$ 633,46</td>
+            <td class="r num">634 ThruPlays</td>
+            <td class="r num">R$ 1,00 /ThruPlay</td>
+            <td class="r">62.399 impr. · 11 leads incidentais</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td class="fn">Total</td>
+            <td class="r num">R$ 2.624,66</td>
+            <td class="r num">205 leads</td>
+            <td class="r num">CPL R$ 9,71</td>
+            <td class="r">159 qualificados (77,6%)</td>
+          </tr>
+        </tfoot>
+      </table>
+      <div class="camp-note">CPL global e custo por qualificado consideram só o investimento de captação (Webinário + 5 Aulas = <b>R$ 1.991,20</b>), já que o Boletim Smart não tem captação como objetivo.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <div class="panel-h">Composição por formação — período atual</div>
+      <div class="panel-sub">% dos leads reais de cada campanha de captação, no período 31/07 → 07/08.</div>
+      <div class="legend">
+        <span><i class="dot" style="background:var(--vet)"></i>Veterinário</span>
+        <span><i class="dot" style="background:var(--nutri)"></i>Nutricionista</span>
+        <span><i class="dot" style="background:var(--eng)"></i>Eng. Alimentos</span>
+        <span><i class="dot" style="background:var(--estud)"></i>Estudante/Outros</span>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-head"><div class="name">Webinário Diário</div><div class="meta">97 leads · 92% VET</div></div>
+        <div class="stack">
+          <div style="width:91.8%;background:var(--vet)">VET 89 · 92%</div>
+          <div style="width:8.2%;background:var(--estud)">8</div>
+        </div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-head"><div class="name">5 Aulas <small>(NRTC)</small></div><div class="meta">108 leads · só 14% VET</div></div>
+        <div class="stack">
+          <div style="width:13.9%;background:var(--vet)">VET 15</div>
+          <div style="width:37.0%;background:var(--nutri)">Nutri 40 · 37%</div>
+          <div style="width:13.9%;background:var(--eng)">Eng 15</div>
+          <div style="width:35.2%;background:var(--estud)">Estud. 38 · 35%</div>
+        </div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-head"><div class="name">Total do período <small>(as 2 campanhas de captação)</small></div><div class="meta">205 leads · 51% VET</div></div>
+        <div class="stack">
+          <div style="width:50.7%;background:var(--vet)">VET 104 · 51%</div>
+          <div style="width:19.5%;background:var(--nutri)">Nutri 40 · 20%</div>
+          <div style="width:7.3%;background:var(--eng)">15</div>
+          <div style="width:22.5%;background:var(--estud)">Estud. 46 · 22%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="camp" style="border-left-color:var(--vet)">
+      <div class="camp-h">
+        <div><div class="t"><span class="idx">1 ·</span>Webinário Diário</div><div class="k">captação · funil mais aderente ao ICP veterinário · 31/07–07/08</div></div>
+        <span class="pill off">pausada hoje (07/08)</span>
+      </div>
+      <div class="cols">
+        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 1.313</div><div class="n">50% do total do período</div></div>
+        <div class="col"><div class="lab">Leads reais</div><div class="v">97</div><div class="n">CPL R$ 13,53</div></div>
+        <div class="col"><div class="lab">Veterinários</div><div class="v">89</div><div class="n">91,8% do funil</div></div>
+        <div class="col"><div class="lab">Custo / qualificado</div><div class="v">R$ 14,75</div><div class="n">89 qualificados</div></div>
+        <div class="col"><div class="lab">Impressões</div><div class="v">94.490</div><div class="n">alcance 44.469</div></div>
+      </div>
+      <div class="cbar"><span style="width:91.8%;background:var(--vet)"></span><span style="width:8.2%;background:var(--estud)"></span></div>
+    </div>
+
+    <div class="camp" style="border-left-color:var(--eng)">
+      <div class="camp-h">
+        <div><div class="t"><span class="idx">2 ·</span>5 Melhores Aulas (NRTC)</div><div class="k">captação · maior volume e maior diversidade de formações · 31/07–07/08</div></div>
+      </div>
+      <div class="cols">
+        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 678</div><div class="n">26% do total do período</div></div>
+        <div class="col"><div class="lab">Leads reais</div><div class="v">108</div><div class="n">CPL R$ 6,28</div></div>
+        <div class="col"><div class="lab">Veterinários</div><div class="v">15</div><div class="n">13,9% do funil</div></div>
+        <div class="col"><div class="lab">Custo / qualificado</div><div class="v">R$ 9,69</div><div class="n">70 qualificados (65%)</div></div>
+        <div class="col"><div class="lab">Impressões</div><div class="v">40.484</div><div class="n">alcance 16.897</div></div>
+      </div>
+      <div class="cbar"><span style="width:13.9%;background:var(--vet)"></span><span style="width:37.0%;background:var(--nutri)"></span><span style="width:13.9%;background:var(--eng)"></span><span style="width:35.2%;background:var(--estud)"></span></div>
+    </div>
+
+    <div class="camp" style="border-left-color:var(--boletim)">
+      <div class="camp-h">
+        <div><div class="t"><span class="idx">3 ·</span>Boletim Smart</div><div class="k">C2 · distribuição de conteúdo · 31/07–07/08</div></div>
+        <span class="pill info">campanha de vídeo, não de leads</span>
+      </div>
+      <div class="cols">
+        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 633</div><div class="n">24% do total do período</div></div>
+        <div class="col"><div class="lab">Impressões</div><div class="v">62.399</div><div class="n">alcance 4.617</div></div>
+        <div class="col"><div class="lab">Reproduções de vídeo</div><div class="v">53.242</div><div class="n">início de reprodução</div></div>
+        <div class="col"><div class="lab">ThruPlays (15s+)</div><div class="v">634</div><div class="n">R$ 1,00 por ThruPlay</div></div>
+        <div class="col"><div class="lab">Visualizações completas</div><div class="v">163</div><div class="n">vídeo assistido 100%</div></div>
+      </div>
+      <div class="camp-note">Esta campanha mede <b>consumo de vídeo</b>, não captação. À parte, o formulário capturou <b>11 leads incidentais</b> no período (bônus, não o objetivo) — não entram na contagem de leads reais acima.</div>
+    </div>
+  </section>
+
+  <!-- ============ 2 · COMPARATIVO ENTRE PERÍODOS ============ -->
+  <div class="sec-h"><span class="n">2</span><h2>Comparativo — período atual vs período anterior</h2></div>
+  <p class="sec-sub">31/07 → 07/08 contra 24/07 → 31/07. Ambos com 8 dias corridos, calculados na mesma base. A coluna 17→24/jul entra só como contexto de tendência.</p>
+
+  <section>
+    <div class="panel">
+      <div class="panel-h">Visão consolidada</div>
+      <div class="panel-sub">A variação compara o período atual com o anterior (24/07 → 31/07).</div>
+      <table class="cmp">
+        <thead><tr><th>Métrica</th><th class="r">17→24 jul</th><th class="r">24/07→31/07</th><th class="r">31/07→07/08</th><th class="r">Variação</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="5">Investimento</td></tr>
+          <tr><td class="metric">Investimento total (3 campanhas)</td><td class="r ctx">R$ 1.541</td><td class="r num">R$ 1.592</td><td class="r num">R$ 2.625</td><td class="r val flat">+64,8%</td></tr>
+          <tr class="sub"><td class="metric">Webinário Diário</td><td class="r ctx">R$ 1.006</td><td class="r num">R$ 715</td><td class="r num">R$ 1.313</td><td class="r val flat">+83,6%</td></tr>
+          <tr class="sub"><td class="metric">5 Aulas (NRTC)</td><td class="r ctx">R$ 535</td><td class="r num">R$ 538</td><td class="r num">R$ 678</td><td class="r val flat">+26,2%</td></tr>
+          <tr class="sub"><td class="metric">Boletim Smart (vídeo)</td><td class="r ctx">—</td><td class="r num">R$ 340</td><td class="r num">R$ 633</td><td class="r val flat">+86,4%</td></tr>
+
+          <tr class="grp"><td colspan="5">Leads reais (captação)</td></tr>
+          <tr><td class="metric">Leads reais (total)</td><td class="r ctx">199</td><td class="r num">158</td><td class="r num">205</td><td class="r val up">+29,7%</td></tr>
+          <tr class="sub"><td class="metric">Veterinários</td><td class="r ctx">117</td><td class="r num">90</td><td class="r num">104</td><td class="r val up">+15,6%</td></tr>
+          <tr class="sub"><td class="metric">Nutricionistas</td><td class="r ctx">24</td><td class="r num">27</td><td class="r num">40</td><td class="r val up">+48,1%</td></tr>
+          <tr class="sub"><td class="metric">Eng. de Alimentos</td><td class="r ctx">18</td><td class="r num">9</td><td class="r num">15</td><td class="r val up">+66,7%</td></tr>
+          <tr class="sub"><td class="metric">Estudante/Outros</td><td class="r ctx">40</td><td class="r num">32</td><td class="r num">46</td><td class="r val flat">+43,8%</td></tr>
+          <tr><td class="metric">Qualificados (formados)</td><td class="r ctx">159</td><td class="r num">126</td><td class="r num">159</td><td class="r val up">+26,2%</td></tr>
+          <tr><td class="metric">% veterinários no funil</td><td class="r ctx">58,8%</td><td class="r num">57,0%</td><td class="r num">50,7%</td><td class="r val down">−6,2 p.p.</td></tr>
+
+          <tr class="grp"><td colspan="5">Eficiência</td></tr>
+          <tr><td class="metric">CPL global (Webinário + 5 Aulas)</td><td class="r ctx">R$ 7,74</td><td class="r num">R$ 7,93</td><td class="r num">R$ 9,71</td><td class="r val down">+22,4%</td></tr>
+          <tr><td class="metric">Custo por qualificado</td><td class="r ctx">R$ 9,69</td><td class="r num">R$ 9,94</td><td class="r num">R$ 12,52</td><td class="r val down">+26,0%</td></tr>
+          <tr><td class="metric">Impressões (3 campanhas)</td><td class="r ctx">120.307</td><td class="r num">102.529</td><td class="r num">197.373</td><td class="r val flat">+92,5%</td></tr>
+        </tbody>
+      </table>
+      <div class="camp-note">Leitura: o investimento subiu bem mais rápido (+64,8%) do que os leads (+29,7%), então <b>o custo por qualificado piorou 26%</b>. O volume de veterinários cresceu em número absoluto (90 → 104), mas caiu como fatia do funil (57,0% → 50,7%), porque o crescimento veio principalmente das 5 Aulas — campanha mais barata por lead, porém bem menos aderente ao ICP vet.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <div class="panel-h">Comparativo por campanha</div>
+      <div class="panel-sub">Mesmos dois períodos, abertos por campanha.</div>
+      <table class="cmp">
+        <thead><tr><th>Campanha / métrica</th><th class="r">24/07→31/07</th><th class="r">31/07→07/08</th><th class="r">Variação</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="4">Webinário Diário</td></tr>
+          <tr class="sub"><td class="metric">Investimento</td><td class="r num">R$ 715</td><td class="r num">R$ 1.313</td><td class="r val flat">+83,6%</td></tr>
+          <tr class="sub"><td class="metric">Leads reais</td><td class="r num">84</td><td class="r num">97</td><td class="r val up">+15,5%</td></tr>
+          <tr class="sub"><td class="metric">Veterinários</td><td class="r num">76</td><td class="r num">89</td><td class="r val up">+17,1%</td></tr>
+          <tr class="sub"><td class="metric">CPL</td><td class="r num">R$ 8,51</td><td class="r num">R$ 13,53</td><td class="r val down">+59,0%</td></tr>
+          <tr class="sub"><td class="metric">Custo por qualificado</td><td class="r num">R$ 9,28</td><td class="r num">R$ 14,75</td><td class="r val down">+58,9%</td></tr>
+
+          <tr class="grp"><td colspan="4">5 Melhores Aulas (NRTC)</td></tr>
+          <tr class="sub"><td class="metric">Investimento</td><td class="r num">R$ 538</td><td class="r num">R$ 678</td><td class="r val flat">+26,2%</td></tr>
+          <tr class="sub"><td class="metric">Leads reais</td><td class="r num">74</td><td class="r num">108</td><td class="r val up">+45,9%</td></tr>
+          <tr class="sub"><td class="metric">Veterinários</td><td class="r num">14</td><td class="r num">15</td><td class="r val up">+7,1%</td></tr>
+          <tr class="sub"><td class="metric">CPL</td><td class="r num">R$ 7,27</td><td class="r num">R$ 6,28</td><td class="r val up">−13,6%</td></tr>
+          <tr class="sub"><td class="metric">Custo por qualificado</td><td class="r num">R$ 10,97</td><td class="r num">R$ 9,69</td><td class="r val up">−11,7%</td></tr>
+
+          <tr class="grp"><td colspan="4">Boletim Smart (vídeo)</td></tr>
+          <tr class="sub"><td class="metric">Investimento</td><td class="r num">R$ 340</td><td class="r num">R$ 633</td><td class="r val flat">+86,4%</td></tr>
+          <tr class="sub"><td class="metric">Impressões</td><td class="r num">26.264</td><td class="r num">62.399</td><td class="r val up">+137,6%</td></tr>
+          <tr class="sub"><td class="metric">Reproduções de vídeo</td><td class="r num">22.595</td><td class="r num">53.242</td><td class="r val up">+135,6%</td></tr>
+          <tr class="sub"><td class="metric">ThruPlays (15s+)</td><td class="r num">392</td><td class="r num">634</td><td class="r val up">+61,7%</td></tr>
+          <tr class="sub"><td class="metric">Visualizações completas</td><td class="r num">113</td><td class="r num">163</td><td class="r val up">+44,2%</td></tr>
+          <tr class="sub"><td class="metric">Custo por ThruPlay</td><td class="r num">R$ 0,87</td><td class="r num">R$ 1,00</td><td class="r val down">+14,9%</td></tr>
+        </tbody>
+      </table>
+      <div class="camp-note">O <b>Webinário Diário</b> quase dobrou o investimento e ficou 59% mais caro por lead — é ele que puxa a piora do custo global. As <b>5 Aulas</b> foram na direção oposta: mais investimento, mais leads e <b>CPL 13,6% menor</b>, mas seguem trazendo poucos veterinários (15 em 108). O <b>Boletim Smart</b> escalou entrega com custo por ThruPlay quase estável.</div>
+    </div>
+  </section>
+
+  <!-- ============ 3 · ACOMPANHAMENTO DIÁRIO ============ -->
+  <div class="sec-h"><span class="n">3</span><h2>Acompanhamento diário — hoje vs ontem</h2></div>
+  <p class="sec-sub">Recorte do dia corrente, comparado a ontem no mesmo horário de coleta. Serve para pegar movimentos do dia a dia que a visão de período ainda não mostra.</p>
 
   <div class="banner off">
     <span class="ic">⏸️</span>
-    <div><b>Webinário Diário está pausado hoje</b> — R$ 0 investidos e 0 leads até 11h23 (ontem, no mesmo horário, essa campanha sozinha já tinha R$ 190,68 investidos e 17 leads, 14 deles veterinários). As outras 2 campanhas ativas (5 Aulas e Boletim Smart) continuam rodando normalmente. Vale checar o motivo da pausa (orçamento, aprovação de anúncio, ação manual).</div>
+    <div><b>Webinário Diário está pausado hoje</b> — R$ 0 investidos e 0 leads até 11h23 (ontem, no mesmo horário, essa campanha sozinha já tinha R$ 190,68 investidos e 17 leads, 14 deles veterinários). As outras 2 campanhas seguem rodando. Vale checar o motivo da pausa (orçamento, aprovação de anúncio, ação manual).</div>
   </div>
 
-  <!-- HOJE -->
+  <div class="banner today">
+    <span class="ic">🕐</span>
+    <div><b>Dados de hoje são parciais</b> — coletados às 11h23. Por isso <b>a comparação é sempre com ontem no mesmo horário (~11h23)</b>, nunca com a média do período: comparar um dia pela metade com um dia fechado infla o CPL artificialmente, já que o investimento "corre na frente" dos leads ao longo do dia. Como a execução de 06/08 foi pulada, o corte de ontem foi reconstruído via breakdown por hora do Meta Ads.</div>
+  </div>
+
   <section>
     <div class="panel today-panel">
       <div class="panel-h"><span class="live-dot"></span>Hoje — 07/08, até 11h23</div>
-      <div class="panel-sub">Webinário Diário (pausado hoje) + 5 Aulas (captação) e Boletim Smart (vídeo), comparado a ontem (06/08) até ~11h23. Sem dado de atendimento comercial hoje.</div>
+      <div class="panel-sub">Comparado a ontem (06/08) até ~11h23. Sem dado de atendimento comercial hoje.</div>
       <div class="kpis">
         <div class="kpi" style="--accent:var(--today)">
           <div class="lab">Investimento hoje</div>
@@ -253,7 +502,7 @@
           <tr class="sub"><td class="metric">Custo/ThruPlay Boletim Smart</td><td class="r num">R$ 1,78*</td><td class="r num">R$ 1,33</td><td class="r val up">−25,3%</td></tr>
         </tbody>
       </table>
-      <div class="camp-note" style="border-top:0;padding-top:0;margin-top:14px">As quedas de CPL/custo por qualificado acima são <b>em boa parte um efeito de mix</b>: com o Webinário Diário (funil mais caro, mais vet) pausado, só sobrou a 5 Aulas puxando a média — não é uma melhora de eficiência real. *Custo/ThruPlay de ontem é do dia completo (breakdown por hora não decompõe métricas de vídeo), não estritamente comparável ao corte parcial de hoje.</div>
+      <div class="camp-note">As quedas de CPL/custo por qualificado acima são <b>em boa parte um efeito de mix</b>: com o Webinário Diário (funil mais caro, mais vet) pausado, só sobrou a 5 Aulas puxando a média — não é uma melhora de eficiência real. *Custo/ThruPlay de ontem é do dia completo (o breakdown por hora não decompõe métricas de vídeo), não estritamente comparável ao corte parcial de hoje.</div>
     </div>
   </section>
 
@@ -261,165 +510,10 @@
   {"date":"2026-08-07","cutoff":"11:23","investment_total":76.15,"leads_total":10,"qualified_total":7,"qualified_rate":0.70,"vet_total":2,"vet_rate":0.20,"cpl_global":4.93,"cost_per_qualified":7.04,"campaigns":{"webinario":{"investment":0,"leads":0,"vet":0,"cpl":null,"status":"paused"},"aulas":{"investment":49.28,"leads":10,"vet":2,"cpl":4.93},"boletim":{"investment":26.87,"thruplays":21,"impressions":2161,"cost_per_thruplay":1.33,"leads_incidental":0}}}
   </script>
 
-  <!-- Comparison -->
   <section>
     <div class="panel">
-      <div class="panel-h">Última semana fechada: 24→31 jul vs 17→24 jul</div>
-      <div class="panel-sub">Comparação semanal (histórico, não atualiza diariamente) — apenas Webinário Diário e 5 Aulas, as 2 campanhas de captação ativas nos dois períodos.</div>
-      <table class="cmp">
-        <thead><tr><th>Métrica</th><th class="r">17→24 jul</th><th class="r">24→31 jul</th><th class="r">Variação</th></tr></thead>
-        <tbody>
-          <tr><td class="metric">Leads reais (total)</td><td class="r num">198</td><td class="r num">152</td><td class="r val down">−23,2%</td></tr>
-          <tr class="sub"><td class="metric">Veterinários</td><td class="r num">116</td><td class="r num">90</td><td class="r val down">−22,4%</td></tr>
-          <tr class="sub"><td class="metric">Nutricionistas</td><td class="r num">24</td><td class="r num">25</td><td class="r val up">+4,2%</td></tr>
-          <tr class="sub"><td class="metric">Eng. de Alimentos</td><td class="r num">18</td><td class="r num">6</td><td class="r val down">−66,7%</td></tr>
-          <tr class="sub"><td class="metric">Estudante/Outros</td><td class="r num">40</td><td class="r num">31</td><td class="r val down">−22,5%</td></tr>
-          <tr><td class="metric">Qualificados (formados)</td><td class="r num">158</td><td class="r num">121</td><td class="r val down">−23,4%</td></tr>
-          <tr><td class="metric">Investimento (Webinário + 5 Aulas)</td><td class="r num">R$ 1.541</td><td class="r num">R$ 1.253</td><td class="r val flat">−18,7%</td></tr>
-          <tr><td class="metric">Custo por qualificado</td><td class="r num">R$ 9,76</td><td class="r num">R$ 10,35</td><td class="r val down">+6,0%</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Current period vs closed week -->
-  <section>
-    <div class="panel today-panel">
-      <div class="panel-h"><span class="live-dot"></span>Período atual (parcial): 31/07 → 07/08 vs 24→31 jul</div>
-      <div class="panel-sub">Mesma leitura da semana fechada, agora para o período corrente — inclui hoje (07/08), ainda parcial. Apenas Webinário Diário e 5 Aulas somam no investimento/CPL desta tabela (Boletim Smart é vídeo, ver cards mais abaixo).</div>
-      <table class="cmp">
-        <thead><tr><th>Métrica</th><th class="r">24→31 jul</th><th class="r">31/07→07/08</th><th class="r">Variação</th></tr></thead>
-        <tbody>
-          <tr><td class="metric">Leads reais (total)</td><td class="r num">152</td><td class="r num">205</td><td class="r val up">+34,9%</td></tr>
-          <tr class="sub"><td class="metric">Veterinários</td><td class="r num">90</td><td class="r num">104</td><td class="r val up">+15,6%</td></tr>
-          <tr class="sub"><td class="metric">Nutricionistas</td><td class="r num">25</td><td class="r num">40</td><td class="r val up">+60,0%</td></tr>
-          <tr class="sub"><td class="metric">Eng. de Alimentos</td><td class="r num">6</td><td class="r num">15</td><td class="r val up">+150,0%</td></tr>
-          <tr class="sub"><td class="metric">Estudante/Outros</td><td class="r num">31</td><td class="r num">46</td><td class="r val up">+48,4%</td></tr>
-          <tr><td class="metric">Qualificados (formados)</td><td class="r num">121</td><td class="r num">159</td><td class="r val up">+31,4%</td></tr>
-          <tr><td class="metric">Investimento (Webinário + 5 Aulas)</td><td class="r num">R$ 1.253</td><td class="r num">R$ 1.991</td><td class="r val flat">+58,9%</td></tr>
-          <tr><td class="metric">Custo por qualificado</td><td class="r num">R$ 10,35</td><td class="r num">R$ 12,52</td><td class="r val down">+21,0%</td></tr>
-        </tbody>
-      </table>
-      <div class="camp-note" style="border-top:0;padding-top:0;margin-top:14px">O período atual já soma mais leads e mais investimento que a semana fechada — mas cobre 8 dias corridos (31/07 a 07/08) contra 7 dias da semana fechada, e ainda inclui hoje pela metade (Webinário Diário pausado hoje, ver painel "Hoje" acima). O custo por qualificado subiu 21,0%, refletindo um mix mais pesado nas 5 Aulas (mais barata por lead, porém menos aderente ao ICP vet) e um Webinário mais caro por lead nesse intervalo.</div>
-    </div>
-  </section>
-
-  <!-- Composition (current period) -->
-  <section>
-    <div class="panel">
-      <div class="panel-h">Composição por formação — período atual (31/07→07/08, parcial)</div>
-      <div class="panel-sub">% dos leads reais de cada campanha por formação, no período corrente (inclui hoje, parcial).</div>
-      <div class="legend">
-        <span><i class="dot" style="background:var(--vet)"></i>Veterinário</span>
-        <span><i class="dot" style="background:var(--nutri)"></i>Nutricionista</span>
-        <span><i class="dot" style="background:var(--eng)"></i>Eng. Alimentos</span>
-        <span><i class="dot" style="background:var(--estud)"></i>Estudante/Outros</span>
-      </div>
-
-      <div class="comp-row">
-        <div class="comp-head"><div class="name">Webinário Diário</div><div class="meta">97 leads · 92% VET</div></div>
-        <div class="stack">
-          <div style="width:91.8%;background:var(--vet)">VET 89 · 92%</div>
-          <div style="width:8.2%;background:var(--estud)">8</div>
-        </div>
-      </div>
-
-      <div class="comp-row">
-        <div class="comp-head"><div class="name">5 Aulas <small>(NRTC)</small></div><div class="meta">108 leads · só 14% VET</div></div>
-        <div class="stack">
-          <div style="width:13.9%;background:var(--vet)">VET 15</div>
-          <div style="width:37.0%;background:var(--nutri)">Nutri 40 · 37%</div>
-          <div style="width:13.9%;background:var(--eng)">Eng 15</div>
-          <div style="width:35.2%;background:var(--estud)">Estud. 38 · 35%</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Campaign cards (current period) -->
-  <section>
-    <div class="camp" style="border-left-color:var(--vet)">
-      <div class="camp-h">
-        <div><div class="t"><span class="idx">1 ·</span>Webinário Diário</div><div class="k">captação de leads · funil mais aderente ao ICP · período atual 31/07–07/08 (parcial)</div></div>
-      </div>
-      <div class="cols">
-        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 1.313</div><div class="n">CPL real R$ 13,53 · +59,0% vs semana</div></div>
-        <div class="col"><div class="lab">Leads reais</div><div class="v">97</div><div class="n">vs 84 · +15,5%</div></div>
-        <div class="col"><div class="lab">Veterinários</div><div class="v">89</div><div class="n">91,8% do funil</div></div>
-        <div class="col"><div class="lab">Demais formações</div><div class="v">8</div><div class="n">8 Estud.</div></div>
-        <div class="col"><div class="lab">Custo / qualificado</div><div class="v">R$ 14,75</div><div class="n">89 qualificados</div></div>
-      </div>
-      <div class="cbar"><span style="width:91.8%;background:var(--vet)"></span><span style="width:8.2%;background:var(--estud)"></span></div>
-    </div>
-
-    <div class="camp" style="border-left-color:var(--eng)">
-      <div class="camp-h">
-        <div><div class="t"><span class="idx">2 ·</span>5 Melhores Aulas (NRTC)</div><div class="k">captação de leads · maior diversidade de formações · período atual 31/07–07/08 (parcial)</div></div>
-      </div>
-      <div class="cols">
-        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 678</div><div class="n">CPL real R$ 6,28 · −20,6% vs semana</div></div>
-        <div class="col"><div class="lab">Leads reais</div><div class="v">108</div><div class="n">vs 68 · +58,8%</div></div>
-        <div class="col"><div class="lab">Veterinários</div><div class="v">15</div><div class="n">13,9% do funil</div></div>
-        <div class="col"><div class="lab">Demais formações</div><div class="v">93</div><div class="n">40 Nutri · 15 Eng · 38 Estud.</div></div>
-        <div class="col"><div class="lab">Custo / qualificado</div><div class="v">R$ 9,69</div><div class="n">70 qualificados (65%)</div></div>
-      </div>
-      <div class="cbar"><span style="width:13.9%;background:var(--vet)"></span><span style="width:37.0%;background:var(--nutri)"></span><span style="width:13.9%;background:var(--eng)"></span><span style="width:35.2%;background:var(--estud)"></span></div>
-    </div>
-
-    <div class="camp" style="border-left-color:var(--boletim)">
-      <div class="camp-h">
-        <div><div class="t"><span class="idx">3 ·</span>Boletim Smart</div><div class="k">C2 · distribuição de conteúdo · período atual 31/07–07/08 (parcial)</div></div>
-        <span class="pill info">campanha de vídeo, não de leads</span>
-      </div>
-      <div class="cols">
-        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 633</div><div class="n">custo por ThruPlay R$ 1,00</div></div>
-        <div class="col"><div class="lab">Impressões</div><div class="v">62.399</div><div class="n">alcance 4.617</div></div>
-        <div class="col"><div class="lab">Reproduções de vídeo</div><div class="v">53.242</div><div class="n">início de reprodução</div></div>
-        <div class="col"><div class="lab">ThruPlays (15s+)</div><div class="v">634</div><div class="n">1,2% das reproduções</div></div>
-        <div class="col"><div class="lab">Visualizações completas</div><div class="v">163</div><div class="n">vídeo assistido 100%</div></div>
-      </div>
-      <div class="camp-note">Investimento (R$ 633) e impressões (62.399) mais que dobraram vs a semana fechada (R$ 340 · 26.264 impr.), com custo por ThruPlay estável (R$ 0,87 → R$ 1,00). O formulário capturou <b>11 leads incidentais</b> no período (vs 3 na semana fechada) — bônus, não o objetivo da campanha.</div>
-    </div>
-  </section>
-
-  <!-- Composition -->
-  <section>
-    <div class="panel">
-      <div class="panel-h">Composição por formação — última semana fechada (24–31 jul)</div>
-      <div class="panel-sub">% dos leads reais de cada campanha por formação.</div>
-      <div class="legend">
-        <span><i class="dot" style="background:var(--vet)"></i>Veterinário</span>
-        <span><i class="dot" style="background:var(--nutri)"></i>Nutricionista</span>
-        <span><i class="dot" style="background:var(--eng)"></i>Eng. Alimentos</span>
-        <span><i class="dot" style="background:var(--estud)"></i>Estudante/Outros</span>
-      </div>
-
-      <div class="comp-row">
-        <div class="comp-head"><div class="name">Webinário Diário</div><div class="meta">84 leads · 90% VET</div></div>
-        <div class="stack">
-          <div style="width:90.5%;background:var(--vet)">VET 76 · 90%</div>
-          <div style="width:1.2%;background:var(--nutri)"></div>
-          <div style="width:8.3%;background:var(--estud)">7</div>
-        </div>
-      </div>
-
-      <div class="comp-row">
-        <div class="comp-head"><div class="name">5 Aulas <small>(NRTC)</small></div><div class="meta">68 leads · só 21% VET</div></div>
-        <div class="stack">
-          <div style="width:20.6%;background:var(--vet)">VET 14</div>
-          <div style="width:35.3%;background:var(--nutri)">Nutri 24 · 35%</div>
-          <div style="width:8.8%;background:var(--eng)">6</div>
-          <div style="width:35.3%;background:var(--estud)">Estud. 24 · 35%</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Daily composition comparison -->
-  <section>
-    <div class="panel">
-      <div class="panel-h">Composição por formação — comparativo 06→07/08</div>
-      <div class="panel-sub">Mesmas 2 campanhas de captação, ontem vs hoje, ambas até ~11h23 (comparável, dia ainda parcial).</div>
+      <div class="panel-h">Composição por formação — ontem vs hoje (06→07/08)</div>
+      <div class="panel-sub">Mesmas 2 campanhas de captação, ambas até ~11h23 (comparável, dia ainda parcial).</div>
       <div class="legend">
         <span><i class="dot" style="background:var(--vet)"></i>Veterinário</span>
         <span><i class="dot" style="background:var(--nutri)"></i>Nutricionista</span>
@@ -455,85 +549,40 @@
         </div>
       </div>
 
-      <div class="camp-note" style="border-top:0; padding-top:0; margin-top:18px">Leitura: o Webinário Diário — o funil mais aderente ao ICP vet (82% ontem) — está pausado hoje, sem nenhum lead. Toda a captação do dia veio das 5 Aulas, que mais que triplicou o volume (3→10) e trouxe mais veterinários em números absolutos (1→2), mas com menor concentração proporcional (33%→20%), diluída entre nutricionistas, engenheiros e estudantes.</div>
+      <div class="camp-note" style="border-top:0; padding-top:0; margin-top:18px">Leitura: o Webinário Diário — o funil mais aderente ao ICP vet (82% ontem) — está pausado hoje, sem nenhum lead. Toda a captação do dia veio das 5 Aulas, que mais que triplicou o volume (3→10) e trouxe mais veterinários em números absolutos (1→2), mas com menor concentração proporcional (33%→20%).</div>
     </div>
   </section>
 
-  <!-- Campaign cards -->
-  <section>
-    <div class="camp" style="border-left-color:var(--vet)">
-      <div class="camp-h">
-        <div><div class="t"><span class="idx">1 ·</span>Webinário Diário</div><div class="k">captação de leads · funil mais aderente ao ICP · semana 24–31/jul</div></div>
-      </div>
-      <div class="cols">
-        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 715</div><div class="n">CPL real R$ 8,51</div></div>
-        <div class="col"><div class="lab">Leads reais</div><div class="v">84</div><div class="n">vs 109 · −23%</div></div>
-        <div class="col"><div class="lab">Veterinários</div><div class="v">76</div><div class="n">90,5% do funil</div></div>
-        <div class="col"><div class="lab">Demais formações</div><div class="v">8</div><div class="n">1 Nutri · 7 Estud.</div></div>
-        <div class="col"><div class="lab">Custo / qualificado</div><div class="v">R$ 9,28</div><div class="n">77 qualificados</div></div>
-      </div>
-      <div class="cbar"><span style="width:90.5%;background:var(--vet)"></span><span style="width:1.2%;background:var(--nutri)"></span><span style="width:8.3%;background:var(--estud)"></span></div>
-    </div>
+  <!-- ============ LEITURAS E METODOLOGIA ============ -->
+  <div class="sec-h"><span class="n">4</span><h2>Leituras principais e metodologia</h2></div>
 
-    <div class="camp" style="border-left-color:var(--eng)">
-      <div class="camp-h">
-        <div><div class="t"><span class="idx">2 ·</span>5 Melhores Aulas (NRTC)</div><div class="k">captação de leads · maior diversidade de formações · semana 24–31/jul</div></div>
-      </div>
-      <div class="cols">
-        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 538</div><div class="n">CPL real R$ 7,91</div></div>
-        <div class="col"><div class="lab">Leads reais</div><div class="v">68</div><div class="n">vs 89 · −24%</div></div>
-        <div class="col"><div class="lab">Veterinários</div><div class="v">14</div><div class="n">20,6% do funil</div></div>
-        <div class="col"><div class="lab">Demais formações</div><div class="v">30</div><div class="n">24 Nutri · 6 Eng</div></div>
-        <div class="col"><div class="lab">Custo / qualificado</div><div class="v">R$ 12,22</div><div class="n">44 qualificados (65%)</div></div>
-      </div>
-      <div class="cbar"><span style="width:20.6%;background:var(--vet)"></span><span style="width:35.3%;background:var(--nutri)"></span><span style="width:8.8%;background:var(--eng)"></span><span style="width:35.3%;background:var(--estud)"></span></div>
-    </div>
-
-    <div class="camp" style="border-left-color:var(--boletim)">
-      <div class="camp-h">
-        <div><div class="t"><span class="idx">3 ·</span>Boletim Smart</div><div class="k">C2 · distribuição de conteúdo · lançada 28/jul · semana 24–31/jul</div></div>
-        <span class="pill info">campanha de vídeo, não de leads</span>
-      </div>
-      <div class="cols">
-        <div class="col"><div class="lab">Investimento</div><div class="v">R$ 340</div><div class="n">custo por ThruPlay R$ 0,87</div></div>
-        <div class="col"><div class="lab">Impressões</div><div class="v">26.264</div><div class="n">alcance 4.069</div></div>
-        <div class="col"><div class="lab">Reproduções de vídeo</div><div class="v">22.595</div><div class="n">início de reprodução</div></div>
-        <div class="col"><div class="lab">ThruPlays (15s+)</div><div class="v">392</div><div class="n">1,7% das reproduções</div></div>
-        <div class="col"><div class="lab">Visualizações completas</div><div class="v">113</div><div class="n">vídeo assistido 100%</div></div>
-      </div>
-      <div class="camp-note">Esta campanha mede <b>consumo de vídeo</b>, não captação. À parte, o formulário capturou <b>3 leads incidentais</b> em 31/jul (bônus, não o objetivo da campanha) — e nenhum lead hoje (04/08).</div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <section>
     <div class="panel">
-      <div class="panel-h">Leituras principais</div>
-      <div class="panel-sub">Considerando só as 3 campanhas ativas.</div>
       <ul class="readings">
-        <li><span class="rdot" style="background:var(--today)"></span><span><b>Hoje (07/08, parcial):</b> Webinário Diário pausado o dia todo até 11h23 (R$ 0 investidos, 0 leads) — só a 5 Aulas captou leads (10, 70% qualificados). Sem o Webinário, o volume total caiu 50% e os veterinários caíram de 75% para 20% da base, no mesmo corte de horário de ontem.</span></li>
-        <li><span class="rdot" style="background:var(--vet)"></span><span><b>Webinário Diário</b> continua o funil mais certeiro para o ICP veterinário (90,5% na semana, 82% ontem até 11h23) e o mais barato por qualificado (R$ 9,28) — mas está <b>pausado hoje</b>, o que vale checar (orçamento, aprovação de anúncio, ação manual).</span></li>
-        <li><span class="rdot" style="background:var(--eng)"></span><span><b>5 Aulas (NRTC)</b> é o mais barato por lead bruto, mas com menor aderência ao ICP vet — hoje trouxe mais nutricionistas, engenheiros e estudantes do que veterinários (20% VET).</span></li>
-        <li><span class="rdot" style="background:var(--boletim)"></span><span><b>Boletim Smart</b> segue sem leads via formulário desde 05/08 — normal, já que não é o objetivo da campanha. O foco é ThruPlay, que está em torno de R$1,33–1,78 no corte parcial de hoje.</span></li>
+        <li><span class="rdot" style="background:var(--today)"></span><span><b>Investimento cresceu mais rápido que resultado:</b> +64,8% de verba no período atual para +29,7% de leads — o custo por qualificado subiu de R$ 9,94 para R$ 12,52 (+26,0%).</span></li>
+        <li><span class="rdot" style="background:var(--vet)"></span><span><b>Webinário Diário</b> segue o funil mais certeiro para o ICP veterinário (91,8% do funil), mas ficou <b>59% mais caro por lead</b> no período atual — e está <b>pausado hoje</b>, o que vale checar (orçamento, aprovação de anúncio, ação manual).</span></li>
+        <li><span class="rdot" style="background:var(--eng)"></span><span><b>5 Aulas (NRTC)</b> foi o destaque positivo de eficiência: +45,9% de leads com CPL 13,6% menor. O limite é a aderência ao ICP — só 15 veterinários em 108 leads (13,9%).</span></li>
+        <li><span class="rdot" style="background:var(--boletim)"></span><span><b>Boletim Smart</b> mais que dobrou entrega (impressões +137,6%) com custo por ThruPlay quase estável (R$ 0,87 → R$ 1,00). Segue sem leads via formulário desde 05/08 — normal, não é o objetivo da campanha.</span></li>
       </ul>
 
       <hr class="hr">
       <div class="foot">
-        <p><b>Composição total — última semana fechada (152 leads reais, Webinário + 5 Aulas):</b></p>
+        <p><b>Composição total — período atual (205 leads reais, Webinário + 5 Aulas):</b></p>
         <div class="tot-chips">
-          <span class="chip"><i class="dot" style="background:var(--vet)"></i><b>Veterinário 90</b> · 59,2%</span>
-          <span class="chip"><i class="dot" style="background:var(--nutri)"></i><b>Nutricionista 25</b> · 16,4%</span>
-          <span class="chip"><i class="dot" style="background:var(--eng)"></i><b>Eng. Alimentos 6</b> · 3,9%</span>
-          <span class="chip"><i class="dot" style="background:var(--estud)"></i><b>Estudante/Outros 31</b> · 20,4%</span>
+          <span class="chip"><i class="dot" style="background:var(--vet)"></i><b>Veterinário 104</b> · 50,7%</span>
+          <span class="chip"><i class="dot" style="background:var(--nutri)"></i><b>Nutricionista 40</b> · 19,5%</span>
+          <span class="chip"><i class="dot" style="background:var(--eng)"></i><b>Eng. Alimentos 15</b> · 7,3%</span>
+          <span class="chip"><i class="dot" style="background:var(--estud)"></i><b>Estudante/Outros 46</b> · 22,4%</span>
         </div>
         <p style="margin-top:14px"><b>Fora desta análise (campanhas pausadas):</b></p>
         <div class="offlist">
-          <span class="offchip">RT Class — <b>R$ 1.285</b> investidos · <b>97</b> leads reais (semana 24–31/jul)</span>
-          <span class="offchip">Lista de Espera + Página VET — <b>R$ 2.286</b> investidos · <b>64</b> leads reais (semana 24–31/jul)</span>
+          <span class="offchip">RT Class — <b>R$ 1.285</b> investidos · <b>97</b> leads reais (24–31/jul)</span>
+          <span class="offchip">Lista de Espera + Página VET — <b>R$ 2.286</b> investidos · <b>64</b> leads reais (24–31/jul)</span>
         </div>
-        <p style="margin-top:16px"><b>Metodologia:</b> Webinário Diário e 5 Aulas são baixados por completo (sem cortes), com linhas de teste removidas e deduplicadas por e-mail. "Qualificado" = qualquer formação exceto Estudante/Outros e vazio. Investimento é gasto real do Meta Ads (por campanha, conta "CA oficial — Food Smart"); não incluímos a contagem de leads que o Meta reporta via pixel, só os confirmados em planilha. O Boletim Smart usa métricas de vídeo do Meta (impressões, reproduções, ThruPlay) — não é comparável a CPL de captação. A seção "Hoje" é recalculada diariamente e comparada com <b>ontem no mesmo horário de coleta</b> (não com a semana fechada), para não distorcer o CPL de um dia ainda pela metade. A comparação semanal e a composição por formação refletem a última semana fechada (24–31/jul) e são atualizadas manualmente quando uma nova semana se encerra.</p>
+        <p style="margin-top:16px"><b>Metodologia:</b> Webinário Diário e 5 Aulas são baixados por completo das planilhas (sem cortes), com linhas de teste removidas e deduplicadas por e-mail. "Qualificado" = qualquer formação exceto Estudante/Outros e vazio. Investimento é gasto real do Meta Ads por campanha (conta "CA oficial — Food Smart"); não usamos a contagem de leads que o Meta reporta via pixel, só os confirmados em planilha. O Boletim Smart entra no investimento total, mas usa métricas de vídeo (impressões, reproduções, ThruPlay) — não é comparável a CPL de captação, e seus leads incidentais não entram na contagem de leads reais.</p>
+        <p><b>Sobre os períodos:</b> os dois períodos comparados têm 8 dias corridos e são calculados exatamente na mesma base (24/07→31/07 e 31/07→07/08, ambos inclusivos — a data de virada 31/07 entra nos dois). O período atual <b>inclui hoje, ainda em andamento</b>, então tende a crescer até o fim do dia. Os leads do período 24/07→31/07 foram <b>recalculados</b> nesta versão para ficarem na mesma base do período atual — por isso o total (158) difere levemente do número publicado em versões anteriores da dashboard (152). A seção diária compara sempre <b>hoje contra ontem no mesmo horário de coleta</b>, nunca contra a média do período.</p>
       </div>
-      <div class="updated" id="updatedAt">Atualizado em 07/08/2026, 11:23 (parcial)</div>
+      <div class="updated" id="updatedAt">Atualizado em 07/08/2026, 11:23 · período atual parcial (inclui hoje)</div>
     </div>
   </section>
 
