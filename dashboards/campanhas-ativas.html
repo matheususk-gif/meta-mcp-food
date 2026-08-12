@@ -76,6 +76,7 @@
   .banner{display:flex; gap:12px; border-radius:12px; padding:16px 18px; margin:22px 0 0; font-size:13.5px}
   .banner.off{background:var(--off-bg); border:1px solid var(--off-bd)}
   .banner.today{background:var(--today-bg); border:1px solid var(--today-bd)}
+  .banner.warn{background:var(--warn-bg); border:1px solid var(--warn-bd)}
   .banner .ic{flex:none; font-size:16px; line-height:1.4}
   .banner b{font-weight:650}
 
@@ -182,7 +183,7 @@
       <div class="eyebrow">Foodsmart · Leads reais por formação</div>
       <h1>Dashboard — Campanhas Ativas</h1>
       <div class="tags">
-        <div class="period"><span>📅</span><span><b>Hoje: 11/08 (até 17h02)</b></span><span class="sep">·</span><span>blocos de período: 31/07 → 07/08</span></div>
+        <div class="period"><span>📅</span><span><b>Hoje: 11/08 (00h–20h)</b></span><span class="sep">·</span><span>blocos de período: 31/07 → 07/08</span></div>
         <span class="tag">🔵 3 campanhas ativas nesta análise</span>
       </div>
       <p class="lede">Cobre só as campanhas <b>ativas</b>: Webinário Diário, 5 Aulas e Boletim Smart. <b>RT Class e Lista de Espera (Página VET) estão pausadas</b> e ficam de fora. O Boletim Smart é campanha de <b>vídeo (engajamento)</b>, não de captação — por isso entra no investimento total, mas não no cálculo de CPL.</p>
@@ -192,7 +193,7 @@
 
   <div class="banner off">
     <span class="ic">⚠️</span>
-    <div><b>Os blocos 1 e 2 estão congelados em 31/07 → 07/08 e não refletem hoje (11/08).</b> Rolar a janela de período exige o investimento por campanha do Meta Ads, que estava <b>fora do ar</b> nesta execução — em vez de misturar leads novos com investimento velho, os dois blocos foram mantidos intactos. <b>O bloco 3 (acompanhamento diário) está atualizado com hoje, 11/08</b>, porque depende só das planilhas.</div>
+    <div><b>Os blocos 1 e 2 continuam congelados em 31/07 → 07/08 e não refletem hoje (11/08)</b> — estão 4 dias atrasados. Eles pararam quando o Meta Ads ficou fora do ar; <b>o Meta voltou nesta execução</b>, então rolar a janela de período já é possível e ficou pendente para a próxima atualização. <b>O bloco 3 (acompanhamento diário) está completo</b>, com leads das planilhas e investimento real do Meta no corte 00h–20h.</div>
   </div>
 
   <!-- ============ 1 · PERÍODO ATUAL ============ -->
@@ -436,96 +437,122 @@
   <div class="sec-h"><span class="n">3</span><h2>Acompanhamento diário — hoje vs ontem</h2></div>
   <p class="sec-sub">Recorte do dia corrente, comparado a ontem no mesmo horário de coleta. Serve para pegar movimentos do dia a dia que a visão de período ainda não mostra.</p>
 
-  <div class="banner off">
-    <span class="ic">⚠️</span>
-    <div><b>Investimento de hoje indisponível nesta atualização</b> — a conexão com o Meta Ads caiu durante a execução de 11/08, então <b>não há dado de gasto, CPL nem métricas de vídeo do Boletim Smart</b> para hoje e ontem. Os leads abaixo vêm das planilhas e estão completos. Os números de investimento voltam na próxima execução em que o Meta responder — nada foi estimado no lugar.</div>
+  <div class="banner warn">
+    <span class="ic">🚨</span>
+    <div><b>Os leads pararam de entrar às 15h31 — nas duas campanhas ao mesmo tempo</b>, enquanto os anúncios continuaram entregando normalmente. Da última captura até 20h foram <b>R$ 246,32 gastos e 17.068 impressões sem um único lead</b> (ontem, na mesma janela, entraram 29). As 5 Aulas pararam ainda antes, às 08h29. Uma parada simultânea nos dois formulários, com entrega em alta, <b>não tem cara de queda de performance — tem cara de captura quebrada</b> (formulário, integração ou sincronismo da planilha). <b>Vale um teste manual de cadastro agora</b>, antes de mexer em verba: se for falha técnica, os números de leads e CPL de hoje estão subestimados e não devem embasar decisão de mídia.</div>
   </div>
 
   <div class="banner today">
     <span class="ic">🕐</span>
-    <div><b>Dados de hoje são parciais</b> — coletados às 17h02, o dia ainda não terminou. Por isso <b>a comparação é sempre com ontem no mesmo horário (~17h02)</b>, nunca com a média do período: comparar um dia pela metade com um dia fechado distorce o resultado, já que os leads chegam ao longo de todo o dia. As execuções de 08 a 10/08 foram puladas, então o corte de ontem (10/08) foi reconstruído direto da planilha, filtrando pelo mesmo horário.</div>
+    <div><b>Dados de hoje são parciais</b> — o corte é <b>00h–20h</b>, o dia ainda não terminou. Por isso <b>a comparação é sempre com ontem na mesma janela (00h–20h)</b>, nunca com a média do período: comparar um dia pela metade com um dia fechado distorce o resultado, já que os leads chegam ao longo de todo o dia. Investimento e impressões vêm do Meta Ads por hora, somando as mesmas 20 horas nos dois dias; os leads vêm das planilhas, filtrados pelo mesmo corte. As execuções de 08 a 10/08 foram puladas, então ontem (10/08) foi reconstruído direto da fonte.</div>
   </div>
 
   <section>
     <div class="panel today-panel">
-      <div class="panel-h"><span class="live-dot"></span>Hoje — 11/08, até 17h02</div>
-      <div class="panel-sub">Comparado a ontem (10/08) até o mesmo horário (17h02). Sem dado de atendimento comercial hoje. Investimento indisponível nesta execução (Meta Ads fora do ar).</div>
+      <div class="panel-h"><span class="live-dot"></span>Hoje — 11/08, 00h às 20h</div>
+      <div class="panel-sub">Comparado a ontem (10/08) na mesma janela de 20 horas. Sem dado de atendimento comercial hoje.</div>
       <div class="kpis">
         <div class="kpi" style="--accent:var(--vet)">
           <div class="lab">Leads reais hoje</div>
           <div class="big mono">49</div>
           <div class="sub">Webinário + 5 Aulas</div>
-          <div class="delta down">vs ontem (78): −37,2%</div>
+          <div class="delta down">vs ontem (95): −48,4%</div>
         </div>
         <div class="kpi" style="--accent:var(--nutri)">
           <div class="lab">Qualificados hoje</div>
           <div class="big mono">39</div>
           <div class="sub">79,6% dos leads de hoje</div>
-          <div class="delta down">vs ontem (63 · 80,8%): −38,1%</div>
-        </div>
-        <div class="kpi" style="--accent:var(--vet)">
-          <div class="lab">Veterinários hoje</div>
-          <div class="big mono">36</div>
-          <div class="sub">73,5% dos leads de hoje</div>
-          <div class="delta down">vs ontem (54 · 69,2%): −33,3%</div>
+          <div class="delta down">vs ontem (77 · 81,1%): −49,4%</div>
         </div>
         <div class="kpi" style="--accent:var(--estud)">
-          <div class="lab">Investimento hoje</div>
-          <div class="big mono">—</div>
-          <div class="sub">Meta Ads indisponível</div>
-          <div class="delta flat">sem CPL nesta atualização</div>
+          <div class="lab">Investimento captação</div>
+          <div class="big mono">R$ 975</div>
+          <div class="sub">Webinário + 5 Aulas · total R$ 1.059 com Boletim</div>
+          <div class="delta down">vs ontem (R$ 1.099): −11,3%</div>
+        </div>
+        <div class="kpi" style="--accent:var(--neg)">
+          <div class="lab">CPL global</div>
+          <div class="big mono">R$ 19,90</div>
+          <div class="sub">custo por qualificado: R$ 25,00</div>
+          <div class="delta down">vs ontem (R$ 11,57): +71,9%</div>
         </div>
       </div>
 
       <table class="today-tbl">
-        <thead><tr><th>Campanha</th><th class="r">Investimento</th><th class="r">Leads / métrica</th><th class="r">Detalhe</th></tr></thead>
+        <thead><tr><th>Campanha</th><th class="r">Investimento</th><th class="r">Impressões</th><th class="r">Leads</th><th class="r">CPL</th><th class="r">Detalhe</th></tr></thead>
         <tbody>
           <tr>
             <td class="fn">Webinário Diário</td>
-            <td class="r num">—</td>
-            <td class="r num">41 leads</td>
+            <td class="r num">R$ 844,25</td>
+            <td class="r num">56.690</td>
+            <td class="r num">41</td>
+            <td class="r num">R$ 20,59</td>
             <td class="r">33 Vet (80,5%) · 8 Estud. · 33 qualificados</td>
           </tr>
           <tr>
             <td class="fn">5 Aulas <small>(NRTC)</small></td>
-            <td class="r num">—</td>
-            <td class="r num">8 leads</td>
+            <td class="r num">R$ 130,61</td>
+            <td class="r num">6.597</td>
+            <td class="r num">8</td>
+            <td class="r num">R$ 16,33</td>
             <td class="r">3 Vet · 2 Nutri · 1 Eng · 2 Estud. · 6 qualificados</td>
           </tr>
           <tr>
             <td class="fn">Boletim Smart <small>vídeo, não lead</small></td>
+            <td class="r num">R$ 84,19</td>
+            <td class="r num">7.014</td>
             <td class="r num">—</td>
             <td class="r num">—</td>
-            <td class="r">métricas de vídeo indisponíveis (Meta Ads fora do ar)</td>
+            <td class="r">métricas de vídeo só fecham por dia inteiro (abaixo)</td>
           </tr>
         </tbody>
       </table>
 
       <table class="cmp" style="margin-top:20px">
-        <thead><tr><th>Leads — hoje vs ontem (mesmo horário, até 17h02)</th><th class="r">Ontem (10/08)</th><th class="r">Hoje (11/08)</th><th class="r">Variação</th></tr></thead>
+        <thead><tr><th>Hoje vs ontem — mesma janela (00h–20h)</th><th class="r">Ontem (10/08)</th><th class="r">Hoje (11/08)</th><th class="r">Variação</th></tr></thead>
         <tbody>
-          <tr><td class="metric">Leads reais (total)</td><td class="r num">78</td><td class="r num">49</td><td class="r val down">−37,2%</td></tr>
-          <tr><td class="metric">Qualificados</td><td class="r num">63</td><td class="r num">39</td><td class="r val down">−38,1%</td></tr>
-          <tr><td class="metric">% qualificados no funil</td><td class="r num">80,8%</td><td class="r num">79,6%</td><td class="r val flat">−1,2 p.p.</td></tr>
-          <tr><td class="metric">Veterinários</td><td class="r num">54</td><td class="r num">36</td><td class="r val down">−33,3%</td></tr>
-          <tr><td class="metric">% veterinários no funil</td><td class="r num">69,2%</td><td class="r num">73,5%</td><td class="r val up">+4,3 p.p.</td></tr>
-          <tr class="sub"><td class="metric">Leads Webinário Diário</td><td class="r num">61</td><td class="r num">41</td><td class="r val down">−32,8%</td></tr>
-          <tr class="sub"><td class="metric">Leads 5 Aulas (NRTC)</td><td class="r num">17</td><td class="r num">8</td><td class="r val down">−52,9%</td></tr>
-          <tr class="sub"><td class="metric">CPL e custo por qualificado</td><td class="r num">—</td><td class="r num">—</td><td class="r val flat">Meta indisponível</td></tr>
+          <tr><td class="metric">Investimento total</td><td class="r num">R$ 1.178,22</td><td class="r num">R$ 1.059,05</td><td class="r val flat">−10,1%</td></tr>
+          <tr><td class="metric">Investimento em captação</td><td class="r num">R$ 1.099,29</td><td class="r num">R$ 974,86</td><td class="r val flat">−11,3%</td></tr>
+          <tr><td class="metric">Impressões (captação)</td><td class="r num">56.455</td><td class="r num">63.287</td><td class="r val up">+12,1%</td></tr>
+          <tr><td class="metric">Leads reais (total)</td><td class="r num">95</td><td class="r num">49</td><td class="r val down">−48,4%</td></tr>
+          <tr><td class="metric"><b>Leads por mil impressões</b></td><td class="r num">1,68</td><td class="r num">0,77</td><td class="r val down">−54,0%</td></tr>
+          <tr><td class="metric"><b>CPL global</b></td><td class="r num">R$ 11,57</td><td class="r num">R$ 19,90</td><td class="r val down">+71,9%</td></tr>
+          <tr><td class="metric">Custo por qualificado</td><td class="r num">R$ 14,28</td><td class="r num">R$ 25,00</td><td class="r val down">+75,1%</td></tr>
+          <tr><td class="metric">Qualificados</td><td class="r num">77</td><td class="r num">39</td><td class="r val down">−49,4%</td></tr>
+          <tr><td class="metric">% qualificados no funil</td><td class="r num">81,1%</td><td class="r num">79,6%</td><td class="r val flat">−1,5 p.p.</td></tr>
+          <tr><td class="metric">Veterinários</td><td class="r num">66</td><td class="r num">36</td><td class="r val down">−45,5%</td></tr>
+          <tr><td class="metric">% veterinários no funil</td><td class="r num">69,5%</td><td class="r num">73,5%</td><td class="r val up">+4,0 p.p.</td></tr>
+          <tr class="sub"><td class="metric">Webinário — investimento</td><td class="r num">R$ 1.000,04</td><td class="r num">R$ 844,25</td><td class="r val flat">−15,6%</td></tr>
+          <tr class="sub"><td class="metric">Webinário — leads / CPL</td><td class="r num">73 · R$ 13,70</td><td class="r num">41 · R$ 20,59</td><td class="r val down">−43,8% · +50,3%</td></tr>
+          <tr class="sub"><td class="metric">Webinário — CPM</td><td class="r num">R$ 19,52</td><td class="r num">R$ 14,89</td><td class="r val up">−23,7%</td></tr>
+          <tr class="sub"><td class="metric">5 Aulas — investimento</td><td class="r num">R$ 99,25</td><td class="r num">R$ 130,61</td><td class="r val flat">+31,6%</td></tr>
+          <tr class="sub"><td class="metric">5 Aulas — leads / CPL</td><td class="r num">22 · R$ 4,51</td><td class="r num">8 · R$ 16,33</td><td class="r val down">−63,6% · +261,9%</td></tr>
         </tbody>
       </table>
-      <div class="camp-note">O dia está <b>bem mais fraco em volume</b> que ontem no mesmo horário (−37,2%), com queda nas duas campanhas — mais forte nas 5 Aulas (−52,9%) que no Webinário (−32,8%). A <b>qualidade do funil não caiu</b>: a fatia de veterinários subiu de 69,2% para 73,5%, e a de qualificados ficou praticamente estável. Sem o dado de investimento não dá para dizer se a queda de volume veio de menos verba ou de piora de eficiência — <b>essa leitura fica pendente para a próxima execução</b>.</div>
+      <div class="camp-note"><b>A verba não explica a queda.</b> O investimento caiu só 11,3%, mas os leads caíram 48,4% — e a entrega até <b>subiu</b>: 12,1% mais impressões, com o CPM do Webinário 23,7% <b>mais barato</b>. Ou seja, os anúncios rodaram mais e por menos, e mesmo assim converteram metade: <b>0,77 lead por mil impressões contra 1,68 ontem (−54,0%)</b>. O CPL global saltou de R$ 11,57 para R$ 19,90 (+71,9%) e o custo por qualificado passou de R$ 14,28 para R$ 25,00. A <b>composição do que entrou continua boa</b> (veterinários subiram de 69,5% para 73,5% do funil) — o problema é o volume, não o perfil. Somando isso à parada seca de leads às 15h31 nas duas campanhas, <b>a hipótese mais provável é falha de captura, não piora de mídia</b>. Confirmar com um cadastro de teste antes de tratar esses números como resultado real.</div>
+
+      <table class="cmp" style="margin-top:20px">
+        <thead><tr><th>Boletim Smart — vídeo <small>(dia fechado ontem vs parcial hoje)</small></th><th class="r">Ontem (10/08, dia todo)</th><th class="r">Hoje (11/08, até agora)</th></tr></thead>
+        <tbody>
+          <tr><td class="metric">Investimento</td><td class="r num">R$ 102,65</td><td class="r num">R$ 88,50</td></tr>
+          <tr><td class="metric">Impressões</td><td class="r num">8.074</td><td class="r num">7.449</td></tr>
+          <tr><td class="metric">Reproduções de vídeo</td><td class="r num">7.061</td><td class="r num">6.176</td></tr>
+          <tr><td class="metric">ThruPlays</td><td class="r num">85</td><td class="r num">62</td></tr>
+          <tr><td class="metric">Custo por ThruPlay</td><td class="r num">R$ 1,21</td><td class="r num">R$ 1,43</td></tr>
+        </tbody>
+      </table>
+      <div class="camp-note">O Meta <b>não quebra métricas de vídeo por hora</b> — só por dia inteiro. Então esta tabela é a única do bloco que <b>não está no corte de 20h</b>: compara o dia fechado de ontem com o parcial de hoje, e por isso os valores de hoje ainda vão subir. Não leia a diferença como queda. O ritmo, sim, é comparável: hoje o Boletim está entregando <b>mais impressões por real</b> que ontem (na janela 00h–20h foram 7.014 impressões com R$ 84,19, contra 5.982 com R$ 78,93).</div>
     </div>
   </section>
 
   <script type="application/json" id="daySnapshot">
-  {"date":"2026-08-11","cutoff":"17:02","investment_total":null,"investment_status":"unavailable_meta_ads_down","leads_total":49,"qualified_total":39,"qualified_rate":0.796,"vet_total":36,"vet_rate":0.735,"cpl_global":null,"cost_per_qualified":null,"campaigns":{"webinario":{"investment":null,"leads":41,"vet":33,"qualified":33,"cpl":null},"aulas":{"investment":null,"leads":8,"vet":3,"qualified":6,"cpl":null},"boletim":{"investment":null,"thruplays":null,"impressions":null,"cost_per_thruplay":null,"leads_incidental":null}}}
+  {"date":"2026-08-11","cutoff":"20:00","window":"00:00-19:59","comparison_date":"2026-08-10","investment_total":1059.05,"investment_capture":974.86,"impressions_capture":63287,"leads_total":49,"qualified_total":39,"qualified_rate":0.796,"vet_total":36,"vet_rate":0.735,"cpl_global":19.90,"cost_per_qualified":25.00,"leads_per_1k_impressions":0.77,"capture_anomaly":{"detected":true,"last_lead_webinario":"15:31","last_lead_aulas":"08:29","spend_after_last_lead":246.32,"impressions_after_last_lead":17068,"leads_after_last_lead":0,"same_window_yesterday_leads":29,"hypothesis":"falha de captura (formulario/integracao/sync), nao performance de midia","action":"cadastro de teste manual antes de decisao de midia"},"campaigns":{"webinario":{"investment":844.25,"impressions":56690,"leads":41,"vet":33,"qualified":33,"cpl":20.59,"cpm":14.89},"aulas":{"investment":130.61,"impressions":6597,"leads":8,"vet":3,"qualified":6,"cpl":16.33},"boletim":{"investment_window":84.19,"impressions_window":7014,"investment_day_partial":88.50,"impressions_day_partial":7449,"thruplays_day_partial":62,"cost_per_thruplay_day_partial":1.43,"video_metrics_hourly":false,"leads_incidental":0}},"previous_day":{"investment_total":1178.22,"investment_capture":1099.29,"impressions_capture":56455,"leads_total":95,"qualified_total":77,"vet_total":66,"cpl_global":11.57,"cost_per_qualified":14.28,"leads_per_1k_impressions":1.68}}
   </script>
 
   <section>
     <div class="panel">
       <div class="panel-h">Composição por formação — ontem vs hoje (10→11/08)</div>
-      <div class="panel-sub">Mesmas 2 campanhas de captação, ambas até 17h02 (comparável, dia ainda parcial).</div>
+      <div class="panel-sub">Mesmas 2 campanhas de captação, ambas na janela 00h–20h (comparável, dia ainda parcial).</div>
       <div class="legend">
         <span><i class="dot" style="background:var(--vet)"></i>Veterinário</span>
         <span><i class="dot" style="background:var(--nutri)"></i>Nutricionista</span>
@@ -534,13 +561,13 @@
       </div>
 
       <div class="comp-row">
-        <div class="comp-head"><div class="name">Webinário Diário</div><div class="meta">61 → 41 leads · 85% → 80% VET</div></div>
-        <div style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Ontem (10/08, até 17h02)</div>
+        <div class="comp-head"><div class="name">Webinário Diário</div><div class="meta">73 → 41 leads · 86% → 80% VET</div></div>
+        <div style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Ontem (10/08, 00h–20h)</div>
         <div class="stack">
-          <div style="width:85.2%;background:var(--vet)">VET 52 · 85%</div>
-          <div style="width:14.8%;background:var(--estud)">Estud. 9</div>
+          <div style="width:86.3%;background:var(--vet)">VET 63 · 86%</div>
+          <div style="width:13.7%;background:var(--estud)">Estud. 10</div>
         </div>
-        <div style="font-size:11.5px;color:var(--muted);margin:12px 0 6px">Hoje (11/08, até 17h02)</div>
+        <div style="font-size:11.5px;color:var(--muted);margin:12px 0 6px">Hoje (11/08, 00h–20h)</div>
         <div class="stack">
           <div style="width:80.5%;background:var(--vet)">VET 33 · 80%</div>
           <div style="width:19.5%;background:var(--estud)">Estud. 8</div>
@@ -548,15 +575,15 @@
       </div>
 
       <div class="comp-row">
-        <div class="comp-head"><div class="name">5 Aulas <small>(NRTC)</small></div><div class="meta">17 → 8 leads · 12% → 38% VET</div></div>
-        <div style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Ontem (10/08, até 17h02)</div>
+        <div class="comp-head"><div class="name">5 Aulas <small>(NRTC)</small></div><div class="meta">22 → 8 leads · 14% → 38% VET</div></div>
+        <div style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Ontem (10/08, 00h–20h)</div>
         <div class="stack">
-          <div style="width:11.8%;background:var(--vet)">VET 2</div>
-          <div style="width:47.1%;background:var(--nutri)">Nutri 8 · 47%</div>
-          <div style="width:5.9%;background:var(--eng)">1</div>
-          <div style="width:35.2%;background:var(--estud)">Estud. 6 · 35%</div>
+          <div style="width:13.6%;background:var(--vet)">VET 3</div>
+          <div style="width:45.5%;background:var(--nutri)">Nutri 10 · 45%</div>
+          <div style="width:4.6%;background:var(--eng)">1</div>
+          <div style="width:36.3%;background:var(--estud)">Estud. 8 · 36%</div>
         </div>
-        <div style="font-size:11.5px;color:var(--muted);margin:12px 0 6px">Hoje (11/08, até 17h02)</div>
+        <div style="font-size:11.5px;color:var(--muted);margin:12px 0 6px">Hoje (11/08, 00h–20h)</div>
         <div class="stack">
           <div style="width:37.5%;background:var(--vet)">VET 3 · 38%</div>
           <div style="width:25.0%;background:var(--nutri)">Nutri 2 · 25%</div>
@@ -565,7 +592,7 @@
         </div>
       </div>
 
-      <div class="camp-note" style="border-top:0; padding-top:0; margin-top:18px">Leitura: o Webinário Diário caiu de 61 para 41 leads mantendo o perfil quase intacto (85% → 80% VET) — é uma queda de volume, não de qualidade. As 5 Aulas caíram mais forte (17 → 8), mas com uma virada de mix interessante: passaram de 12% para 38% de veterinários, trocando peso de nutricionistas e estudantes. Como a base de hoje é pequena (8 leads), esse salto proporcional pede mais um ou dois dias antes de virar conclusão.</div>
+      <div class="camp-note" style="border-top:0; padding-top:0; margin-top:18px">Leitura: o Webinário Diário caiu de 73 para 41 leads mantendo o perfil quase intacto (86% → 80% VET) — é uma queda de volume, não de qualidade. As 5 Aulas caíram mais forte (22 → 8), mas com uma virada de mix: passaram de 14% para 38% de veterinários, trocando peso de nutricionistas e estudantes. Com 8 leads de base — e sabendo que a captação travou às 08h29 nessa campanha — esse salto proporcional <b>não sustenta conclusão nenhuma</b>: pode ser só o recorte das poucas horas que registraram.</div>
     </div>
   </section>
 
@@ -575,10 +602,11 @@
   <section>
     <div class="panel">
       <ul class="readings">
-        <li><span class="rdot" style="background:var(--today)"></span><span><b>Hoje (11/08, até 17h02):</b> 49 leads reais, <b>−37,2% vs ontem no mesmo horário</b> (78). A queda é de volume, não de qualidade — veterinários subiram de 69,2% para 73,5% do funil. Sem o investimento do Meta não dá para separar "menos verba" de "menos eficiência".</span></li>
-        <li><span class="rdot" style="background:var(--vet)"></span><span><b>Webinário Diário</b> segue o funil mais certeiro para o ICP veterinário (80% dos leads de hoje) e responde por 41 dos 49 leads do dia. No período 31/07→07/08 ficou <b>59% mais caro por lead</b> — vale reavaliar quando o dado de investimento voltar.</span></li>
-        <li><span class="rdot" style="background:var(--eng)"></span><span><b>5 Aulas (NRTC)</b> foi o destaque positivo de eficiência: +45,9% de leads com CPL 13,6% menor. O limite é a aderência ao ICP — só 15 veterinários em 108 leads (13,9%).</span></li>
-        <li><span class="rdot" style="background:var(--boletim)"></span><span><b>Boletim Smart</b> mais que dobrou entrega (impressões +137,6%) com custo por ThruPlay quase estável (R$ 0,87 → R$ 1,00). Segue sem leads via formulário desde 05/08 — normal, não é o objetivo da campanha.</span></li>
+        <li><span class="rdot" style="background:var(--warn)"></span><span><b>Prioridade de hoje — checar a captura, não a mídia.</b> Os leads pararam às <b>15h31 no Webinário e 08h29 nas 5 Aulas</b>, e não voltaram até 20h. Nessa janela foram <b>R$ 246,32 e 17.068 impressões sem um único lead</b>, contra 29 leads ontem no mesmo intervalo. Duas campanhas travando juntas, com entrega normal, aponta para formulário/integração/planilha — <b>um cadastro de teste resolve a dúvida em 2 minutos</b> e deve vir antes de qualquer mexida em verba.</span></li>
+        <li><span class="rdot" style="background:var(--today)"></span><span><b>Hoje (11/08, 00h–20h):</b> 49 leads, <b>−48,4% vs ontem na mesma janela</b> (95), com investimento apenas 11,3% menor. <b>A verba não explica a queda</b>: a entrega subiu 12,1% em impressões e o CPM ficou 23,7% mais barato — a conversão é que caiu pela metade (1,68 → 0,77 lead por mil impressões). CPL global de R$ 11,57 para <b>R$ 19,90</b> (+71,9%). Se a captura estiver quebrada, esses números são piso, não resultado.</span></li>
+        <li><span class="rdot" style="background:var(--vet)"></span><span><b>Webinário Diário</b> segue o funil mais certeiro para o ICP veterinário (80% dos leads de hoje) e responde por 41 dos 49 leads do dia. CPL de R$ 13,70 para R$ 20,59 (+50,3%) — mas com CPM <i>caindo</i> 23,7%, o encarecimento vem da conversão, não do leilão.</span></li>
+        <li><span class="rdot" style="background:var(--eng)"></span><span><b>5 Aulas (NRTC)</b> era o destaque de eficiência do período (+45,9% de leads com CPL 13,6% menor), mas hoje levou <b>31,6% mais verba e entregou 63,6% menos leads</b> — CPL de R$ 4,51 para R$ 16,33. É a campanha com a parada mais antiga (08h29), então é também a mais suspeita de dado incompleto. O limite estrutural continua a aderência ao ICP: só 15 veterinários em 108 leads no período (13,9%).</span></li>
+        <li><span class="rdot" style="background:var(--boletim)"></span><span><b>Boletim Smart</b> está entregando mais por real que ontem (7.014 impressões com R$ 84,19 na janela 00h–20h, contra 5.982 com R$ 78,93). As métricas de vídeo do Meta só fecham por dia inteiro, então ThruPlay e custo por ThruPlay de hoje ainda vão subir e não devem ser comparados com o dia fechado de ontem. Segue sem leads via formulário — normal, não é o objetivo da campanha.</span></li>
       </ul>
 
       <hr class="hr">
@@ -598,8 +626,9 @@
         <p style="margin-top:16px"><b>Metodologia:</b> Webinário Diário e 5 Aulas são baixados por completo das planilhas (sem cortes), com linhas de teste removidas e deduplicadas por e-mail. "Qualificado" = qualquer formação exceto Estudante/Outros e vazio. Investimento é gasto real do Meta Ads por campanha (conta "CA oficial — Food Smart"); não usamos a contagem de leads que o Meta reporta via pixel, só os confirmados em planilha. O Boletim Smart entra no investimento total, mas usa métricas de vídeo (impressões, reproduções, ThruPlay) — não é comparável a CPL de captação, e seus leads incidentais não entram na contagem de leads reais.</p>
         <p><b>Leads passados para o comercial:</b> os <b>135</b> leads repassados ao time comercial no período são um dado <b>informado pelo time</b>, não extraído da planilha nem do Meta Ads — por isso não têm comparativo com o período anterior e não entram no cálculo de CPL ou custo por qualificado. Os percentuais (65,9% dos 205 leads reais e 85% dos 159 qualificados) são calculados sobre as bases desta dashboard.</p>
         <p><b>Sobre os períodos:</b> os dois períodos comparados têm 8 dias corridos e são calculados exatamente na mesma base (24/07→31/07 e 31/07→07/08, ambos inclusivos — a data de virada 31/07 entra nos dois). O período atual <b>inclui hoje, ainda em andamento</b>, então tende a crescer até o fim do dia. Os leads do período 24/07→31/07 foram <b>recalculados</b> nesta versão para ficarem na mesma base do período atual — por isso o total (158) difere levemente do número publicado em versões anteriores da dashboard (152). A seção diária compara sempre <b>hoje contra ontem no mesmo horário de coleta</b>, nunca contra a média do período.</p>
+        <p><b>Como o corte diário é feito:</b> a seção diária usa a janela fixa <b>00h–20h nos dois dias</b>. Investimento e impressões vêm do Meta Ads com quebra horária (fuso do anunciante), somando as mesmas 20 horas em 10/08 e 11/08 — a hora corrente, ainda incompleta, fica de fora para não subestimar hoje. Os leads são filtrados pelo mesmo corte no horário de cadastro da planilha. <b>Exceção:</b> métricas de vídeo (ThruPlay, reproduções) <b>não têm quebra horária no Meta</b> — só existem por dia inteiro. Por isso a tabela de vídeo do Boletim compara o dia fechado de ontem com o parcial de hoje e está marcada como tal. Os valores horários do Meta são <b>reajustados retroativamente</b> ao longo do dia; os desta versão foram coletados às 20h34 e podem divergir levemente de uma consulta posterior.</p>
       </div>
-      <div class="updated" id="updatedAt">Atualizado em 11/08/2026, 17:02 · bloco diário (11/08) atualizado · blocos de período congelados em 07/08 — Meta Ads indisponível nesta execução</div>
+      <div class="updated" id="updatedAt">Atualizado em 11/08/2026, 20:34 · bloco diário recortado em 00h–20h, com investimento real do Meta Ads · blocos de período seguem congelados em 07/08</div>
     </div>
   </section>
 
