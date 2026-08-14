@@ -16,9 +16,27 @@ Conta Meta Ads: **`8434968583195601`** ("CA (oficial) - Food Smart") — única 
 | 5 Aulas (NRTC) | `120250662210340728` | `1dZBHAGh-SVgv3Uo7VpPCAJ6f1cGs1VUWyDOh0wp4aGw` |
 | Boletim Smart (C2 — vídeo/engajamento, **não é funil de leads**) | `120253256887400728` | `1pgR3ftC8bLZlOnW_UVmZq8LzyZPdUJgDlq1VNJ0fLu8` (leads incidentais só como nota, não KPI) |
 
-## Campanhas pausadas (NÃO entram)
-- **RT Class** — planilha `171Xd5kdYqy83E4wsVz8nvY70whdWfnSsoveuf0Viexk`
-- **Lista de Espera + Página VET** — planilha `1gYXkMydt7yGqM0OhUXW0Ym0xRBKaOi_1bK6wiI8QNnk`
+## Lista de Espera (bloco próprio — bloco 3 da dashboard)
+Planilha: **`1R03LtoNapMumPGdPgzA_3ueS09h4yXc_dRWMfAdCgX0`** ("MCP Meta 2 - Lista de Espera").
+São **3 campanhas** no Meta, somadas neste bloco:
+
+| Campanha | Campaign ID |
+|---|---|
+| `[23/05][PAGINA - VET]` captação quente | `120249875636100728` |
+| `[12/06][FRIO]` Lista de Espera — Teste do Frio | `120251343526400728` |
+| `[23/05][QUENTE]` Lista de Espera TD PROF | `120249880935590728` |
+
+⚠️ **Erro corrigido em 14/08:** versões anteriores deste README diziam que "Lista de Espera + Página VET" estavam **pausadas** e mandavam deixá-las fora. Estava errado — elas gastaram **R$ 2.399,34 em 24→31/jul** e **R$ 1.441,75 em 31/07→07/08**, e o "investimento total" da dashboard ficou subestimado por semanas. Pararam de entregar em 04/08 e foram **reativadas em 14/08**. **Sempre confira `effective_status` + gasto real no Meta antes de excluir uma campanha do escopo** — não confie na memória deste arquivo.
+
+Particularidades desta planilha:
+- Tem **duas linhas de cabeçalho** — os dados começam na 3ª linha. Pule qualquer linha cuja coluna 0 seja `Started At`.
+- O formulário **não tem opção "Estudante"**; tem **"Outra"**. Trate `"Outra"` como **não qualificado** (equivalente a "Estudante/Outros" das outras planilhas), para as bases ficarem comparáveis. Texto livre com profissão declarada conta como qualificado.
+- Recebe **tráfego orgânico relevante**. Sempre separe pago × orgânico pela coluna `Utm Source` (`meta-ads` vs `organico`) — sem isso o CPL fica sem sentido. Em 07/08→14/08, 22 dos 24 leads eram orgânicos com apenas R$ 4,51 de mídia.
+
+## Campanhas realmente pausadas (NÃO entram)
+- **RT Class** (e variações datadas) — planilha `171Xd5kdYqy83E4wsVz8nvY70whdWfnSsoveuf0Viexk`
+- **Funis de vendas (Imersões)** — sem gasto nos períodos analisados
+- Planilha antiga da lista de espera: `1gYXkMydt7yGqM0OhUXW0Ym0xRBKaOi_1bK6wiI8QNnk` (**substituída** pela `1R03...` acima)
 
 ## Como buscar os dados de "hoje"
 
@@ -28,17 +46,19 @@ Conta Meta Ads: **`8434968583195601`** ("CA (oficial) - Food Smart") — única 
 3. **Remover linhas de teste**: nome ou e-mail contendo "teste"/"test"/"example"/"matheus"; telefones fictícios conhecidos (5567991810237, 5567999999999, 5511987654321, etc.).
 4. **Deduplicar por e-mail** dentro do dia.
 5. **Classificar profissão**: contém "veterin" → Veterinário; contém "nutri" → Nutricionista; contém "engenh"+"aliment" → Eng. Alimentos; é "Estudante/Outros" → Estudante/Outros; qualquer outra coisa → Outras qualificadas. "Qualificado" = tudo exceto Estudante/Outros e vazio.
-6. **Investimento de hoje**: `mcp__Meta_Ads__ads_get_ad_entities` nível `campaign`, `ad_account_id: "8434968583195601"`, `filtering` por `campaign.id IN [os 3 IDs acima]`, `time_range: {since: HOJE, until: HOJE}`, campos `amount_spent`.
+6. **Investimento de hoje**: `mcp__Meta_Ads__ads_get_ad_entities` nível `campaign`, `ad_account_id: "8434968583195601"`, `filtering` por `campaign.id IN [os 3 IDs acima + os 3 da Lista de Espera]`, `time_range: {since: HOJE, until: HOJE}`, campos `amount_spent`.
+   - **Não filtre por ID sem antes rodar uma consulta sem filtro** no período: é assim que se descobre campanha gastando fora do escopo (foi exatamente o que escondeu a Lista de Espera). Rode `level: campaign` sem `filtering` com `effective_status` + `spend` e confira se apareceu alguma campanha nova com gasto.
 7. **Vídeo (Boletim Smart)**: mesma chamada, campanha `120253256887400728`, campos `impressions, reach, video_play_actions, video_p100_watched_actions, video_thruplay_watched_actions, cost_per_thruplay`.
 
 ## Estrutura da dashboard (ordem das seções)
 
-A dashboard está organizada em 4 blocos nesta ordem — **manter essa ordem**, foi pedido explicitamente pelo usuário:
+A dashboard está organizada em 5 blocos nesta ordem — **manter essa ordem**, foi pedido explicitamente pelo usuário:
 
 1. **Período atual** (`sec-h` nº 1) — KPIs com investimento total das 3 campanhas + métricas do período, tabela por campanha com total no `<tfoot>`, composição por formação (inclui barra "Total do período") e os 3 cards de campanha.
 2. **Comparativo entre períodos** (`sec-h` nº 2) — tabela consolidada (com coluna de contexto do período anterior ao anterior) e tabela aberta por campanha.
-3. **Acompanhamento diário** (`sec-h` nº 3) — banners, painel "Hoje", `#daySnapshot` e composição ontem-vs-hoje.
-4. **Leituras principais e metodologia** (`sec-h` nº 4) — rodapé.
+3. **Lista de Espera** (`sec-h` nº 3) — KPIs, tabela dos 3 períodos com split pago/orgânico, composição por formação e tabela das 3 campanhas no Meta.
+4. **Acompanhamento diário** (`sec-h` nº 4) — banners, painel "Hoje", `#daySnapshot` e composição ontem-vs-hoje.
+5. **Leituras principais e metodologia** (`sec-h` nº 5) — rodapé.
 
 ## O que atualizar no HTML
 
@@ -52,9 +72,22 @@ A dashboard está organizada em 4 blocos nesta ordem — **manter essa ordem**, 
 
 > Nota: o total de leads de 24/07→31/07 foi **recalculado** e passou de 152 (versões antigas) para 158. O investimento bate exatamente com o Meta (R$ 714,86 + R$ 537,64 + R$ 339,75). Isso está documentado no rodapé da dashboard.
 
+⚠️ **Nunca congele um período cujo último dia ainda está rodando.** A versão de 07/08 fotografou 31/07→07/08 com o dia 07/08 em curso e publicou 205 leads / R$ 2.624,66. Reconsultado com o dia fechado, o mesmo período dá **211 leads / R$ 2.807,03** (5 Aulas 108→115 leads e R$ 678,44→R$ 758,25; Boletim R$ 633,46→R$ 736,02; Webinário inalterado porque já estava pausado naquele dia). Ao rolar a janela, **sempre reconsulte o período anterior inteiro** em vez de reaproveitar o número publicado.
+
+### Valores de referência já validados (recalculados em 14/08, mesma base)
+Servem de checagem: se um recálculo futuro divergir destes, é sinal de que o filtro/dedup mudou.
+
+| Período | Investimento (3 campanhas) | Leads | Vets | Qualificados | CPL | Custo/qual |
+|---|---|---|---|---|---|---|
+| 24/07→31/07 | R$ 1.592,25 | 158 | 90 | 126 | R$ 7,93 | R$ 9,94 |
+| 31/07→07/08 | R$ 2.807,03 | 211 | 105 | 163 | R$ 9,82 | R$ 12,71 |
+| 07/08→14/08 | R$ 5.994,08 | 359 | 229 | 282 | R$ 14,44 | R$ 18,38 |
+
+Lista de Espera (mesmos períodos): R$ 2.399,34 / 111 leads (78 pagos) · R$ 1.441,75 / 59 leads (30 pagos) · R$ 4,51 / 24 leads (1 pago).
+
 **Não incluir** métricas de atendimento comercial na seção "Hoje" — esse dado vem de fora (time humano) e só deve aparecer se o usuário fornecer explicitamente.
 
-**Leads passados para o comercial** (KPI `Passados p/ o comercial`, 5º card do bloco "Período atual"): dado informado manualmente pelo usuário, **não** buscável via planilha ou Meta Ads. Valor atual: **135** para o período 31/07→07/08. Ao rolar o período, **não recalcule nem invente** esse número — mantenha o último valor informado e o período a que ele se refere, ou pergunte ao usuário. Se ele ficar defasado em relação ao período exibido, sinalize isso na dashboard em vez de deixar implícito que é do período corrente. Os percentuais ao lado (% dos leads reais e % dos qualificados) são derivados das bases da própria dashboard e devem ser recalculados junto.
+**Leads passados para o comercial** (KPI `Passados p/ o comercial`, 5º card do bloco "Período atual"): dado informado manualmente pelo usuário, **não** buscável via planilha ou Meta Ads. Último valor informado: **135**, referente ao período **31/07→07/08**. Ao rolar o período, **não recalcule nem invente** esse número. Desde 14/08 o card aparece **vazio (`—`)** no período corrente, com o último valor e seu período citados no `.delta` e detalhados no rodapé — foi a forma escolhida de sinalizar a defasagem sem repetir um número que não corresponde à semana exibida. Se o usuário informar um valor novo, preencha o card e recalcule os percentuais sobre as bases do período exibido (sobre 31/07→07/08, os 135 equivalem a 64,0% dos 211 leads e 82,8% dos 163 qualificados).
 
 ## Comparação diária — hoje vs ontem no MESMO horário (importante)
 
