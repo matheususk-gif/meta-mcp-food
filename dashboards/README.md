@@ -55,7 +55,7 @@ Particularidades desta planilha:
 A dashboard está organizada em 5 blocos nesta ordem — **manter essa ordem**, foi pedido explicitamente pelo usuário:
 
 1. **Período atual** (`sec-h` nº 1) — KPIs com investimento total das 3 campanhas + métricas do período, tabela por campanha com total no `<tfoot>`, composição por formação (inclui barra "Total do período") e os 3 cards de campanha.
-2. **Comparativo entre períodos** (`sec-h` nº 2) — tabela consolidada (com coluna de contexto do período anterior ao anterior) e tabela aberta por campanha.
+2. **Comparativo entre períodos** (`sec-h` nº 2) — tabela consolidada (com coluna de contexto do período anterior ao anterior) e tabela aberta por campanha. **A Lista de Espera entra nas duas**: na consolidada como grupo final "Conta inteira — somando a Lista de Espera", na por-campanha como grupo próprio. Não basta citá-la no bloco 3 — o usuário pediu explicitamente que ela apareça nos comparativos.
 3. **Lista de Espera** (`sec-h` nº 3) — KPIs, tabela dos 3 períodos com split pago/orgânico, composição por formação e tabela das 3 campanhas no Meta.
 4. **Acompanhamento diário** (`sec-h` nº 4) — banners, painel "Hoje", `#daySnapshot` e composição ontem-vs-hoje.
 5. **Leituras principais e metodologia** (`sec-h` nº 5) — rodapé.
@@ -84,6 +84,16 @@ Servem de checagem: se um recálculo futuro divergir destes, é sinal de que o f
 | 07/08→14/08 | R$ 5.994,08 | 359 | 229 | 282 | R$ 14,44 | R$ 18,38 |
 
 Lista de Espera (mesmos períodos): R$ 2.399,34 / 111 leads (78 pagos) · R$ 1.441,75 / 59 leads (30 pagos) · R$ 4,51 / 24 leads (1 pago).
+
+**Conta inteira** (3 campanhas + Lista de Espera; captação = tudo menos o Boletim):
+
+| Período | Investimento | Leads (pagos / org.) | Vets | Qualif. | CPL | CPL pago | Custo/qual |
+|---|---|---|---|---|---|---|---|
+| 24/07→31/07 | R$ 3.991,59 | 269 (236 / 32) | 171 | 232 | R$ 13,58 | R$ 15,47 | R$ 15,74 |
+| 31/07→07/08 | R$ 4.248,78 | 270 (241 / 27) | 145 | 222 | R$ 13,01 | R$ 14,58 | R$ 15,82 |
+| 07/08→14/08 | R$ 5.998,59 | 383 (360 / 22) | 246 | 306 | R$ 13,54 | R$ 14,41 | R$ 16,95 |
+
+⚠️ **Sempre mostre as duas leituras.** Só com as 3 campanhas, a semana 07–14/08 parece uma piora de 47,1% no CPL; com a Lista de Espera somada, o CPL fica em +4,1% e o CPL pago em −1,2%, porque houve **remanejamento** de verba do funil caro (Lista de Espera, R$ 48,06/lead pago) para o barato (Webinário, R$ 17,33). Reportar só a primeira leitura dá diagnóstico errado. Webinário e 5 Aulas são **100% `meta-ads`** na coluna `Utm Source` (verificado), então o corte "só pago" é válido; a Lista de Espera é a única que capta orgânico.
 
 **Não incluir** métricas de atendimento comercial na seção "Hoje" — esse dado vem de fora (time humano) e só deve aparecer se o usuário fornecer explicitamente.
 
