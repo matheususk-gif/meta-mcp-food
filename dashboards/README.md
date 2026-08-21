@@ -58,6 +58,8 @@ Os **16 conjuntos** otimizam por `POST_ENGAGEMENT` (verificado via `level: adset
 São **rateios de leitura, não custos medidos** — o Meta não atribui gasto por formação do lead. Servem para comparar funis ("onde o veterinário sai mais barato"); **não somam**, porque o mesmo investimento está no denominador de todas as linhas. Sempre explicite isso na página.
 
 Referência 14→21/08 — custo por veterinário: RT Class **R$ 12,77** · Lista de Espera R$ 25,85 · Webinário R$ 28,63 · 5 Aulas R$ 37,69.
+
+A tabela mostra, em cada célula, **leads + fatia da formação naquele funil + custo**. As fatias são calculadas sobre o total de leads da própria coluna (funil), não sobre o total geral — cada coluna soma 100%. Fatias de veterinário por funil: Webinário 89,3% · Lista de Espera 56,6% · E-books 40,0% · RT Class 32,3% · 5 Aulas 27,5%.
 Classificação: **Tecnólogo de Alimentos entra junto com Engenheiro de Alimentos**.
 
 ## Aba "Bolsa de Estudos" — funil SEM tráfego pago (isolado)

@@ -123,6 +123,8 @@
   .pair .was{color:var(--faint)}
   .pair .arrow{color:var(--faint); padding:0 3px}
   .pair .now{font-weight:600}
+  .pct{font-family:var(--mono); font-size:12px; font-weight:400; color:var(--muted)}
+  .pair .cost{color:var(--faint)}
   .delta{font-family:var(--mono); font-size:13px; font-weight:600; white-space:nowrap}
   tfoot td{border-top:1.5px solid var(--line); border-bottom:0; font-weight:700; padding-top:14px; padding-bottom:15px}
   tfoot .pair{font-size:14px}
@@ -304,7 +306,7 @@
 
   <section>
     <h2>Leads e custo por formação</h2>
-    <p class="sub">Semana 14→21/08. Cada célula traz <b>leads</b> e, abaixo, quanto custou trazer um lead daquela formação naquele funil — ou seja, o investimento do funil dividido pelos leads da formação.</p>
+    <p class="sub">Semana 14→21/08. Cada célula traz <b>leads</b>, a <b>fatia que essa formação representa naquele funil</b> e, abaixo, quanto custou trazer um lead dela — o investimento do funil dividido pelos leads da formação. As porcentagens de cada coluna somam 100% — diferenças de 0,1 p.p. são arredondamento.</p>
     <div class="scroll">
       <table>
         <thead>
@@ -321,68 +323,68 @@
         <tbody>
           <tr>
             <td class="fn">Veterinário</td>
-            <td class="r pair"><span class="now">167</span><br><span class="was">R$ 28,63</span></td>
-            <td class="r pair"><span class="now">25</span><br><span class="was">R$ 37,69</span></td>
-            <td class="r pair"><span class="now">43</span><br><span class="was">R$ 25,85</span></td>
-            <td class="r pair"><span class="now">86</span><br><span class="was">R$ 12,77</span></td>
-            <td class="r pair"><span class="now">2</span><br><span class="was">R$ 830,10</span></td>
-            <td class="r pair"><span class="now">323</span><br><span class="was">R$ 29,70</span></td>
+            <td class="r pair"><span class="now">167</span> <span class="pct">89,3%</span><br><span class="cost">R$ 28,63</span></td>
+            <td class="r pair"><span class="now">25</span> <span class="pct">27,5%</span><br><span class="cost">R$ 37,69</span></td>
+            <td class="r pair"><span class="now">43</span> <span class="pct">56,6%</span><br><span class="cost">R$ 25,85</span></td>
+            <td class="r pair"><span class="now">86</span> <span class="pct">32,3%</span><br><span class="cost">R$ 12,77</span></td>
+            <td class="r pair"><span class="now">2</span> <span class="pct">40,0%</span><br><span class="cost">R$ 830,10</span></td>
+            <td class="r pair"><span class="now">323</span> <span class="pct">51,7%</span><br><span class="cost">R$ 29,70</span></td>
           </tr>
           <tr>
             <td class="fn">Nutricionista</td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">24</span><br><span class="was">R$ 39,26</span></td>
-            <td class="r pair"><span class="now">19</span><br><span class="was">R$ 58,50</span></td>
-            <td class="r pair"><span class="now">124</span><br><span class="was">R$ 8,86</span></td>
-            <td class="r pair"><span class="now">1</span><br><span class="was">R$ 1.660,19</span></td>
-            <td class="r pair"><span class="now">168</span><br><span class="was">R$ 57,10</span></td>
+            <td class="r pair"><span class="now">24</span> <span class="pct">26,4%</span><br><span class="cost">R$ 39,26</span></td>
+            <td class="r pair"><span class="now">19</span> <span class="pct">25,0%</span><br><span class="cost">R$ 58,50</span></td>
+            <td class="r pair"><span class="now">124</span> <span class="pct">46,6%</span><br><span class="cost">R$ 8,86</span></td>
+            <td class="r pair"><span class="now">1</span> <span class="pct">20,0%</span><br><span class="cost">R$ 1.660,19</span></td>
+            <td class="r pair"><span class="now">168</span> <span class="pct">26,9%</span><br><span class="cost">R$ 57,10</span></td>
           </tr>
           <tr>
             <td class="fn">Eng./Tecnól. Alimentos</td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">12</span><br><span class="was">R$ 78,52</span></td>
-            <td class="r pair"><span class="now">5</span><br><span class="was">R$ 222,30</span></td>
-            <td class="r pair"><span class="now">29</span><br><span class="was">R$ 37,88</span></td>
-            <td class="r pair"><span class="now">2</span><br><span class="was">R$ 830,10</span></td>
-            <td class="r pair"><span class="now">48</span><br><span class="was">R$ 199,86</span></td>
+            <td class="r pair"><span class="now">12</span> <span class="pct">13,2%</span><br><span class="cost">R$ 78,52</span></td>
+            <td class="r pair"><span class="now">5</span> <span class="pct">6,6%</span><br><span class="cost">R$ 222,30</span></td>
+            <td class="r pair"><span class="now">29</span> <span class="pct">10,9%</span><br><span class="cost">R$ 37,88</span></td>
+            <td class="r pair"><span class="now">2</span> <span class="pct">40,0%</span><br><span class="cost">R$ 830,10</span></td>
+            <td class="r pair"><span class="now">48</span> <span class="pct">7,7%</span><br><span class="cost">R$ 199,86</span></td>
           </tr>
           <tr>
             <td class="fn">Outras formações</td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">9</span><br><span class="was">R$ 123,50</span></td>
-            <td class="r pair"><span class="now">26</span><br><span class="was">R$ 42,25</span></td>
+            <td class="r pair"><span class="now">9</span> <span class="pct">11,8%</span><br><span class="cost">R$ 123,50</span></td>
+            <td class="r pair"><span class="now">26</span> <span class="pct">9,8%</span><br><span class="cost">R$ 42,25</span></td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">35</span><br><span class="was">R$ 274,10</span></td>
+            <td class="r pair"><span class="now">35</span> <span class="pct">5,6%</span><br><span class="cost">R$ 274,10</span></td>
           </tr>
           <tr>
             <td class="fn">Estudante/Outros <small>não qualificado</small></td>
-            <td class="r pair"><span class="now">20</span><br><span class="was">R$ 239,05</span></td>
-            <td class="r pair"><span class="now">30</span><br><span class="was">R$ 31,41</span></td>
+            <td class="r pair"><span class="now">20</span> <span class="pct">10,7%</span><br><span class="cost">R$ 239,05</span></td>
+            <td class="r pair"><span class="now">30</span> <span class="pct">33,0%</span><br><span class="cost">R$ 31,41</span></td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">50</span><br><span class="was">R$ 191,87</span></td>
+            <td class="r pair"><span class="now">50</span> <span class="pct">8,0%</span><br><span class="cost">R$ 191,87</span></td>
           </tr>
           <tr>
             <td class="fn">Não informado</td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">1</span><br><span class="was">—</span></td>
+            <td class="r pair"><span class="now">1</span> <span class="pct">0,4%</span><br><span class="cost">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">1</span><br><span class="was">—</span></td>
+            <td class="r pair"><span class="now">1</span> <span class="pct">0,2%</span><br><span class="cost">—</span></td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <td class="fn">Total de leads</td>
-            <td class="r pair"><span class="now">187</span><br><span class="was">R$ 25,57</span></td>
-            <td class="r pair"><span class="now">91</span><br><span class="was">R$ 10,35</span></td>
-            <td class="r pair"><span class="now">76</span><br><span class="was">R$ 14,62</span></td>
-            <td class="r pair"><span class="now">266</span><br><span class="was">R$ 4,13</span></td>
-            <td class="r pair"><span class="now">5</span><br><span class="was">R$ 332,04</span></td>
-            <td class="r pair"><span class="now">625</span><br><span class="was">R$ 15,35</span></td>
+            <td class="r pair"><span class="now">187</span> <span class="pct">100%</span><br><span class="cost">R$ 25,57</span></td>
+            <td class="r pair"><span class="now">91</span> <span class="pct">100%</span><br><span class="cost">R$ 10,35</span></td>
+            <td class="r pair"><span class="now">76</span> <span class="pct">100%</span><br><span class="cost">R$ 14,62</span></td>
+            <td class="r pair"><span class="now">266</span> <span class="pct">100%</span><br><span class="cost">R$ 4,13</span></td>
+            <td class="r pair"><span class="now">5</span> <span class="pct">100%</span><br><span class="cost">R$ 332,04</span></td>
+            <td class="r pair"><span class="now">625</span> <span class="pct">100%</span><br><span class="cost">R$ 15,35</span></td>
           </tr>
         </tfoot>
       </table>
