@@ -50,56 +50,57 @@ Particularidades desta planilha:
    - **Não filtre por ID sem antes rodar uma consulta sem filtro** no período: é assim que se descobre campanha gastando fora do escopo (foi exatamente o que escondeu a Lista de Espera). Rode `level: campaign` sem `filtering` com `effective_status` + `spend` e confira se apareceu alguma campanha nova com gasto.
 7. **Vídeo (Boletim Smart)**: mesma chamada, campanha `120253256887400728`, campos `impressions, reach, video_play_actions, video_p100_watched_actions, video_thruplay_watched_actions, cost_per_thruplay`.
 
-## Estrutura da dashboard (ordem das seções)
+## Estrutura da dashboard (reescrita em 21/08 — versão minimalista)
 
-A dashboard está organizada em 5 blocos nesta ordem — **manter essa ordem**, foi pedido explicitamente pelo usuário:
+O usuário pediu explicitamente uma versão **enxuta**: *"mais minimalista, está muito poluída de informações. Esqueça a comparação diária"*. A dashboard passou de ~77 KB para ~19 KB e agora tem só:
 
-1. **Período atual** (`sec-h` nº 1) — KPIs com investimento total das 3 campanhas + métricas do período, tabela por campanha com total no `<tfoot>`, composição por formação (inclui barra "Total do período") e os 3 cards de campanha.
-2. **Comparativo entre períodos** (`sec-h` nº 2) — tabela consolidada (com coluna de contexto do período anterior ao anterior) e tabela aberta por campanha. **A Lista de Espera entra nas duas**: na consolidada como grupo final "Conta inteira — somando a Lista de Espera", na por-campanha como grupo próprio. Não basta citá-la no bloco 3 — o usuário pediu explicitamente que ela apareça nos comparativos.
-3. **Lista de Espera** (`sec-h` nº 3) — KPIs, tabela dos 3 períodos com split pago/orgânico, composição por formação e tabela das 3 campanhas no Meta.
-4. **Acompanhamento diário** (`sec-h` nº 4) — banners, painel "Hoje", `#daySnapshot` e composição ontem-vs-hoje.
-5. **Leituras principais e metodologia** (`sec-h` nº 5) — rodapé.
+1. **Cabeçalho** — título, as duas janelas comparadas, lede de 2 linhas.
+2. **Faixa de 4 indicadores** — investimento, leads, CPL de captação, veterinários (com Δ).
+3. **Funil por funil** — uma tabela, células no formato `anterior → atual`, chip de situação por linha. Rodapé com o total da conta.
+4. **Só os funis de captação** — tabela consolidada de 7 métricas com variação.
+5. **O que explica a semana** — 4 leituras curtas.
+6. **Metodologia** — 3 parágrafos + carimbo de atualização.
 
-## O que atualizar no HTML
+⚠️ **O bloco de acompanhamento diário foi REMOVIDO**, junto com os cards de campanha, as barras de composição por formação e a tabela de vídeo do Boletim. Não recrie nada disso sem o usuário pedir.
 
-**A cada execução diária**, recalcule com dados de hoje e ontem (mesmo horário de coleta):
-- O painel **"Hoje"** (`today-panel`): KPIs com delta, tabela `.today-tbl`, tabela `.cmp` de CPL hoje-vs-ontem, e o `#daySnapshot`.
-- A seção **"Composição por formação — ontem vs hoje"**: 2 barras empilhadas por campanha (Webinário Diário e 5 Aulas), uma para "Ontem" e uma para "Hoje". Atualize o título (`ontem vs hoje (DD→DD/MM)`), os leads/percentuais no `.comp-head .meta`, as larguras/rótulos das `.stack` e a frase de leitura.
-- O banner de campanha pausada (`.banner.off`), se houver campanha sem gasto no dia — checar `effective_status` antes de afirmar que está pausada.
-- O rodapé `#updatedAt`.
+### Consequência para a rotina diária agendada
+A Routine `trig_01TTPnrcRqR7hpeadS6AhHvZ` ainda manda *"edite APENAS a seção Hoje e o rodapé"*. **Essa seção não existe mais.** Até o usuário atualizar o texto da Routine, a interpretação correta é: **atualizar as duas janelas semanais** (a atual termina hoje, a de comparação são os 8 dias anteriores) e o carimbo do rodapé. Se a rotina rodar no meio de uma semana, role as janelas — não invente um bloco diário.
 
-**O bloco "Período atual" e o "Comparativo" também precisam rolar** conforme o tempo passa: o período atual é a janela de 8 dias que termina hoje, e o período anterior é a janela de 8 dias imediatamente anterior (ambas inclusivas, compartilhando a data de virada). Ao rolar, recalcule os dois períodos **na mesma base** (mesmo filtro de teste, mesma dedup, mesmo classificador) — nunca reaproveite números de versões antigas da dashboard, que podem ter sido calculados com outro critério.
+## Funis que entram (todos, desde 21/08)
 
-> Nota: o total de leads de 24/07→31/07 foi **recalculado** e passou de 152 (versões antigas) para 158. O investimento bate exatamente com o Meta (R$ 714,86 + R$ 537,64 + R$ 339,75). Isso está documentado no rodapé da dashboard.
+| Funil | Campanhas Meta | Planilha de leads |
+|---|---|---|
+| Webinário Diário | `120252983859150728` | `10TAoNrbs3kvAvYFVUt12R8vffcS3EuMB0vbrQJHOX1A` |
+| 5 Aulas (NRTC) | `120250662210340728` | `1dZBHAGh-SVgv3Uo7VpPCAJ6f1cGs1VUWyDOh0wp4aGw` |
+| Lista de Espera | `120249875636100728`, `120251343526400728`, `120249880935590728` | `1R03LtoNapMumPGdPgzA_3ueS09h4yXc_dRWMfAdCgX0` |
+| RT Class Agosto | `120253773020370728`, `120253772384610728` | `1ZFw_laGXaL26TWgmnIJKT1Q8xE-Nut6yltRr3ARVos0` |
+| E-books (vendas) | `120253731874700728`, `120253731865160728`, `120253731698570728`, `120253731689630728`, `120253729485470728` | `1AjK1GZ-mHJxoioL93W4iySYZ-drWbfsVjkhlxtJ2xFY` |
+| Boletim Smart (vídeo) | `120253256887400728` | — (não capta lead) |
 
-⚠️ **Nunca congele um período cujo último dia ainda está rodando.** A versão de 07/08 fotografou 31/07→07/08 com o dia 07/08 em curso e publicou 205 leads / R$ 2.624,66. Reconsultado com o dia fechado, o mesmo período dá **211 leads / R$ 2.807,03** (5 Aulas 108→115 leads e R$ 678,44→R$ 758,25; Boletim R$ 633,46→R$ 736,02; Webinário inalterado porque já estava pausado naquele dia). Ao rolar a janela, **sempre reconsulte o período anterior inteiro** em vez de reaproveitar o número publicado.
+Notas por funil:
+- **RT Class Agosto**: planilha `MCP Meta Visualizer - RT Class Agosto`, formação na coluna 5, `Utm Source` na 7, **e-mail na coluna 3 / telefone na 4** (invertido em relação às outras planilhas). Tem linhas de teste com nome/e-mail "manychat" — filtre também por esse termo. **81% dos leads são orgânicos** → sempre mostre o CPL só dos pagos junto do CPL cheio, senão a campanha parece 5× melhor do que é.
+- **E-books**: é **funil de vendas**, não de captação. Não entre com ele no CPL consolidado. A planilha é um formulário longo de qualificação (renda, endereço), formação na coluna 11. A métrica que decide o funil é **venda**, que não está em nenhuma planilha disponível — registre essa lacuna em vez de julgar pelo CPL.
+- **Lista de Espera** e **RT Class** captam orgânico; Webinário e 5 Aulas são 100% `meta-ads` (verificado).
 
-### Valores de referência já validados (recalculados em 14/08, mesma base)
-Servem de checagem: se um recálculo futuro divergir destes, é sinal de que o filtro/dedup mudou.
+### Valores de referência — semanas 07→14/08 e 14→21/08 (recalculados em 21/08)
 
-| Período | Investimento (3 campanhas) | Leads | Vets | Qualificados | CPL | Custo/qual |
-|---|---|---|---|---|---|---|
-| 24/07→31/07 | R$ 1.592,25 | 158 | 90 | 126 | R$ 7,93 | R$ 9,94 |
-| 31/07→07/08 | R$ 2.807,03 | 211 | 105 | 163 | R$ 9,82 | R$ 12,71 |
-| 07/08→14/08 | R$ 5.994,08 | 359 | 229 | 282 | R$ 14,44 | R$ 18,38 |
+| Funil | Inv. 07→14 | Inv. 14→21 | Leads 07→14 | Leads 14→21 | CPL 14→21 |
+|---|---|---|---|---|---|
+| Webinário Diário | R$ 4.159,78 | R$ 4.704,16 | 240 | 175 | R$ 26,88 |
+| 5 Aulas | R$ 1.079,27 | R$ 937,12 | 123 | 81 | R$ 11,57 |
+| Lista de Espera | R$ 99,88 | R$ 1.100,95 | 30 | 70 | R$ 15,73 (pagos R$ 26,85) |
+| RT Class Agosto | — | R$ 1.080,60 | — | 264 | R$ 4,09 (pagos R$ 22,05) |
+| E-books | — | R$ 1.629,59 | — | 5 | n/a (vendas) |
+| Boletim Smart | R$ 859,30 | R$ 683,08 | — | — | — |
+| **Total conta** | **R$ 6.198,23** | **R$ 10.135,50** | **393** | **595** | — |
 
-Lista de Espera (mesmos períodos): R$ 2.399,34 / 111 leads (78 pagos) · R$ 1.441,75 / 59 leads (30 pagos) · R$ 4,51 / 24 leads (1 pago).
+Captação (4 funis, sem Boletim e sem e-books): R$ 5.338,93 → R$ 7.822,83 · 393 → 590 leads · CPL R$ 13,59 → R$ 13,26 · qualificados 315 → 541 · vets 250 → 301 (63,6% → 51,0%).
 
-**Conta inteira** (3 campanhas + Lista de Espera; captação = tudo menos o Boletim):
+⚠️ Os leads de 14→21/08 **não incluem 21/08** (planilhas sincronizadas até 20/08), então são piso; o investimento **inclui** 21/08 parcial.
 
-| Período | Investimento | Leads (pagos / org.) | Vets | Qualif. | CPL | CPL pago | Custo/qual |
-|---|---|---|---|---|---|---|---|
-| 24/07→31/07 | R$ 3.991,59 | 269 (236 / 32) | 171 | 232 | R$ 13,58 | R$ 15,47 | R$ 15,74 |
-| 31/07→07/08 | R$ 4.248,78 | 270 (241 / 27) | 145 | 222 | R$ 13,01 | R$ 14,58 | R$ 15,82 |
-| 07/08→14/08 | R$ 5.998,59 | 383 (360 / 22) | 246 | 306 | R$ 13,54 | R$ 14,41 | R$ 16,95 |
+## Comparação diária — hoje vs ontem (HISTÓRICO — bloco removido em 21/08)
 
-⚠️ **Sempre mostre as duas leituras.** Só com as 3 campanhas, a semana 07–14/08 parece uma piora de 47,1% no CPL; com a Lista de Espera somada, o CPL fica em +4,1% e o CPL pago em −1,2%, porque houve **remanejamento** de verba do funil caro (Lista de Espera, R$ 48,06/lead pago) para o barato (Webinário, R$ 17,33). Reportar só a primeira leitura dá diagnóstico errado. Webinário e 5 Aulas são **100% `meta-ads`** na coluna `Utm Source` (verificado), então o corte "só pago" é válido; a Lista de Espera é a única que capta orgânico.
-
-**Não incluir** métricas de atendimento comercial na seção "Hoje" — esse dado vem de fora (time humano) e só deve aparecer se o usuário fornecer explicitamente.
-
-**Leads passados para o comercial** (KPI `Passados p/ o comercial`, 5º card do bloco "Período atual"): dado informado manualmente pelo usuário, **não** buscável via planilha ou Meta Ads. Último valor informado: **135**, referente ao período **31/07→07/08**. Ao rolar o período, **não recalcule nem invente** esse número. Desde 14/08 o card aparece **vazio (`—`)** no período corrente, com o último valor e seu período citados no `.delta` e detalhados no rodapé — foi a forma escolhida de sinalizar a defasagem sem repetir um número que não corresponde à semana exibida. Se o usuário informar um valor novo, preencha o card e recalcule os percentuais sobre as bases do período exibido (sobre 31/07→07/08, os 135 equivalem a 64,0% dos 211 leads e 82,8% dos 163 qualificados).
-
-## Comparação diária — hoje vs ontem no MESMO horário (importante)
+> Mantido só como referência de método, caso o usuário peça o bloco diário de volta. **Não aplique numa execução normal.**
 
 A rotina roda todo dia por volta do mesmo horário, então os dados de "hoje" e "ontem" são coletados em pontos parecidos do dia — isso é o que torna a comparação justa. **Nunca compare o "hoje" parcial com a média/total da última semana fechada** para CPL ou custo — um dia pela metade sempre parece pior, porque o investimento é gasto de forma mais linear ao longo do dia do que os leads chegam (o Meta "gasta na frente"). A comparação certa é sempre **hoje até HHhMM vs ontem até um HHhMM parecido**.
 
