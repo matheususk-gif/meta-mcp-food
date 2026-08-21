@@ -82,21 +82,27 @@ Notas por funil:
 - **E-books**: é **funil de vendas**, não de captação. Não entre com ele no CPL consolidado. A planilha é um formulário longo de qualificação (renda, endereço), formação na coluna 11. A métrica que decide o funil é **venda**, que não está em nenhuma planilha disponível — registre essa lacuna em vez de julgar pelo CPL.
 - **Lista de Espera** e **RT Class** captam orgânico; Webinário e 5 Aulas são 100% `meta-ads` (verificado).
 
-### Valores de referência — semanas 07→14/08 e 14→21/08 (recalculados em 21/08)
+### Valores de referência — semanas 07→14/08 e 14→21/08 (revisados no fim do dia 21/08)
 
 | Funil | Inv. 07→14 | Inv. 14→21 | Leads 07→14 | Leads 14→21 | CPL 14→21 |
 |---|---|---|---|---|---|
-| Webinário Diário | R$ 4.159,78 | R$ 4.704,16 | 240 | 175 | R$ 26,88 |
-| 5 Aulas | R$ 1.079,27 | R$ 937,12 | 123 | 81 | R$ 11,57 |
-| Lista de Espera | R$ 99,88 | R$ 1.100,95 | 30 | 70 | R$ 15,73 (pagos R$ 26,85) |
-| RT Class Agosto | — | R$ 1.080,60 | — | 264 | R$ 4,09 (pagos R$ 22,05) |
-| E-books | — | R$ 1.629,59 | — | 5 | n/a (vendas) |
-| Boletim Smart | R$ 859,30 | R$ 683,08 | — | — | — |
-| **Total conta** | **R$ 6.198,23** | **R$ 10.135,50** | **393** | **595** | — |
+| Webinário Diário | R$ 4.159,78 | R$ 4.759,41 | 240 | 187 | R$ 25,45 |
+| 5 Aulas | R$ 1.079,27 | R$ 940,99 | 123 | 91 | R$ 10,34 |
+| Lista de Espera | R$ 99,88 | R$ 1.108,56 | 30 | 76 | R$ 14,59 (pagos R$ 24,10) |
+| RT Class Agosto | — | R$ 1.094,75 | — | 266 | R$ 4,12 (pagos R$ 21,89) |
+| E-books | — | R$ 1.652,66 | — | 5 | n/a (vendas) |
+| Boletim Smart | R$ 859,30 | R$ 688,67 | — | — | — |
+| **Total conta** | **R$ 6.198,23** | **R$ 10.245,04** | **393** | **625** | — |
 
-Captação (4 funis, sem Boletim e sem e-books): R$ 5.338,93 → R$ 7.822,83 · 393 → 590 leads · CPL R$ 13,59 → R$ 13,26 · qualificados 315 → 541 · vets 250 → 301 (63,6% → 51,0%).
+Captação (4 funis): R$ 5.338,93 → R$ 7.903,71 · 393 → 620 leads · CPL R$ 13,59 → R$ 12,75 · qualificados 315 → 569 · vets 250 → 321 (63,6% → 51,8%).
 
-⚠️ Os leads de 14→21/08 **não incluem 21/08** (planilhas sincronizadas até 20/08), então são piso; o investimento **inclui** 21/08 parcial.
+Veterinários por funil na semana atual: Webinário 167/187 (**89,3%**), Lista de Espera 43/76 (56,6%), RT Class 86/266 (32,3%), 5 Aulas 25/91 (27,5%).
+
+⚠️ **Duas armadilhas de atraso, ambas vividas em 21/08 — sempre reconsulte antes de publicar:**
+1. **Quebra horária do Meta atrasa horas.** Às ~11h a consulta devolvia R$ 28,01 para o Webinário no dia; à tarde, R$ 464,64. A conta inteira passou de R$ 65,22 para R$ 1.055,18. Uma leitura feita cedo **não serve** para fechar semana.
+2. **As planilhas sincronizam com atraso.** De manhã as 5 paravam em 20/08; à tarde todas tinham 21/08. A primeira versão da dashboard publicou o Webinário com 175 leads; o real era 187.
+
+Consequência prática: se a rotina rodar de manhã, **marque os números como provisórios** e rode de novo mais tarde antes de tratar a semana como fechada.
 
 ## Comparação diária — hoje vs ontem (HISTÓRICO — bloco removido em 21/08)
 
