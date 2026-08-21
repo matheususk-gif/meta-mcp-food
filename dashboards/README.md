@@ -60,6 +60,25 @@ São **rateios de leitura, não custos medidos** — o Meta não atribui gasto p
 Referência 14→21/08 — custo por veterinário: RT Class **R$ 12,77** · Lista de Espera R$ 25,85 · Webinário R$ 28,63 · 5 Aulas R$ 37,69.
 Classificação: **Tecnólogo de Alimentos entra junto com Engenheiro de Alimentos**.
 
+## Aba "Bolsa de Estudos" — funil SEM tráfego pago (isolado)
+
+Planilha: **`1rObSclXCj9BysDm5hFoLHaDZEVlFf0OOKSuSZIdoFnY`** ("YayForms").
+Distribuição por **e-mail, disparo em grupo e Botconversa** — **não tem campanha no Meta**.
+
+🚫 **Regra dura, pedida explicitamente pelo usuário: NÃO misture com os funis de tráfego.**
+Os leads da Bolsa não entram em nenhum total, CPL ou composição por formação da aba de tráfego pago. A dashboard usa **abas** (`role="tablist"`) justamente para garantir essa separação estrutural. O único ponto em que as duas bases se somam é a nota dos leads passados ao comercial, e lá isso está dito.
+
+- Sem investimento ⇒ **não calcule CPL** para este funil. A métrica é volume + qualificação declarada.
+- Colunas: formação de base na **6**, concluiu graduação **7**, registro no conselho **8**, perfil **9**, formato de pagamento **13**, quando começaria **14**, quem decide **15**.
+- Formulário longo: dá para ler **intenção de compra**, não só volume. Use isso.
+
+Referência 14→21/08: **51 leads reais** (53 brutos − 1 teste − 1 duplicado), todos entre 19 e 21/08 (26 no dia 19 — padrão de **disparo pontual**, não fluxo). Veterinário 22 (43,1%), Eng./Tecnól. Alimentos 12 (23,5%), Nutricionista 11 (21,6%), Outras 6 (11,8%). Com registro ativo no conselho: 38 (74,5%). Começariam imediatamente: 39 (76,5%). Pagariam à vista: apenas 3 (5,9%) — **70,6% têm restrição de fluxo de caixa**.
+
+## Leads passados ao comercial
+
+Dado **informado manualmente pelo time**, não extraível de planilha nem do Meta. Último valor: **248**, referente a **14→21/08**.
+⚠️ O time **não informa a quebra por funil**, então não atribua a nenhum funil específico. A dashboard mostra o número acima das abas, com as duas referências possíveis: 39,7% dos 625 leads do tráfego pago, ou 36,7% incluindo os 51 da Bolsa. **Nunca escolha uma das duas bases silenciosamente.**
+
 ## Campanhas realmente pausadas (NÃO entram)
 - **RT Class** (e variações datadas) — planilha `171Xd5kdYqy83E4wsVz8nvY70whdWfnSsoveuf0Viexk`
 - **Funis de vendas (Imersões)** — sem gasto nos períodos analisados

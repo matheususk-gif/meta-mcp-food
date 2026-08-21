@@ -147,6 +147,29 @@
             letter-spacing:-.005em}
   .reads b{color:var(--text); font-weight:600}
 
+  /* ---- tabs ---- */
+  .tabs{display:flex; gap:4px; border-bottom:1px solid var(--line); margin-bottom:-16px}
+  .tab{font-family:var(--display); font-size:13px; font-weight:600; letter-spacing:.01em;
+       background:none; border:0; border-bottom:2px solid transparent; color:var(--muted);
+       padding:10px 14px 11px; cursor:pointer; margin-bottom:-1px}
+  .tab:hover{color:var(--text)}
+  .tab[aria-selected="true"]{color:var(--accent); border-bottom-color:var(--accent)}
+  .tab:focus-visible{outline:2px solid var(--accent); outline-offset:-2px; border-radius:4px 4px 0 0}
+  .tab .n{font-family:var(--mono); font-weight:500; color:var(--faint); margin-left:6px; font-size:12px}
+  .tab[aria-selected="true"] .n{color:var(--accent)}
+  [role="tabpanel"]{display:flex; flex-direction:column; gap:34px; padding-top:16px}
+  [role="tabpanel"][hidden]{display:none}
+
+  /* ---- handoff strip ---- */
+  .handoff{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+           background:var(--accent-soft); border:1px solid var(--line); border-left:3px solid var(--accent);
+           border-radius:9px; padding:14px 17px}
+  .handoff .big{font-family:var(--mono); font-size:24px; font-weight:600; letter-spacing:-.03em; color:var(--text)}
+  .handoff .lab{font-family:var(--display); font-size:11px; font-weight:600; letter-spacing:.1em;
+                text-transform:uppercase; color:var(--accent)}
+  .handoff .txt{font-size:13px; color:var(--muted); flex:1 1 320px; min-width:0}
+  .handoff .txt b{color:var(--text); font-weight:600}
+
   /* ---- method ---- */
   .method{border-top:1px solid var(--line); padding-top:22px; font-size:13px; color:var(--muted);
           display:flex; flex-direction:column; gap:9px}
@@ -159,17 +182,31 @@
 
   <header class="head">
     <div>
-      <p class="eyebrow">Foodsmart · mídia paga</p>
+      <p class="eyebrow">Foodsmart · desempenho por funil</p>
       <h1>Semana 14 → 21 de agosto</h1>
       <div class="window">
         <span class="win on"><b>14/08 → 21/08</b> · semana atual</span>
         <span class="win">07/08 → 14/08 · comparação</span>
       </div>
-      <p class="lede">A conta gastou <b>65,9% mais</b> que na semana anterior e o <b>custo por lead caiu 5,8%</b> — mas o <b>veterinário ficou 15,7% mais caro</b>. Entraram três funis novos ou reativados, baratos por lead e cheios de nutricionista, enquanto os dois antigos ficaram mais caros.</p>
+      <p class="lede">No tráfego pago, a conta gastou <b>65,9% mais</b> que na semana anterior e o <b>custo por lead caiu 5,8%</b> — mas o <b>veterinário ficou 15,7% mais caro</b>: entraram funis baratos e cheios de nutricionista, enquanto os dois antigos encareceram. O funil de <b>Bolsa de Estudos</b>, que roda sem mídia, está na aba ao lado, com os números separados.</p>
     </div>
     <button class="themer" id="themer" type="button">tema</button>
   </header>
 
+  <div class="handoff">
+    <div>
+      <div class="lab">Passados ao comercial</div>
+      <div class="big">248 leads</div>
+    </div>
+    <p class="txt"><b>Dado informado pelo time comercial</b> para a janela 14→21/08 — não vem quebrado por funil, então não é possível dizer quanto veio de cada um. Como referência: equivale a <b>39,7%</b> dos 625 leads do tráfego pago, ou <b>36,7%</b> se somarmos também os 51 leads da Bolsa de Estudos. É o único número desta dashboard que cruza as duas abas.</p>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Seções da dashboard">
+    <button class="tab" role="tab" id="tab-trafego" aria-controls="panel-trafego" aria-selected="true" type="button">Tráfego pago<span class="n">625</span></button>
+    <button class="tab" role="tab" id="tab-bolsa" aria-controls="panel-bolsa" aria-selected="false" tabindex="-1" type="button">Bolsa de Estudos<span class="n">51</span></button>
+  </div>
+
+  <div id="panel-trafego" role="tabpanel" aria-labelledby="tab-trafego">
   <div class="tiles">
     <div class="tile">
       <span class="k">Investimento</span>
@@ -450,15 +487,164 @@
     <p class="stamp">Fonte: Meta Ads (conta CA oficial — Food Smart) e as 5 planilhas de leads · atualizado em 21/08/2026, investimento parcial para o dia corrente</p>
   </div>
 
+  </div>
+
+  <div id="panel-bolsa" role="tabpanel" aria-labelledby="tab-bolsa" hidden>
+  <section>
+    <h2>Bolsa de Estudos — funil sem tráfego pago</h2>
+    <p class="sub">Este funil <b>não recebe mídia paga</b>. Roda por e-mail, disparo em grupo e Botconversa, então não tem investimento no Meta, não tem CPL e <b>não entra em nenhum total da aba de tráfego</b>. Os números abaixo são só dele.</p>
+
+    <div class="tiles">
+      <div class="tile">
+        <span class="k">Leads reais</span>
+        <span class="v">51</span>
+        <span class="d">em <b>3 dias</b> (19 a 21/08)</span>
+      </div>
+      <div class="tile">
+        <span class="k">Investimento</span>
+        <span class="v">R$ 0,00</span>
+        <span class="d">sem mídia paga · <b>sem CPL</b></span>
+      </div>
+      <div class="tile">
+        <span class="k">Com registro no conselho</span>
+        <span class="v">38</span>
+        <span class="d"><b>74,5%</b> · CRMV, CRN ou equivalente</span>
+      </div>
+      <div class="tile">
+        <span class="k">Começariam já</span>
+        <span class="v">39</span>
+        <span class="d"><b>76,5%</b> responderam "imediatamente"</span>
+      </div>
+    </div>
+
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Formação de base</th>
+            <th class="r">Leads</th>
+            <th class="r">% do funil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="fn">Veterinário</td><td class="r num">22</td><td class="r num">43,1%</td></tr>
+          <tr><td class="fn">Eng./Tecnól. Alimentos</td><td class="r num">12</td><td class="r num">23,5%</td></tr>
+          <tr><td class="fn">Nutricionista</td><td class="r num">11</td><td class="r num">21,6%</td></tr>
+          <tr><td class="fn">Outras formações</td><td class="r num">6</td><td class="r num">11,8%</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td class="fn">Total</td><td class="r num">51</td><td class="r num">100%</td></tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="note">Todos os 51 declararam formação — <b>não há lead sem qualificação</b> neste funil. Chegam <b>4 leads por dia</b> em média, e <b>19/08 concentrou metade</b> deles (26 de 51), o que combina com um disparo pontual, não com fluxo contínuo.</div>
+  </section>
+
+  <section>
+    <h2>Qualificação declarada</h2>
+    <p class="sub">O formulário da Bolsa é mais longo que os do tráfego e pergunta maturidade profissional e condição de compra. Por isso dá para ler intenção, não só volume.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Pergunta</th>
+            <th>Resposta</th>
+            <th class="r">Leads</th>
+            <th class="r">%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="fn">Concluiu a graduação</td><td>Sim, já formada</td><td class="r num">45</td><td class="r num">88,2%</td></tr>
+          <tr><td class="fn"></td><td>Conclui em até 6 meses</td><td class="r num">4</td><td class="r num">7,8%</td></tr>
+          <tr><td class="fn"></td><td>Conclui em mais de 6 meses</td><td class="r num">2</td><td class="r num">3,9%</td></tr>
+          <tr><td class="fn">Registro no conselho</td><td>Sim, ativo</td><td class="r num">38</td><td class="r num">74,5%</td></tr>
+          <tr><td class="fn"></td><td>Em processo</td><td class="r num">5</td><td class="r num">9,8%</td></tr>
+          <tr><td class="fn"></td><td>Não</td><td class="r num">8</td><td class="r num">15,7%</td></tr>
+          <tr><td class="fn">Momento de carreira</td><td>Pronta para começar a atuar</td><td class="r num">20</td><td class="r num">39,2%</td></tr>
+          <tr><td class="fn"></td><td>Já atua, quer ser referência</td><td class="r num">17</td><td class="r num">33,3%</td></tr>
+          <tr><td class="fn"></td><td>Ainda descobrindo a área</td><td class="r num">9</td><td class="r num">17,6%</td></tr>
+          <tr><td class="fn"></td><td>Já é aluna Food Smart</td><td class="r num">5</td><td class="r num">9,8%</td></tr>
+          <tr><td class="fn">Quando começaria</td><td>Imediatamente</td><td class="r num">39</td><td class="r num">76,5%</td></tr>
+          <tr><td class="fn"></td><td>Nos próximos 3 meses</td><td class="r num">5</td><td class="r num">9,8%</td></tr>
+          <tr><td class="fn"></td><td>Ainda avaliando</td><td class="r num">4</td><td class="r num">7,8%</td></tr>
+          <tr><td class="fn"></td><td>Só ano que vem</td><td class="r num">3</td><td class="r num">5,9%</td></tr>
+          <tr><td class="fn">Formato de pagamento</td><td>Parcela menor, recorrente</td><td class="r num">28</td><td class="r num">54,9%</td></tr>
+          <tr><td class="fn"></td><td>Depende de decidir com alguém</td><td class="r num">12</td><td class="r num">23,5%</td></tr>
+          <tr><td class="fn"></td><td>Precisa de prazo maior</td><td class="r num">8</td><td class="r num">15,7%</td></tr>
+          <tr><td class="fn"></td><td>À vista, sem problema</td><td class="r num">3</td><td class="r num">5,9%</td></tr>
+          <tr><td class="fn">Quem decide</td><td>Sozinha</td><td class="r num">29</td><td class="r num">56,9%</td></tr>
+          <tr><td class="fn"></td><td>Com companheiro(a)</td><td class="r num">15</td><td class="r num">29,4%</td></tr>
+          <tr><td class="fn"></td><td>Com apoio da família</td><td class="r num">6</td><td class="r num">11,8%</td></tr>
+          <tr><td class="fn"></td><td>Não sabe como pagaria</td><td class="r num">1</td><td class="r num">2,0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>O que este funil está dizendo</h2>
+    <ul class="reads">
+      <li>
+        <span class="t">Intenção alta e sem custo de mídia</span>
+        <span><b>76,5% começariam imediatamente</b> e <b>74,5% já têm registro ativo no conselho</b> — é o público que o edital busca, e chegou <b>sem um real de tráfego</b>. Em três dias esse funil trouxe 51 leads: para efeito de comparação, as 5 Aulas trouxeram 91 na semana inteira gastando R$ 942.</span>
+      </li>
+      <li>
+        <span class="t">O gargalo é preço, não interesse</span>
+        <span>Só <b>3 pessoas (5,9%)</b> pagariam à vista. <b>54,9% precisam de parcela menor recorrente</b> e outros 15,7% pedem prazo maior — somados, <b>70,6% têm restrição de fluxo de caixa</b>, não de vontade. Se a oferta da bolsa não tiver uma opção parcelada longa, a conversão vai travar aí, e não na abordagem comercial.</span>
+      </li>
+      <li>
+        <span class="t">Quase metade decide com outra pessoa</span>
+        <span><b>43,1%</b> dependem de companheiro(a) ou família para decidir. Isso muda o roteiro do comercial: material que a lead possa <b>mostrar para alguém</b> pesa mais aqui do que argumento de urgência.</span>
+      </li>
+      <li>
+        <span class="t">Perfil mais diverso que o do tráfego</span>
+        <span>43,1% veterinários, contra 51,8% no tráfego pago — e com <b>engenheiro/tecnólogo de alimentos em 23,5%</b>, o dobro do peso que essa formação tem nos funis pagos (7,7%). Se a Pós aceita essas formações, este canal é a melhor fonte delas na casa.</span>
+      </li>
+      <li>
+        <span class="t">É um pico, não um fluxo</span>
+        <span>26 dos 51 leads entraram <b>só em 19/08</b>, caindo para 21 e depois 4. O padrão é de <b>disparo pontual</b>. Antes de tratar os 51 como base recorrente, vale confirmar se houve envio nesse dia — senão a projeção semanal fica superestimada.</span>
+      </li>
+    </ul>
+  </section>
+
+  <div class="method">
+    <p><b>Origem dos dados.</b> Planilha "YayForms" do funil de Bolsa de Estudos, janela 14→21/08 (as respostas começam em 19/08). Linhas de teste removidas (1) e deduplicação por e-mail (1 duplicado): de 53 respostas brutas para <b>51 leads reais</b>.</p>
+    <p><b>Por que não há CPL nem comparação com a semana anterior.</b> O funil <b>não tem campanha no Meta</b> — a distribuição é por e-mail, disparo em grupo e Botconversa. Não existe investimento a dividir, então CPL não se aplica. E como as respostas começam em 19/08, não há semana anterior para comparar: esta é a primeira janela com dado.</p>
+    <p><b>Isolamento.</b> Nada desta aba entra nos totais da aba de tráfego pago — nem nos leads, nem no CPL, nem na composição por formação. As duas bases são somadas em um único lugar da dashboard: a nota sobre os 248 leads passados ao comercial, e lá está dito explicitamente.</p>
+    <p class="stamp">Fonte: planilha de leads do funil de Bolsa de Estudos · atualizado em 21/08/2026</p>
+  </div>
+
+  </div>
+
 </div>
 
 <script>
   (function(){
-    var b=document.getElementById('themer'), r=document.documentElement;
+    var r=document.documentElement, b=document.getElementById('themer');
     b.addEventListener('click',function(){
       var c=r.getAttribute('data-theme');
       if(!c){c=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
       r.setAttribute('data-theme', c==='dark'?'light':'dark');
+    });
+
+    var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+    function select(t){
+      tabs.forEach(function(x){
+        var on = x===t;
+        x.setAttribute('aria-selected', on?'true':'false');
+        x.tabIndex = on?0:-1;
+        document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+      });
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){ select(t); });
+      t.addEventListener('keydown',function(e){
+        var d = e.key==='ArrowRight'?1 : e.key==='ArrowLeft'?-1 : 0;
+        if(!d) return;
+        e.preventDefault();
+        var nx=tabs[(i+d+tabs.length)%tabs.length];
+        select(nx); nx.focus();
+      });
     });
   })();
 </script>
