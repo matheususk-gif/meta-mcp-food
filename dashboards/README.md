@@ -113,6 +113,10 @@ Passo a passo:
 7. Se por algum motivo não houver `#daySnapshot` no arquivo (primeira execução após uma mudança estrutural), registre isso na dashboard em vez de travar, e apenas grave o snapshot de hoje normalmente.
 
 ## Regras gerais
+- ⚠️ **NUNCA confie no relógio do container.** Ele já errou duas vezes: marcou 12/08 quando era 14/08, e 17/08 quando era **21/08**. Ancore a data chamando `ads_get_ad_entities` com `date_preset: today` e cruze o resultado com a série diária (`time_increment: 1`) — a linha que bate exatamente com o total de `today` é a data real de hoje.
+- **Rode a consulta sem filtro a cada execução.** O escopo da conta muda sem aviso. Em 21/08 apareceram, todas `ACTIVE` e fora da dashboard: **RT-Class Agosto 26** (2 campanhas, RT Class retomado depois de meses) e um **funil novo de venda de e-books** (5 campanhas criadas em 17/08) — juntas, 42% do gasto do dia.
+- **Distinga "zero" de "sem dado".** Se a planilha não sincronizou o dia corrente (aconteceu em 21/08: as 3 planilhas paravam em 20/08), **não escreva 0 leads** — registre a lacuna e use o último dia fechado como leitura confiável. Zero significa "ninguém se cadastrou"; a ausência de exportação é outra coisa.
+- **A quebra horária do Meta atrasa.** Em 21/08 só havia hora fechada até 01h59. Use como janela o que existe nos dois dias e diga qual é — não estenda a janela de hoje além do último dado real.
 - Nunca usar o total de leads que o Meta reporta via pixel/conta — só os confirmados em planilha.
 - Sempre indicar que os dados de "hoje" são **parciais** (hora da última consulta), já que o dia ainda não terminou.
 - Investimento pode sofrer pequenos ajustes de centavos em consultas subsequentes (atribuição do Meta se assenta em alguns dias) — não é erro.
