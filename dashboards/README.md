@@ -33,6 +33,33 @@ Particularidades desta planilha:
 - O formulário **não tem opção "Estudante"**; tem **"Outra"**. Trate `"Outra"` como **não qualificado** (equivalente a "Estudante/Outros" das outras planilhas), para as bases ficarem comparáveis. Texto livre com profissão declarada conta como qualificado.
 - Recebe **tráfego orgânico relevante**. Sempre separe pago × orgânico pela coluna `Utm Source` (`meta-ads` vs `organico`) — sem isso o CPL fica sem sentido. Em 07/08→14/08, 22 dos 24 leads eram orgânicos com apenas R$ 4,51 de mídia.
 
+## Métricas por funil — como cada um é medido
+
+Cada funil tem a métrica que corresponde ao que ele faz. **Não aplique CPL onde não cabe.**
+
+| Funil | Métrica correta | Observação |
+|---|---|---|
+| Webinário Diário | CPL (leads da planilha) | 100% `meta-ads`, sem orgânico — CPL é o número real |
+| 5 Aulas (NRTC) | CPL | 100% `meta-ads` |
+| Lista de Espera | CPL **e** CPL só-pagos | capta orgânico; mostre os dois |
+| RT Class Agosto | CPL **e** CPL só-pagos | ~81% orgânico; sem o corte pago a campanha parece 5× melhor |
+| E-books | **venda**, não CPL | funil de `VENDAS`; a base de vendas não está disponível — registre a lacuna |
+| Boletim Smart | **custo por engajamento** (meta real) + **custo por visualização de 50%** | ver abaixo |
+
+### Boletim Smart — a métrica foi confirmada, não presumida
+Os **16 conjuntos** otimizam por `POST_ENGAGEMENT` (verificado via `level: adset`, campo `optimization_goal`). Então:
+- **Custo por engajamento** é a métrica pela qual o Meta entrega e cobra.
+- **Custo por visualização de 50%** (`video_p50_watched_actions`) é a leitura de consumo de conteúdo que o usuário pediu. As visualizações de 50% **incluem quem pulou até esse ponto**, conforme definição do Meta.
+- Use `video_p25/p50/p75/p95/p100_watched_actions` para a curva de retenção. **ThruPlay não é a métrica deste funil** — versões anteriores da dashboard usavam ThruPlay por engano.
+- Achado de 21/08: com −19,7% de verba, o custo por engajamento **caiu** 4,7% mas o custo por visualização de 50% **subiu** 7,7%; a retenção 25%→50% ficou estável (43,4% → 42,9%). Ou seja, a entrega alcançou menos gente e gerou engajamento mais raso — se a marca de 50% é o objetivo, a otimização está premiando outra coisa.
+
+### Custo por formação
+`custo por lead da formação X no funil Y = investimento total de Y ÷ leads de X em Y`.
+São **rateios de leitura, não custos medidos** — o Meta não atribui gasto por formação do lead. Servem para comparar funis ("onde o veterinário sai mais barato"); **não somam**, porque o mesmo investimento está no denominador de todas as linhas. Sempre explicite isso na página.
+
+Referência 14→21/08 — custo por veterinário: RT Class **R$ 12,77** · Lista de Espera R$ 25,85 · Webinário R$ 28,63 · 5 Aulas R$ 37,69.
+Classificação: **Tecnólogo de Alimentos entra junto com Engenheiro de Alimentos**.
+
 ## Campanhas realmente pausadas (NÃO entram)
 - **RT Class** (e variações datadas) — planilha `171Xd5kdYqy83E4wsVz8nvY70whdWfnSsoveuf0Viexk`
 - **Funis de vendas (Imersões)** — sem gasto nos períodos analisados
