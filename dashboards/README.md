@@ -33,6 +33,26 @@ Particularidades desta planilha:
 - O formulário **não tem opção "Estudante"**; tem **"Outra"**. Trate `"Outra"` como **não qualificado** (equivalente a "Estudante/Outros" das outras planilhas), para as bases ficarem comparáveis. Texto livre com profissão declarada conta como qualificado.
 - Recebe **tráfego orgânico relevante**. Sempre separe pago × orgânico pela coluna `Utm Source` (`meta-ads` vs `organico`) — sem isso o CPL fica sem sentido. Em 07/08→14/08, 22 dos 24 leads eram orgânicos com apenas R$ 4,51 de mídia.
 
+## 🚨 REGRA DE OURO: custo só divide por lead PAGO
+
+Todo CPL, custo por qualificado e custo por veterinário divide a verba do funil **apenas pelos leads cuja `Utm Source` é `meta-ads`**. Leads orgânicos entram como **volume**, em coluna própria, e **nunca** no denominador de custo.
+
+**Por que isso é regra e não preferência:** até 21/08 a dashboard dividia verba paga pelo total de leads. Resultado — a página anunciava **CPL caindo 5,8%** quando o CPL real **subiu 47,0%**. O erro vinha de dois funis:
+
+| Funil | Leads | Pagos | Orgânicos | CPL errado (todos) | CPL correto (pagos) |
+|---|---|---|---|---|---|
+| RT Class Agosto | 274 | 51 | **223** | R$ 4,07 | **R$ 21,89** |
+| Lista de Espera | 76 | 46 | 30 | R$ 14,82 | **R$ 24,49** |
+| Captação (4 funis) | 635 | 382 | 253 | R$ 12,76 | **R$ 21,21** |
+
+Webinário, 5 Aulas e e-books são 100% `meta-ads`, então neles as duas bases coincidem — o erro ficava escondido nos outros dois.
+
+O mesmo vale para **custo por veterinário**: no RT Class, 78 dos seus 90 vets são orgânicos. Dividir a verba por 90 dá R$ 12,40 e sugere que é o funil mais eficiente em ICP; dividindo pelos **12 vets pagos**, o custo real é **R$ 93,02** — o mais caro da conta.
+
+### Números de referência (snapshot 21/08, base paga)
+Captação 4 funis: R$ 5.338,93 → **R$ 8.100,35** (+51,7%) · leads pagos 370 → **382** (+3,2%) · **CPL pago R$ 14,43 → R$ 21,21 (+47,0%)** · vets pagos 233 → 238 · custo/vet pago R$ 22,91 → **R$ 34,04** (+48,5%) · fatia vet no pago 63,0% → 62,3% (estável).
+Orgânicos: 23 → **253** (RT Class 223, Lista de Espera 30).
+
 ## Métricas por funil — como cada um é medido
 
 Cada funil tem a métrica que corresponde ao que ele faz. **Não aplique CPL onde não cabe.**

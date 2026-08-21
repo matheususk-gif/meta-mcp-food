@@ -196,7 +196,7 @@
         <span class="win on"><b>14/08 → 21/08</b> · semana atual</span>
         <span class="win">07/08 → 14/08 · comparação</span>
       </div>
-      <p class="lede">No tráfego pago, a conta gastou <b>65,9% mais</b> que na semana anterior e o <b>custo por lead caiu 5,8%</b> — mas o <b>veterinário ficou 15,7% mais caro</b>: entraram funis baratos e cheios de nutricionista, enquanto os dois antigos encareceram. O funil de <b>Bolsa de Estudos</b>, que roda sem mídia, está na aba ao lado, com os números separados.</p>
+      <p class="lede">No tráfego pago, a conta gastou <b>69,5% mais</b> que na semana anterior para trazer <b>3,2% mais leads pagos</b> — o <b>CPL subiu 47,0%</b>. Versões anteriores desta página mostravam o CPL caindo; era efeito de contar leads orgânicos contra verba paga, e está corrigido. O funil de <b>Bolsa de Estudos</b>, que roda sem mídia, está na aba ao lado.</p>
     </div>
     <button class="themer" id="themer" type="button">tema</button>
   </header>
@@ -210,7 +210,7 @@
   </div>
 
   <div class="tabs" role="tablist" aria-label="Seções da dashboard">
-    <button class="tab" role="tab" id="tab-trafego" aria-controls="panel-trafego" aria-selected="true" type="button">Tráfego pago<span class="n">625</span></button>
+    <button class="tab" role="tab" id="tab-trafego" aria-controls="panel-trafego" aria-selected="true" type="button">Tráfego pago<span class="n">382 pagos</span></button>
     <button class="tab" role="tab" id="tab-bolsa" aria-controls="panel-bolsa" aria-selected="false" tabindex="-1" type="button">Bolsa de Estudos<span class="n">51</span></button>
   </div>
 
@@ -218,93 +218,102 @@
   <div class="tiles">
     <div class="tile">
       <span class="k">Investimento</span>
-      <span class="v">R$ 10.284</span>
-      <span class="d"><b class="flat">+65,9%</b> · era R$ 6.198</span>
+      <span class="v">R$ 10.507</span>
+      <span class="d"><b class="flat">+69,5%</b> · era R$ 6.198</span>
     </div>
     <div class="tile">
-      <span class="k">Leads reais</span>
-      <span class="v">625</span>
-      <span class="d"><b class="up">+59,0%</b> · eram 393</span>
+      <span class="k">Leads pagos</span>
+      <span class="v">382</span>
+      <span class="d"><b class="up">+3,2%</b> · eram 370</span>
     </div>
     <div class="tile">
-      <span class="k">CPL captação</span>
-      <span class="v">R$ 12,80</span>
-      <span class="d"><b class="up">−5,8%</b> · era R$ 13,59</span>
+      <span class="k">CPL pago</span>
+      <span class="v">R$ 21,21</span>
+      <span class="d"><b class="down">+47,0%</b> · era R$ 14,43</span>
     </div>
     <div class="tile">
-      <span class="k">Veterinários</span>
-      <span class="v">321</span>
-      <span class="d"><b class="down">51,8% do funil</b> · era 63,6%</span>
+      <span class="k">Custo por vet pago</span>
+      <span class="v">R$ 34,04</span>
+      <span class="d"><b class="down">+48,5%</b> · era R$ 22,91</span>
     </div>
   </div>
 
+  <div class="note"><b>Correção importante em relação às versões anteriores desta página.</b> Até agora o CPL de cada funil dividia a <b>verba paga pelo total de leads, incluindo os orgânicos</b> — e isso barateava artificialmente os funis que captam fora da mídia. O RT Class aparecia com CPL de R$ 4,13 quando <b>223 dos seus 274 leads não vieram de anúncio</b>; a Lista de Espera aparecia com R$ 14,62 tendo 30 de 76 leads orgânicos. Consertado, o quadro se inverte: <b>o CPL não caiu 5,8% — subiu 47,0%</b>. Todos os custos desta versão usam <b>apenas os leads de mídia paga</b> no denominador. Os leads orgânicos continuam contados como volume, em coluna própria, porque são resultado real — só não têm custo de mídia a dividir.</div>
+
   <section>
     <h2>Funil por funil</h2>
-    <p class="sub">Cada célula mostra <span class="pair"><span class="was">semana anterior</span><span class="arrow">→</span><span class="now">semana atual</span></span>. As colunas de <b>% e custo por veterinário</b> existem porque custo e volume contam só metade da história — um funil pode encarecer e, ao mesmo tempo, entregar perfil melhor. O total de CPL considera só os quatro funis de captação.</p>
+    <p class="sub">Cada célula mostra <span class="pair"><span class="was">semana anterior</span><span class="arrow">→</span><span class="now">semana atual</span></span>. <b>CPL e custo por veterinário usam só os leads pagos</b>; os orgânicos aparecem em coluna separada, sem entrar em nenhuma divisão de custo.</p>
     <div class="scroll">
       <table>
         <thead>
           <tr>
             <th>Funil</th>
             <th class="r">Investimento</th>
-            <th class="r">Leads reais</th>
-            <th class="r">CPL</th>
-            <th class="r">% veterinários</th>
-            <th class="r">Custo / veterinário</th>
+            <th class="r">Leads pagos</th>
+            <th class="r">Orgânicos</th>
+            <th class="r">CPL pago</th>
+            <th class="r">% vet no pago</th>
+            <th class="r">Custo / vet pago</th>
             <th class="r">Balanço</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="fn">Webinário Diário</td>
-            <td class="r pair"><span class="was">4.160</span><span class="arrow">→</span><span class="now">R$ 4.781</span></td>
-            <td class="r pair"><span class="was">240</span><span class="arrow">→</span><span class="now">187</span></td>
-            <td class="r pair"><span class="was">17,33</span><span class="arrow">→</span><span class="now">R$ 25,57</span></td>
-            <td class="r pair"><span class="was">85,0%</span><span class="arrow">→</span><span class="now">89,3%</span><br><span class="delta up">+4,3 p.p.</span></td>
-            <td class="r pair"><span class="was">20,39</span><span class="arrow">→</span><span class="now">R$ 28,63</span><br><span class="delta down">+40,4%</span></td>
-            <td class="r"><div class="chips"><span class="chip alerta">mais caro</span> <span class="chip bom">perfil melhor</span></div></td>
+            <td class="r pair"><span class="was">4.160</span><span class="arrow">→</span><span class="now">R$ 4.905</span></td>
+            <td class="r pair"><span class="was">240</span><span class="arrow">→</span><span class="now">193</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">—</span></td>
+            <td class="r pair"><span class="was">17,33</span><span class="arrow">→</span><span class="now">R$ 25,41</span><br><span class="delta down">+46,6%</span></td>
+            <td class="r pair"><span class="was">85,0%</span><span class="arrow">→</span><span class="now">89,1%</span><br><span class="delta up">+4,1 p.p.</span></td>
+            <td class="r pair"><span class="was">20,39</span><span class="arrow">→</span><span class="now">R$ 28,52</span><br><span class="delta down">+39,9%</span></td>
+            <td class="r"><div class="chips"><span class="chip alerta">CPL +46,6%</span> <span class="chip bom">perfil melhor</span></div></td>
           </tr>
           <tr>
             <td class="fn">5 Aulas <small>NRTC</small></td>
-            <td class="r pair"><span class="was">1.079</span><span class="arrow">→</span><span class="now">R$ 942</span></td>
-            <td class="r pair"><span class="was">123</span><span class="arrow">→</span><span class="now">91</span></td>
-            <td class="r pair"><span class="was">8,77</span><span class="arrow">→</span><span class="now">R$ 10,35</span></td>
-            <td class="r pair"><span class="was">20,3%</span><span class="arrow">→</span><span class="now">27,5%</span><br><span class="delta up">+7,1 p.p.</span></td>
-            <td class="r pair"><span class="was">43,17</span><span class="arrow">→</span><span class="now">R$ 37,69</span><br><span class="delta up">−12,7%</span></td>
+            <td class="r pair"><span class="was">1.079</span><span class="arrow">→</span><span class="now">R$ 952</span></td>
+            <td class="r pair"><span class="was">123</span><span class="arrow">→</span><span class="now">92</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">—</span></td>
+            <td class="r pair"><span class="was">8,77</span><span class="arrow">→</span><span class="now">R$ 10,35</span><br><span class="delta down">+18,0%</span></td>
+            <td class="r pair"><span class="was">20,3%</span><span class="arrow">→</span><span class="now">27,2%</span><br><span class="delta up">+6,8 p.p.</span></td>
+            <td class="r pair"><span class="was">43,17</span><span class="arrow">→</span><span class="now">R$ 38,09</span><br><span class="delta up">-11,8%</span></td>
             <td class="r"><div class="chips"><span class="chip alerta">menos volume</span> <span class="chip bom">vet mais barato</span></div></td>
           </tr>
           <tr>
             <td class="fn">Lista de Espera <small>3 campanhas</small></td>
-            <td class="r pair"><span class="was">100</span><span class="arrow">→</span><span class="now">R$ 1.111</span></td>
-            <td class="r pair"><span class="was">30</span><span class="arrow">→</span><span class="now">76</span></td>
-            <td class="r pair"><span class="was">3,33</span><span class="arrow">→</span><span class="now">R$ 14,62</span></td>
-            <td class="r pair"><span class="was">70,0%</span><span class="arrow">→</span><span class="now">56,6%</span><br><span class="delta down">−13,4 p.p.</span></td>
-            <td class="r pair"><span class="was">4,76</span><span class="arrow">→</span><span class="now">R$ 25,85</span><br><span class="delta down">+443%</span></td>
-            <td class="r"><div class="chips"><span class="chip novo">escalou</span> <span class="chip bom">2× mais vets</span></div></td>
+            <td class="r pair"><span class="was">100</span><span class="arrow">→</span><span class="now">R$ 1.127</span></td>
+            <td class="r pair"><span class="was">7</span><span class="arrow">→</span><span class="now">46</span></td>
+            <td class="r pair"><span class="was">23</span><span class="arrow">→</span><span class="now">30</span></td>
+            <td class="r pair"><span class="was">14,27</span><span class="arrow">→</span><span class="now">R$ 24,49</span><br><span class="delta down">+71,7%</span></td>
+            <td class="r pair"><span class="was">57,1%</span><span class="arrow">→</span><span class="now">63,0%</span><br><span class="delta up">+5,9 p.p.</span></td>
+            <td class="r pair"><span class="was">24,97</span><span class="arrow">→</span><span class="now">R$ 38,85</span><br><span class="delta down">+55,6%</span></td>
+            <td class="r"><div class="chips"><span class="chip novo">escalou</span> <span class="chip bom">+25 vets pagos</span></div></td>
           </tr>
           <tr>
             <td class="fn">RT Class Agosto <small>2 campanhas</small></td>
-            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 1.098</span></td>
-            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">266</span></td>
-            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 4,13</span></td>
-            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">32,3%</span><br><span class="delta flat">novo</span></td>
-            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 12,77</span><br><span class="delta flat">novo</span></td>
-            <td class="r"><div class="chips"><span class="chip novo">nova</span> <span class="chip bom">vet mais barato da conta</span></div></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 1.116</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">51</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">223</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 21,89</span><br><span class="delta flat">nova</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">23,5%</span><br><span class="delta flat">nova</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 93,02</span><br><span class="delta flat">nova</span></td>
+            <td class="r"><div class="chips"><span class="chip novo">nova</span> <span class="chip alerta">vet pago a R$ 93</span></div></td>
           </tr>
           <tr>
-            <td class="fn">E-books <small>funil de vendas, 5 campanhas</small></td>
-            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 1.660</span></td>
+            <td class="fn">E-books <small>funil de vendas</small></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 1.704</span></td>
             <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">5</span></td>
-            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 332,04</span></td>
-            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">40,0%</span><br><span class="delta flat">novo</span></td>
-            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 830,10</span><br><span class="delta flat">novo</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">—</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 340,82</span><br><span class="delta flat">nova</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">40,0%</span><br><span class="delta flat">nova</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 852,06</span><br><span class="delta flat">nova</span></td>
             <td class="r"><div class="chips"><span class="chip novo">nova</span> <span class="chip alerta">falta dado de venda</span></div></td>
           </tr>
           <tr>
             <td class="fn">Boletim Smart <small>engajamento / vídeo</small></td>
-            <td class="r pair"><span class="was">859</span><span class="arrow">→</span><span class="now">R$ 690</span></td>
-            <td class="r pair"><span class="was">583</span><span class="arrow">→</span><span class="now">435</span></td>
-            <td class="r pair"><span class="was">1,47</span><span class="arrow">→</span><span class="now">R$ 1,59</span></td>
+            <td class="r pair"><span class="was">859</span><span class="arrow">→</span><span class="now">R$ 702</span></td>
+            <td class="r pair"><span class="was">—</span></td>
+            <td class="r pair"><span class="was">—</span></td>
+            <td class="r pair"><span class="was">1,47</span><span class="arrow">→</span><span class="now">R$ 1,57</span><br><span class="delta down">+6,7%</span></td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r"><div class="chips"><span class="chip bom">engajamento mais barato</span></div></td>
@@ -312,24 +321,24 @@
         </tbody>
         <tfoot>
           <tr>
-            <td class="fn">Total da conta</td>
-            <td class="r pair"><span class="was">6.198</span><span class="arrow">→</span><span class="now">R$ 10.284</span></td>
-            <td class="r pair"><span class="was">393</span><span class="arrow">→</span><span class="now">625</span></td>
-            <td class="r pair"><span class="was">13,59</span><span class="arrow">→</span><span class="now">R$ 12,80</span></td>
-            <td class="r pair"><span class="was">63,6%</span><span class="arrow">→</span><span class="now">51,8%</span><br><span class="delta down">−11,8 p.p.</span></td>
-            <td class="r pair"><span class="was">21,36</span><span class="arrow">→</span><span class="now">R$ 24,71</span><br><span class="delta down">+15,7%</span></td>
-            <td class="r"><div class="chips"><span class="chip bom">+73 vets</span></div></td>
+            <td class="fn">Captação <small>4 funis</small></td>
+            <td class="r pair"><span class="was">5.339</span><span class="arrow">→</span><span class="now">R$ 8.100</span><br><span class="delta flat">+51,7%</span></td>
+            <td class="r pair"><span class="was">370</span><span class="arrow">→</span><span class="now">382</span><br><span class="delta up">+3,2%</span></td>
+            <td class="r pair"><span class="was">23</span><span class="arrow">→</span><span class="now">253</span></td>
+            <td class="r pair"><span class="was">14,43</span><span class="arrow">→</span><span class="now">R$ 21,21</span><br><span class="delta down">+47,0%</span></td>
+            <td class="r pair"><span class="was">63,0%</span><span class="arrow">→</span><span class="now">62,3%</span><br><span class="delta flat">-0,7 p.p.</span></td>
+            <td class="r pair"><span class="was">22,91</span><span class="arrow">→</span><span class="now">R$ 34,04</span><br><span class="delta down">+48,5%</span></td>
+            <td class="r"><div class="chips"><span class="chip alerta">+51,7% de verba para +3,2% de leads pagos</span></div></td>
           </tr>
         </tfoot>
       </table>
     </div>
-    <div class="note bom"><b>O que melhorou em cada funil.</b> <b>Webinário Diário:</b> ficou mais caro, mas entregou o <b>melhor perfil da sua história</b> — 89,3% de veterinários contra 85,0%, e 89,3% de qualificados contra 85,4%. Praticamente todo lead que entra é do ICP. <b>5 Aulas:</b> perdeu volume, porém <b>manteve os mesmos 25 veterinários com 12,7% menos verba</b> — o custo por veterinário caiu de R$ 43,17 para <b>R$ 37,69</b> e a fatia de vet subiu 7,1 p.p. No que importa para o ICP, ela melhorou. <b>Lista de Espera:</b> <b>dobrou os veterinários em número absoluto</b> (21 → 43) e segue com <b>100% dos leads qualificados</b>, sem um único estudante. <b>RT Class:</b> maior volume da semana, <b>99,6% qualificado</b> e o <b>veterinário mais barato da conta</b> (R$ 12,77). <b>Boletim:</b> custo por engajamento caiu 4,7% com retenção de vídeo estável. Somando tudo, a conta ganhou <b>+73 veterinários</b> (250 → 323) e <b>+259 qualificados</b> (315 → 574) na semana.</div>
-    <div class="note"><b>O CPL do RT Class (R$ 4,13) não é comparável aos outros.</b> Só <b>50 dos seus 266 leads</b> vieram de anúncio — os outros 216 são orgânicos. Contando apenas os pagos, o lead dele custa <b>R$ 21,97</b>. O mesmo vale, em menor grau, para a Lista de Espera: 46 pagos de 76, o que dá <b>R$ 24,16</b> por lead pago. Webinário e 5 Aulas são <b>100% pagos</b>, então o CPL deles já é o número real. Na linha do Boletim, "leads" é a contagem de <b>visualizações de 50% do vídeo</b> e o CPL é o custo por essa visualização — ele não capta lead.</div>
+    <div class="note bom"><b>O que melhorou, apesar do custo.</b> <b>Webinário:</b> melhor perfil da sua história — <b>89,1% de veterinários</b> contra 85,0%, e é 100% pago, então esse ganho é limpo. <b>5 Aulas:</b> manteve os mesmos 25 veterinários com 11,8% menos verba, e a fatia de vet subiu de 20,3% para <b>27,2%</b>. <b>Lista de Espera:</b> saiu de 4 para <b>29 veterinários pagos</b> e mantém <b>100% dos leads qualificados</b>. <b>RT Class:</b> trouxe <b>223 leads orgânicos</b> — de graça, e com 78 veterinários entre eles. <b>Boletim:</b> custo por engajamento caiu 4,6%. E a <b>fatia de veterinário dentro do tráfego pago ficou estável</b> (63,0% → 62,3%): nenhum funil perdeu qualidade, o problema é preço.</div>
   </section>
 
   <section>
     <h2>Leads e custo por formação</h2>
-    <p class="sub">Semana 14→21/08. Cada célula traz <b>leads</b>, a <b>fatia que essa formação representa naquele funil</b> e, abaixo, quanto custou trazer um lead dela — o investimento do funil dividido pelos leads da formação. As porcentagens de cada coluna somam 100% — diferenças de 0,1 p.p. são arredondamento.</p>
+    <p class="sub">Semana 14→21/08. Cada célula traz os <b>leads pagos</b>, quantos vieram do orgânico, a <b>fatia da formação dentro dos leads pagos daquele funil</b> e o custo — <b>sempre verba do funil ÷ leads pagos daquela formação</b>.</p>
     <div class="scroll">
       <table>
         <thead>
@@ -346,78 +355,78 @@
         <tbody>
           <tr>
             <td class="fn">Veterinário</td>
-            <td class="r pair"><span class="now">167</span> <span class="pct">89,3%</span><br><span class="cost">R$ 28,63</span></td>
-            <td class="r pair"><span class="now">25</span> <span class="pct">27,5%</span><br><span class="cost">R$ 37,69</span></td>
-            <td class="r pair"><span class="now">43</span> <span class="pct">56,6%</span><br><span class="cost">R$ 25,85</span></td>
-            <td class="r pair"><span class="now">86</span> <span class="pct">32,3%</span><br><span class="cost">R$ 12,77</span></td>
-            <td class="r pair"><span class="now">2</span> <span class="pct">40,0%</span><br><span class="cost">R$ 830,10</span></td>
-            <td class="r pair"><span class="now">323</span> <span class="pct">51,7%</span><br><span class="cost">R$ 29,70</span></td>
+            <td class="r pair"><span class="now">172</span><br><span class="pct">89,1%</span> <span class="cost">R$ 28,52</span></td>
+            <td class="r pair"><span class="now">25</span><br><span class="pct">27,2%</span> <span class="cost">R$ 38,09</span></td>
+            <td class="r pair"><span class="now">29</span> <span class="pct">+14 org</span><br><span class="pct">63,0%</span> <span class="cost">R$ 38,85</span></td>
+            <td class="r pair"><span class="now">12</span> <span class="pct">+78 org</span><br><span class="pct">23,5%</span> <span class="cost">R$ 93,02</span></td>
+            <td class="r pair"><span class="now">2</span><br><span class="pct">40,0%</span> <span class="cost">R$ 852,06</span></td>
+            <td class="r pair"><span class="now">240</span> <span class="pct">+92 org</span><br><span class="pct">62,0%</span> <span class="cost">R$ 40,85</span></td>
           </tr>
           <tr>
             <td class="fn">Nutricionista</td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">24</span> <span class="pct">26,4%</span><br><span class="cost">R$ 39,26</span></td>
-            <td class="r pair"><span class="now">19</span> <span class="pct">25,0%</span><br><span class="cost">R$ 58,50</span></td>
-            <td class="r pair"><span class="now">124</span> <span class="pct">46,6%</span><br><span class="cost">R$ 8,86</span></td>
-            <td class="r pair"><span class="now">1</span> <span class="pct">20,0%</span><br><span class="cost">R$ 1.660,19</span></td>
-            <td class="r pair"><span class="now">168</span> <span class="pct">26,9%</span><br><span class="cost">R$ 57,10</span></td>
+            <td class="r pair"><span class="now">25</span><br><span class="pct">27,2%</span> <span class="cost">R$ 38,09</span></td>
+            <td class="r pair"><span class="now">6</span> <span class="pct">+13 org</span><br><span class="pct">13,0%</span> <span class="cost">R$ 187,78</span></td>
+            <td class="r pair"><span class="now">23</span> <span class="pct">+104 org</span><br><span class="pct">45,1%</span> <span class="cost">R$ 48,53</span></td>
+            <td class="r pair"><span class="now">1</span><br><span class="pct">20,0%</span> <span class="cost">R$ 1.704,12</span></td>
+            <td class="r pair"><span class="now">55</span> <span class="pct">+117 org</span><br><span class="pct">14,2%</span> <span class="cost">R$ 178,26</span></td>
           </tr>
           <tr>
             <td class="fn">Eng./Tecnól. Alimentos</td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">12</span> <span class="pct">13,2%</span><br><span class="cost">R$ 78,52</span></td>
-            <td class="r pair"><span class="now">5</span> <span class="pct">6,6%</span><br><span class="cost">R$ 222,30</span></td>
-            <td class="r pair"><span class="now">29</span> <span class="pct">10,9%</span><br><span class="cost">R$ 37,88</span></td>
-            <td class="r pair"><span class="now">2</span> <span class="pct">40,0%</span><br><span class="cost">R$ 830,10</span></td>
-            <td class="r pair"><span class="now">48</span> <span class="pct">7,7%</span><br><span class="cost">R$ 199,86</span></td>
+            <td class="r pair"><span class="now">12</span><br><span class="pct">13,0%</span> <span class="cost">R$ 79,36</span></td>
+            <td class="r pair"><span class="now">2</span> <span class="pct">+3 org</span><br><span class="pct">4,3%</span> <span class="cost">R$ 563,34</span></td>
+            <td class="r pair"><span class="now">5</span> <span class="pct">+25 org</span><br><span class="pct">9,8%</span> <span class="cost">R$ 223,26</span></td>
+            <td class="r pair"><span class="now">2</span><br><span class="pct">40,0%</span> <span class="cost">R$ 852,06</span></td>
+            <td class="r pair"><span class="now">21</span> <span class="pct">+28 org</span><br><span class="pct">5,4%</span> <span class="cost">R$ 466,88</span></td>
           </tr>
           <tr>
             <td class="fn">Outras formações</td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">9</span> <span class="pct">11,8%</span><br><span class="cost">R$ 123,50</span></td>
-            <td class="r pair"><span class="now">26</span> <span class="pct">9,8%</span><br><span class="cost">R$ 42,25</span></td>
+            <td class="r pair"><span class="now">9</span><br><span class="pct">19,6%</span> <span class="cost">R$ 125,19</span></td>
+            <td class="r pair"><span class="now">11</span> <span class="pct">+15 org</span><br><span class="pct">21,6%</span> <span class="cost">R$ 101,48</span></td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">35</span> <span class="pct">5,6%</span><br><span class="cost">R$ 274,10</span></td>
+            <td class="r pair"><span class="now">20</span> <span class="pct">+15 org</span><br><span class="pct">5,2%</span> <span class="cost">R$ 490,22</span></td>
           </tr>
           <tr>
             <td class="fn">Estudante/Outros <small>não qualificado</small></td>
-            <td class="r pair"><span class="now">20</span> <span class="pct">10,7%</span><br><span class="cost">R$ 239,05</span></td>
-            <td class="r pair"><span class="now">30</span> <span class="pct">33,0%</span><br><span class="cost">R$ 31,41</span></td>
+            <td class="r pair"><span class="now">21</span><br><span class="pct">10,9%</span> <span class="cost">R$ 233,57</span></td>
+            <td class="r pair"><span class="now">30</span><br><span class="pct">32,6%</span> <span class="cost">R$ 31,74</span></td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">50</span> <span class="pct">8,0%</span><br><span class="cost">R$ 191,87</span></td>
+            <td class="r pair"><span class="now">51</span><br><span class="pct">13,2%</span> <span class="cost">R$ 192,24</span></td>
           </tr>
           <tr>
             <td class="fn">Não informado</td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">1</span> <span class="pct">0,4%</span><br><span class="cost">—</span></td>
+            <td class="r pair"><span class="now">0</span> <span class="pct">+1 org</span><br><span class="pct">—</span> <span class="cost">—</span></td>
             <td class="r pair"><span class="was">—</span></td>
-            <td class="r pair"><span class="now">1</span> <span class="pct">0,2%</span><br><span class="cost">—</span></td>
+            <td class="r pair"><span class="now">0</span> <span class="pct">+1 org</span><br><span class="pct">—</span> <span class="cost">—</span></td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
-            <td class="fn">Total de leads</td>
-            <td class="r pair"><span class="now">187</span> <span class="pct">100%</span><br><span class="cost">R$ 25,57</span></td>
-            <td class="r pair"><span class="now">91</span> <span class="pct">100%</span><br><span class="cost">R$ 10,35</span></td>
-            <td class="r pair"><span class="now">76</span> <span class="pct">100%</span><br><span class="cost">R$ 14,62</span></td>
-            <td class="r pair"><span class="now">266</span> <span class="pct">100%</span><br><span class="cost">R$ 4,13</span></td>
-            <td class="r pair"><span class="now">5</span> <span class="pct">100%</span><br><span class="cost">R$ 332,04</span></td>
-            <td class="r pair"><span class="now">625</span> <span class="pct">100%</span><br><span class="cost">R$ 15,35</span></td>
+            <td class="fn">Leads pagos</td>
+            <td class="r pair"><span class="now">193</span><br><span class="cost">R$ 25,41</span></td>
+            <td class="r pair"><span class="now">92</span><br><span class="cost">R$ 10,35</span></td>
+            <td class="r pair"><span class="now">46</span><br><span class="cost">R$ 24,49</span></td>
+            <td class="r pair"><span class="now">51</span><br><span class="cost">R$ 21,89</span></td>
+            <td class="r pair"><span class="now">5</span><br><span class="cost">R$ 340,82</span></td>
+            <td class="r pair"><span class="now">387</span><br><span class="cost">R$ 25,33</span></td>
           </tr>
         </tfoot>
       </table>
     </div>
-    <div class="note"><b>Como ler os custos desta tabela:</b> cada um é o <b>investimento inteiro do funil dividido pelos leads daquela formação</b>. Eles respondem "quanto custou, neste funil, para trazer um veterinário" — e por isso <b>não somam</b>: o mesmo investimento aparece no denominador de todas as linhas. Um valor alto numa formação de pouco volume (os R$ 830,10 dos e-books, por exemplo) não significa que aquele lead custou isso de forma isolada, e sim que o funil entrega essa formação em volume muito baixo. O Meta não permite atribuir gasto por formação — essa quebra só existe porque o formulário pergunta a graduação. A coluna <b>Total</b> divide o investimento dos <b>5 funis de lead</b> (R$ 9.593,44); a tabela de captação, logo abaixo, exclui os e-books e por isso mostra um custo por veterinário menor (R$ 24,71 contra R$ 29,70).</div>
+    <div class="note">Os custos são <b>rateios de leitura, não gasto atribuído</b> — o Meta não separa verba por formação do lead. Servem para comparar funis, e <b>não somam</b>, porque o mesmo investimento está no denominador de todas as linhas. Onde o <b>veterinário pago sai mais barato é no Webinário (R$ 28,52)</b>; no RT Class ele custa <b>R$ 93,02</b>, porque só 12 dos seus 51 leads pagos são vet — os outros 78 veterinários dele vieram do orgânico, sem custo.</div>
   </section>
 
   <section>
     <h2>Só os funis de captação</h2>
-    <p class="sub">Webinário, 5 Aulas, Lista de Espera e RT Class somados — sem o Boletim (engajamento) e sem os e-books (venda).</p>
+    <p class="sub">Webinário, 5 Aulas, Lista de Espera e RT Class somados — sem o Boletim (engajamento) e sem os e-books (venda). Base de custo: leads pagos.</p>
     <div class="scroll">
       <table>
         <thead>
@@ -429,14 +438,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td class="fn">Investimento</td><td class="r num">R$ 5.338,93</td><td class="r num">R$ 7.933,25</td><td class="r delta flat">+48,6%</td></tr>
-          <tr><td class="fn">Leads reais</td><td class="r num">393</td><td class="r num">620</td><td class="r delta up">+57,8%</td></tr>
-          <tr><td class="fn">CPL</td><td class="r num">R$ 13,59</td><td class="r num">R$ 12,80</td><td class="r delta up">−5,8%</td></tr>
-          <tr><td class="fn">Qualificados</td><td class="r num">315</td><td class="r num">569</td><td class="r delta up">+80,6%</td></tr>
-          <tr><td class="fn">Custo por qualificado</td><td class="r num">R$ 16,95</td><td class="r num">R$ 13,94</td><td class="r delta up">−17,8%</td></tr>
-          <tr><td class="fn">Veterinários</td><td class="r num">250</td><td class="r num">321</td><td class="r delta up">+28,4%</td></tr>
-          <tr><td class="fn">Custo por veterinário</td><td class="r num">R$ 21,36</td><td class="r num">R$ 24,71</td><td class="r delta down">+15,7%</td></tr>
-          <tr><td class="fn">Veterinários no funil</td><td class="r num">63,6%</td><td class="r num">51,8%</td><td class="r delta down">−11,8 p.p.</td></tr>
+          <tr><td class="fn">Investimento</td><td class="r num">R$ 5.338,93</td><td class="r num">R$ 8.100,35</td><td class="r delta flat">+51,7%</td></tr>
+          <tr><td class="fn">Leads pagos</td><td class="r num">370</td><td class="r num">382</td><td class="r delta up">+3,2%</td></tr>
+          <tr><td class="fn"><b>CPL pago</b></td><td class="r num">R$ 14,43</td><td class="r num">R$ 21,21</td><td class="r delta down">+47,0%</td></tr>
+          <tr><td class="fn">Leads orgânicos <small>sem custo de mídia</small></td><td class="r num">23</td><td class="r num">253</td><td class="r delta up">+1000,0%</td></tr>
+          <tr><td class="fn">Qualificados pagos</td><td class="r num">292</td><td class="r num">331</td><td class="r delta up">+13,4%</td></tr>
+          <tr><td class="fn">Custo por qualificado pago</td><td class="r num">R$ 18,28</td><td class="r num">R$ 24,47</td><td class="r delta down">+33,8%</td></tr>
+          <tr><td class="fn">Veterinários pagos</td><td class="r num">233</td><td class="r num">238</td><td class="r delta up">+2,1%</td></tr>
+          <tr><td class="fn"><b>Custo por veterinário pago</b></td><td class="r num">R$ 22,91</td><td class="r num">R$ 34,04</td><td class="r delta down">+48,5%</td></tr>
+          <tr><td class="fn">Veterinários no tráfego pago</td><td class="r num">63,0%</td><td class="r num">62,3%</td><td class="r delta flat">-0,7 p.p.</td></tr>
         </tbody>
       </table>
     </div>
@@ -448,72 +458,56 @@
     <div class="scroll">
       <table>
         <thead>
-          <tr>
-            <th>Métrica</th>
-            <th class="r">07/08 → 14/08</th>
-            <th class="r">14/08 → 21/08</th>
-            <th class="r">Variação</th>
-          </tr>
+          <tr><th>Métrica</th><th class="r">07/08 → 14/08</th><th class="r">14/08 → 21/08</th><th class="r">Variação</th></tr>
         </thead>
         <tbody>
-          <tr><td class="fn">Investimento</td><td class="r num">R$ 859,30</td><td class="r num">R$ 690,33</td><td class="r delta flat">−19,7%</td></tr>
-          <tr><td class="fn">Engajamentos na publicação <small>meta de otimização</small></td><td class="r num">6.613</td><td class="r num">5.577</td><td class="r delta down">−15,7%</td></tr>
-          <tr><td class="fn">Custo por engajamento</td><td class="r num">R$ 0,13</td><td class="r num">R$ 0,12</td><td class="r delta up">−4,7%</td></tr>
-          <tr><td class="fn">Visualizações de 25% do vídeo</td><td class="r num">1.342</td><td class="r num">1.013</td><td class="r delta down">−24,5%</td></tr>
-          <tr><td class="fn"><b>Visualizações de 50% do vídeo</b></td><td class="r num">583</td><td class="r num">435</td><td class="r delta down">−25,4%</td></tr>
-          <tr><td class="fn"><b>Custo por visualização de 50%</b></td><td class="r num">R$ 1,47</td><td class="r num">R$ 1,59</td><td class="r delta down">+7,7%</td></tr>
-          <tr><td class="fn">Visualizações de 75%</td><td class="r num">370</td><td class="r num">262</td><td class="r delta down">−29,2%</td></tr>
-          <tr><td class="fn">Visualizações de 95%</td><td class="r num">250</td><td class="r num">179</td><td class="r delta down">−28,4%</td></tr>
-          <tr><td class="fn">Vídeo assistido até o fim</td><td class="r num">236</td><td class="r num">162</td><td class="r delta down">−31,4%</td></tr>
-          <tr><td class="fn">Retenção 25% → 50%</td><td class="r num">43,4%</td><td class="r num">42,9%</td><td class="r delta flat">−0,5 p.p.</td></tr>
-          <tr><td class="fn">Impressões / alcance</td><td class="r num">81.010 / 16.124</td><td class="r num">72.985 / 12.797</td><td class="r delta flat">−9,9% / −20,6%</td></tr>
+          <tr><td class="fn">Investimento</td><td class="r num">R$ 859,30</td><td class="r num">R$ 702,09</td><td class="r delta flat">−18,3%</td></tr>
+          <tr><td class="fn">Engajamentos <small>meta de otimização</small></td><td class="r num">6.613</td><td class="r num">5.666</td><td class="r delta down">−14,3%</td></tr>
+          <tr><td class="fn">Custo por engajamento</td><td class="r num">R$ 0,13</td><td class="r num">R$ 0,12</td><td class="r delta up">−4,6%</td></tr>
+          <tr><td class="fn">Visualizações de 25%</td><td class="r num">1.342</td><td class="r num">1.037</td><td class="r delta down">−22,7%</td></tr>
+          <tr><td class="fn"><b>Visualizações de 50%</b></td><td class="r num">583</td><td class="r num">446</td><td class="r delta down">−23,5%</td></tr>
+          <tr><td class="fn"><b>Custo por visualização de 50%</b></td><td class="r num">R$ 1,47</td><td class="r num">R$ 1,57</td><td class="r delta down">+6,7%</td></tr>
+          <tr><td class="fn">Vídeo assistido até o fim</td><td class="r num">236</td><td class="r num">166</td><td class="r delta down">−29,7%</td></tr>
+          <tr><td class="fn">Retenção 25% → 50%</td><td class="r num">43,4%</td><td class="r num">43,0%</td><td class="r delta flat">−0,4 p.p.</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="note"><b>A campanha ficou mais barata no que ela otimiza e mais cara no que você quer medir.</b> Com 19,7% menos verba, o custo por engajamento <b>caiu 4,7%</b> — do ponto de vista do Meta, melhorou. Mas as visualizações de 50% caíram <b>25,4%</b>, mais que a verba, então o <b>custo por meia-visualização subiu 7,7%</b>. A <b>retenção ficou igual</b> (42,9% de quem chega a 25% também chega a 50%), o que indica que não é o vídeo que piorou — é a entrega que está alcançando menos gente (alcance −20,6%) e gerando engajamento mais raso. Se a marca de 50% é o objetivo real, <b>vale trocar a otimização de engajamento para visualização de vídeo</b>, porque hoje a campanha está sendo premiada por outra coisa.</div>
+    <div class="note">Com 18,3% menos verba, o <b>custo por engajamento caiu 4,6%</b> — no que o Meta otimiza, melhorou. Mas as visualizações de 50% caíram 23,5%, mais que a verba, então o <b>custo por meia-visualização subiu 6,7%</b>. A <b>retenção ficou igual</b> (43,0% de quem chega a 25% também chega a 50%), o que indica que não é o vídeo que piorou. Se a marca de 50% é o objetivo real, <b>vale trocar a otimização de engajamento para visualização de vídeo</b>.</div>
   </section>
 
   <section>
     <h2>O que explica a semana</h2>
     <ul class="reads">
       <li>
-        <span class="t">O CPL caiu, mas por composição — não por eficiência</span>
-        <span>A conta gastou 65,9% mais e trouxe 59,0% mais leads, com o CPL de captação <b>caindo 5,8%</b> (R$ 13,59 → R$ 12,80). Isso <b>não</b> significa que as campanhas melhoraram: o dinheiro novo foi para funis mais baratos por lead, o que puxou a média para baixo e <b>encobriu a piora dos dois funis antigos</b>.</span>
+        <span class="t">Gastou 51,7% mais para trazer 3,2% mais leads pagos</span>
+        <span>Este é o número que importa. A captação saiu de R$ 5.339 para <b>R$ 8.100</b> e os leads de mídia paga foram de 370 para <b>382</b>. O <b>CPL pago subiu 47,0%</b> (R$ 14,43 → R$ 21,21) e o <b>custo por veterinário pago, 48,5%</b> (R$ 22,91 → R$ 34,04). A escala não encontrou volume proporcional.</span>
       </li>
       <li>
-        <span class="t">Três funis melhoraram de perfil ao mesmo tempo</span>
-        <span>O encarecimento é real, mas não é a história inteira. <b>Webinário (+4,3 p.p.), 5 Aulas (+7,1 p.p.)</b> e os dois funis novos elevaram a fatia de veterinário dentro de si mesmos; a <b>Lista de Espera dobrou o número absoluto de vets</b> (21 → 43). A queda da fatia geral para 51,8% vem de <b>mistura de canais</b>, não de nenhum funil piorando: em números absolutos a conta ganhou <b>73 veterinários e 259 qualificados</b> na semana.</span>
+        <span class="t">O orgânico salvou o volume, mas não a eficiência</span>
+        <span>Os leads sem custo de mídia saltaram de <b>23 para 253</b> — quase tudo RT Class (223) e Lista de Espera (30). É resultado real e valioso: só no RT Class vieram <b>78 veterinários de graça</b>, e o e-mail dele converte a <b>51% de veterinário</b>. Mas orgânico <b>não abate custo de mídia</b>: era a mistura dele no denominador que fazia o CPL parecer estável.</span>
       </li>
       <li>
-        <span class="t">O veterinário ficou 15,7% mais caro, mesmo com o CPL caindo</span>
-        <span>É a leitura mais importante da tabela de formações. O CPL geral caiu, mas o <b>custo por veterinário subiu de R$ 21,36 para R$ 24,71</b> — porque o volume novo é de nutricionista, não de vet. Onde o veterinário sai mais barato agora é no <b>RT Class (R$ 12,77)</b>; no Webinário ele custa <b>R$ 28,63</b> e nas 5 Aulas, <b>R$ 37,69</b>.</span>
+        <span class="t">Nenhum funil perdeu qualidade — a fatia de vet no pago está estável</span>
+        <span>Dentro do tráfego pago, a fatia de veterinários foi de <b>63,0% para 62,3%</b>, praticamente igual. Individualmente, <b>Webinário (85,0% → 89,1%)</b> e <b>5 Aulas (20,3% → 27,2%)</b> melhoraram. O problema desta semana é <b>preço</b>, não perfil.</span>
       </li>
       <li>
-        <span class="t">Webinário: muito mais caro, porém mais puro</span>
-        <span>Recebeu <b>14,9% mais verba</b> e trouxe <b>22,1% menos leads</b> — CPL de R$ 17,33 para <b>R$ 25,57</b>. Mas a fatia de veterinários <b>subiu de 85,0% para 89,3%</b>, o melhor perfil que esse funil já teve, e ele praticamente não traz outras formações: são 167 vets e 20 estudantes, nada mais. É o funil mais puro da conta e o segundo mais caro por vet.</span>
+        <span class="t">RT Class: ótimo no orgânico, caro no pago</span>
+        <span>Os 274 leads dele custaram R$ 1.116 — mas <b>223 são orgânicos</b>. No recorte pago, são <b>51 leads a R$ 21,89</b>, e apenas <b>12 veterinários, a R$ 93,02 cada</b>. Pior: <b>22 dos 51 leads pagos</b> vieram de públicos (seguidores e lookalike de membros) que <b>não entregaram um único veterinário</b>. Há verba a realocar para o público de lista de veterinários ICP, o único com boa densidade.</span>
       </li>
       <li>
-        <span class="t">O RT Class é barato, mas é um funil de nutricionista</span>
-        <span>Trouxe <b>266 leads</b>, o maior volume da semana, com <b>124 nutricionistas contra 86 veterinários</b>. É onde tanto o nutricionista (R$ 8,86) quanto o veterinário (R$ 12,77) saem mais baratos — mas atenção: <b>216 dos 266 leads são orgânicos</b>. No recorte só de mídia paga, o lead dele custa R$ 21,97, na mesma faixa do Webinário.</span>
-      </li>
-      <li>
-        <span class="t">5 Aulas: perdeu volume, mas ficou melhor no ICP</span>
-        <span>Menos verba (<b>−12,7%</b>) e menos leads (<b>−26,0%</b>), com CPL subindo de R$ 8,77 para R$ 10,35. Mas olhando o que importa, o quadro se inverte: <b>manteve exatamente os mesmos 25 veterinários gastando menos</b>, então o <b>custo por veterinário caiu 12,7%</b> (R$ 43,17 → R$ 37,69) e a fatia de vet subiu de 20,3% para 27,5%. O ponto de atenção que permanece é a dispersão: <b>33% dos leads ainda são Estudante/Outros</b>, e o vet dela segue o mais caro entre os funis de captação.</span>
-      </li>
-      <li>
-        <span class="t">Os e-books precisam de outra métrica</span>
-        <span><b>R$ 1.660,19</b> investidos para <b>5 leads</b> de formulário dá R$ 332,04 por lead — mas é um <b>funil de vendas</b>. O número que decide se ele vale a pena é <b>venda de e-book</b>, que não está em nenhuma das planilhas desta dashboard. Sem esse dado, não há como avaliar a campanha.</span>
+        <span class="t">Os e-books seguem sem a métrica que decide</span>
+        <span><b>R$ 1.704,12</b> para <b>5 leads</b> de formulário. É <b>funil de vendas</b>: o número que decide é venda de e-book, que não está em nenhuma planilha desta dashboard. Sem esse dado, não há como avaliar.</span>
       </li>
     </ul>
   </section>
 
   <div class="method">
     <p><b>Períodos.</b> As duas janelas têm 8 dias corridos e compartilham o dia 14/08, que entra nas duas. A semana anterior foi reconsultada com o dia 14/08 fechado.</p>
-    <p><b>Leads e formações.</b> Contados apenas nas planilhas dos formulários — uma por funil, cinco no total —, nunca pela contagem do pixel do Meta. Linhas de teste removidas, deduplicação por e-mail dentro de cada janela. A formação vem da pergunta de graduação do próprio formulário. "Qualificado" = qualquer formação declarada, exceto Estudante/Outros e vazio. Tecnólogo de Alimentos entra junto com Engenheiro de Alimentos. As cinco planilhas estão sincronizadas até 21/08.</p>
-    <p><b>Custo por formação.</b> É o investimento total do funil dividido pelos leads daquela formação. O Meta não permite atribuir gasto por formação do lead, então esses números são <b>rateios de leitura</b>, não custos medidos: servem para comparar funis ("onde o veterinário sai mais barato"), e não para somar.</p>
-    <p><b>Boletim Smart.</b> Os 16 conjuntos de anúncio otimizam por <code>POST_ENGAGEMENT</code> — confirmado no Meta, não presumido. Por isso a tabela mostra o custo por engajamento (a métrica pela qual a campanha é entregue) ao lado do custo por visualização de 50%, que é a leitura de consumo de conteúdo. As visualizações de 50% incluem quem pulou até esse ponto do vídeo, como define o Meta.</p>
-    <p><b>Uma ressalva.</b> O investimento <b>inclui 21/08, ainda em curso</b>, então o gasto da semana e os custos vão mexer até o fim do dia — para cima, já que os leads de 21/08 estão todos contados e o gasto ainda acumula. Nenhuma métrica de atendimento comercial entra aqui: esse dado vem do time, não de fonte automatizada.</p>
-    <p class="stamp">Fonte: Meta Ads (conta CA oficial — Food Smart) e as 5 planilhas de leads · atualizado em 21/08/2026, investimento parcial para o dia corrente</p>
+    <p><b>Base de custo: só mídia paga.</b> Todo CPL, custo por qualificado e custo por veterinário divide a verba do funil pelos <b>leads cuja <code>Utm Source</code> é <code>meta-ads</code></b>. Leads orgânicos entram como volume, nunca no denominador de custo. Webinário, 5 Aulas e e-books são 100% pagos; Lista de Espera tem 30 orgânicos em 76; RT Class, 223 em 274.</p>
+    <p><b>Leads e formações.</b> Contados apenas nas planilhas dos formulários — cinco no total —, nunca pelo pixel do Meta. Linhas de teste removidas, deduplicação por e-mail dentro de cada janela. Formação vem da pergunta de graduação do formulário. "Qualificado" = qualquer formação declarada, exceto Estudante/Outros e vazio. Tecnólogo de Alimentos entra com Engenheiro de Alimentos.</p>
+    <p><b>Boletim Smart.</b> Os 16 conjuntos otimizam por <code>POST_ENGAGEMENT</code>, confirmado no Meta. A tabela mostra o custo por engajamento (métrica de entrega) ao lado do custo por visualização de 50%, que inclui quem pulou até esse ponto, como define o Meta.</p>
+    <p><b>Uma ressalva.</b> O investimento <b>inclui 21/08, ainda em curso</b>: gasto e custos sobem até o fim do dia. Os leads de 21/08 já estão contados. Nenhuma métrica de atendimento comercial entra aqui.</p>
+    <p class="stamp">Fonte: Meta Ads (conta CA oficial — Food Smart) e as 5 planilhas de leads · snapshot de 21/08/2026, investimento parcial para o dia corrente</p>
   </div>
 
   </div>
