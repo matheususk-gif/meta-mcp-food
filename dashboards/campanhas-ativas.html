@@ -20,6 +20,7 @@
     --new:#3b5bb5;
     --new-soft:rgba(59,91,181,.10);
     --neutral-soft:rgba(92,102,110,.10);
+    --good-soft:rgba(31,122,77,.11);
     --display:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     --body:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
@@ -42,6 +43,8 @@
       --new:#7f9ce8;
       --new-soft:rgba(127,156,232,.14);
       --neutral-soft:rgba(152,162,170,.13);
+    --good-soft:rgba(76,186,127,.14);
+      --good-soft:rgba(76,186,127,.14);
     }
   }
   :root[data-theme="dark"]{
@@ -134,11 +137,14 @@
   .chip.novo{background:var(--new-soft); color:var(--new)}
   .chip.alerta{background:var(--warn-soft); color:var(--warn)}
   .chip.quieto{background:var(--neutral-soft); color:var(--muted)}
+  .chip.bom{background:var(--good-soft); color:var(--good)}
+  .chips{display:flex; flex-wrap:wrap; gap:4px; justify-content:flex-end}
 
   /* ---- note ---- */
   .note{background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--warn);
         border-radius:9px; padding:15px 17px; font-size:13.5px; color:var(--muted)}
   .note b{color:var(--text); font-weight:600}
+  .note.bom{border-left-color:var(--good)}
 
   /* ---- readings ---- */
   .reads{display:flex; flex-direction:column; gap:1px; background:var(--line);
@@ -234,7 +240,7 @@
 
   <section>
     <h2>Funil por funil</h2>
-    <p class="sub">Cada célula mostra <span class="pair"><span class="was">semana anterior</span><span class="arrow">→</span><span class="now">semana atual</span></span>. O total de CPL considera só os quatro funis de captação.</p>
+    <p class="sub">Cada célula mostra <span class="pair"><span class="was">semana anterior</span><span class="arrow">→</span><span class="now">semana atual</span></span>. As colunas de <b>% e custo por veterinário</b> existem porque custo e volume contam só metade da história — um funil pode encarecer e, ao mesmo tempo, entregar perfil melhor. O total de CPL considera só os quatro funis de captação.</p>
     <div class="scroll">
       <table>
         <thead>
@@ -243,7 +249,9 @@
             <th class="r">Investimento</th>
             <th class="r">Leads reais</th>
             <th class="r">CPL</th>
-            <th class="r">Situação</th>
+            <th class="r">% veterinários</th>
+            <th class="r">Custo / veterinário</th>
+            <th class="r">Balanço</th>
           </tr>
         </thead>
         <tbody>
@@ -252,42 +260,54 @@
             <td class="r pair"><span class="was">4.160</span><span class="arrow">→</span><span class="now">R$ 4.781</span></td>
             <td class="r pair"><span class="was">240</span><span class="arrow">→</span><span class="now">187</span></td>
             <td class="r pair"><span class="was">17,33</span><span class="arrow">→</span><span class="now">R$ 25,57</span></td>
-            <td class="r"><span class="chip alerta">mais caro</span></td>
+            <td class="r pair"><span class="was">85,0%</span><span class="arrow">→</span><span class="now">89,3%</span><br><span class="delta up">+4,3 p.p.</span></td>
+            <td class="r pair"><span class="was">20,39</span><span class="arrow">→</span><span class="now">R$ 28,63</span><br><span class="delta down">+40,4%</span></td>
+            <td class="r"><div class="chips"><span class="chip alerta">mais caro</span> <span class="chip bom">perfil melhor</span></div></td>
           </tr>
           <tr>
             <td class="fn">5 Aulas <small>NRTC</small></td>
             <td class="r pair"><span class="was">1.079</span><span class="arrow">→</span><span class="now">R$ 942</span></td>
             <td class="r pair"><span class="was">123</span><span class="arrow">→</span><span class="now">91</span></td>
             <td class="r pair"><span class="was">8,77</span><span class="arrow">→</span><span class="now">R$ 10,35</span></td>
-            <td class="r"><span class="chip alerta">mais caro</span></td>
+            <td class="r pair"><span class="was">20,3%</span><span class="arrow">→</span><span class="now">27,5%</span><br><span class="delta up">+7,1 p.p.</span></td>
+            <td class="r pair"><span class="was">43,17</span><span class="arrow">→</span><span class="now">R$ 37,69</span><br><span class="delta up">−12,7%</span></td>
+            <td class="r"><div class="chips"><span class="chip alerta">menos volume</span> <span class="chip bom">vet mais barato</span></div></td>
           </tr>
           <tr>
             <td class="fn">Lista de Espera <small>3 campanhas</small></td>
             <td class="r pair"><span class="was">100</span><span class="arrow">→</span><span class="now">R$ 1.111</span></td>
             <td class="r pair"><span class="was">30</span><span class="arrow">→</span><span class="now">76</span></td>
             <td class="r pair"><span class="was">3,33</span><span class="arrow">→</span><span class="now">R$ 14,62</span></td>
-            <td class="r"><span class="chip novo">reativada</span></td>
+            <td class="r pair"><span class="was">70,0%</span><span class="arrow">→</span><span class="now">56,6%</span><br><span class="delta down">−13,4 p.p.</span></td>
+            <td class="r pair"><span class="was">4,76</span><span class="arrow">→</span><span class="now">R$ 25,85</span><br><span class="delta down">+443%</span></td>
+            <td class="r"><div class="chips"><span class="chip novo">escalou</span> <span class="chip bom">2× mais vets</span></div></td>
           </tr>
           <tr>
             <td class="fn">RT Class Agosto <small>2 campanhas</small></td>
             <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 1.098</span></td>
             <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">266</span></td>
             <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 4,13</span></td>
-            <td class="r"><span class="chip novo">nova</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">32,3%</span><br><span class="delta flat">novo</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 12,77</span><br><span class="delta flat">novo</span></td>
+            <td class="r"><div class="chips"><span class="chip novo">nova</span> <span class="chip bom">vet mais barato da conta</span></div></td>
           </tr>
           <tr>
             <td class="fn">E-books <small>funil de vendas, 5 campanhas</small></td>
             <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 1.660</span></td>
             <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">5</span></td>
             <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 332,04</span></td>
-            <td class="r"><span class="chip novo">nova</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">40,0%</span><br><span class="delta flat">novo</span></td>
+            <td class="r pair"><span class="was">—</span><span class="arrow">→</span><span class="now">R$ 830,10</span><br><span class="delta flat">novo</span></td>
+            <td class="r"><div class="chips"><span class="chip novo">nova</span> <span class="chip alerta">falta dado de venda</span></div></td>
           </tr>
           <tr>
             <td class="fn">Boletim Smart <small>engajamento / vídeo</small></td>
             <td class="r pair"><span class="was">859</span><span class="arrow">→</span><span class="now">R$ 690</span></td>
-            <td class="r pair"><span class="was">583</span><span class="arrow">→</span><span class="now">435 <small style="display:inline;font-weight:400">vídeo 50%</small></span></td>
+            <td class="r pair"><span class="was">583</span><span class="arrow">→</span><span class="now">435</span></td>
             <td class="r pair"><span class="was">1,47</span><span class="arrow">→</span><span class="now">R$ 1,59</span></td>
-            <td class="r"><span class="chip quieto">outra métrica</span></td>
+            <td class="r pair"><span class="was">—</span></td>
+            <td class="r pair"><span class="was">—</span></td>
+            <td class="r"><div class="chips"><span class="chip bom">engajamento mais barato</span></div></td>
           </tr>
         </tbody>
         <tfoot>
@@ -296,11 +316,14 @@
             <td class="r pair"><span class="was">6.198</span><span class="arrow">→</span><span class="now">R$ 10.284</span></td>
             <td class="r pair"><span class="was">393</span><span class="arrow">→</span><span class="now">625</span></td>
             <td class="r pair"><span class="was">13,59</span><span class="arrow">→</span><span class="now">R$ 12,80</span></td>
-            <td class="r"><span class="delta up">−5,8%</span></td>
+            <td class="r pair"><span class="was">63,6%</span><span class="arrow">→</span><span class="now">51,8%</span><br><span class="delta down">−11,8 p.p.</span></td>
+            <td class="r pair"><span class="was">21,36</span><span class="arrow">→</span><span class="now">R$ 24,71</span><br><span class="delta down">+15,7%</span></td>
+            <td class="r"><div class="chips"><span class="chip bom">+73 vets</span></div></td>
           </tr>
         </tfoot>
       </table>
     </div>
+    <div class="note bom"><b>O que melhorou em cada funil.</b> <b>Webinário Diário:</b> ficou mais caro, mas entregou o <b>melhor perfil da sua história</b> — 89,3% de veterinários contra 85,0%, e 89,3% de qualificados contra 85,4%. Praticamente todo lead que entra é do ICP. <b>5 Aulas:</b> perdeu volume, porém <b>manteve os mesmos 25 veterinários com 12,7% menos verba</b> — o custo por veterinário caiu de R$ 43,17 para <b>R$ 37,69</b> e a fatia de vet subiu 7,1 p.p. No que importa para o ICP, ela melhorou. <b>Lista de Espera:</b> <b>dobrou os veterinários em número absoluto</b> (21 → 43) e segue com <b>100% dos leads qualificados</b>, sem um único estudante. <b>RT Class:</b> maior volume da semana, <b>99,6% qualificado</b> e o <b>veterinário mais barato da conta</b> (R$ 12,77). <b>Boletim:</b> custo por engajamento caiu 4,7% com retenção de vídeo estável. Somando tudo, a conta ganhou <b>+73 veterinários</b> (250 → 323) e <b>+259 qualificados</b> (315 → 574) na semana.</div>
     <div class="note"><b>O CPL do RT Class (R$ 4,13) não é comparável aos outros.</b> Só <b>50 dos seus 266 leads</b> vieram de anúncio — os outros 216 são orgânicos. Contando apenas os pagos, o lead dele custa <b>R$ 21,97</b>. O mesmo vale, em menor grau, para a Lista de Espera: 46 pagos de 76, o que dá <b>R$ 24,16</b> por lead pago. Webinário e 5 Aulas são <b>100% pagos</b>, então o CPL deles já é o número real. Na linha do Boletim, "leads" é a contagem de <b>visualizações de 50% do vídeo</b> e o CPL é o custo por essa visualização — ele não capta lead.</div>
   </section>
 
@@ -458,6 +481,10 @@
         <span>A conta gastou 65,9% mais e trouxe 59,0% mais leads, com o CPL de captação <b>caindo 5,8%</b> (R$ 13,59 → R$ 12,80). Isso <b>não</b> significa que as campanhas melhoraram: o dinheiro novo foi para funis mais baratos por lead, o que puxou a média para baixo e <b>encobriu a piora dos dois funis antigos</b>.</span>
       </li>
       <li>
+        <span class="t">Três funis melhoraram de perfil ao mesmo tempo</span>
+        <span>O encarecimento é real, mas não é a história inteira. <b>Webinário (+4,3 p.p.), 5 Aulas (+7,1 p.p.)</b> e os dois funis novos elevaram a fatia de veterinário dentro de si mesmos; a <b>Lista de Espera dobrou o número absoluto de vets</b> (21 → 43). A queda da fatia geral para 51,8% vem de <b>mistura de canais</b>, não de nenhum funil piorando: em números absolutos a conta ganhou <b>73 veterinários e 259 qualificados</b> na semana.</span>
+      </li>
+      <li>
         <span class="t">O veterinário ficou 15,7% mais caro, mesmo com o CPL caindo</span>
         <span>É a leitura mais importante da tabela de formações. O CPL geral caiu, mas o <b>custo por veterinário subiu de R$ 21,36 para R$ 24,71</b> — porque o volume novo é de nutricionista, não de vet. Onde o veterinário sai mais barato agora é no <b>RT Class (R$ 12,77)</b>; no Webinário ele custa <b>R$ 28,63</b> e nas 5 Aulas, <b>R$ 37,69</b>.</span>
       </li>
@@ -470,8 +497,8 @@
         <span>Trouxe <b>266 leads</b>, o maior volume da semana, com <b>124 nutricionistas contra 86 veterinários</b>. É onde tanto o nutricionista (R$ 8,86) quanto o veterinário (R$ 12,77) saem mais baratos — mas atenção: <b>216 dos 266 leads são orgânicos</b>. No recorte só de mídia paga, o lead dele custa R$ 21,97, na mesma faixa do Webinário.</span>
       </li>
       <li>
-        <span class="t">5 Aulas piorou nos dois eixos e não tem foco</span>
-        <span>Menos verba (<b>−12,7%</b>), menos leads ainda (<b>−26,0%</b>) e CPL de R$ 8,77 para <b>R$ 10,35</b>. Além disso é o funil mais disperso: 33% dos leads são Estudante/Outros e o veterinário sai a R$ 37,69, o mais caro entre os funis de captação. É o candidato mais claro a revisão.</span>
+        <span class="t">5 Aulas: perdeu volume, mas ficou melhor no ICP</span>
+        <span>Menos verba (<b>−12,7%</b>) e menos leads (<b>−26,0%</b>), com CPL subindo de R$ 8,77 para R$ 10,35. Mas olhando o que importa, o quadro se inverte: <b>manteve exatamente os mesmos 25 veterinários gastando menos</b>, então o <b>custo por veterinário caiu 12,7%</b> (R$ 43,17 → R$ 37,69) e a fatia de vet subiu de 20,3% para 27,5%. O ponto de atenção que permanece é a dispersão: <b>33% dos leads ainda são Estudante/Outros</b>, e o vet dela segue o mais caro entre os funis de captação.</span>
       </li>
       <li>
         <span class="t">Os e-books precisam de outra métrica</span>
