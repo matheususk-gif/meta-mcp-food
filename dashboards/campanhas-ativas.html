@@ -195,16 +195,17 @@
         <span class="win on"><b>21/08 → 28/08</b> · semana atual</span>
         <span class="win">14/08 → 21/08 · comparação</span>
       </div>
-      <p class="lede">A conta gastou <b>25,5% menos</b> que na semana anterior e o <b>CPL de captação subiu 7,4%</b> — muito abaixo dos 47,0% da semana passada. O que mudou foi o <b>mix</b>: a verba saiu do Webinário (89,9% veterinários, caro) e foi para o RT Class (CPL pago 26,3% <b>menor</b>). Por isso o lead ficou pouco mais caro, mas o <b>veterinário ficou 32,1% mais caro</b>. O funil de <b>Bolsa de Estudos</b>, que roda sem mídia, está na aba ao lado.</p>
+      <p class="lede">A conta gastou <b>25,5% menos</b> e o <b>CPL de captação subiu 7,4%</b> — muito abaixo dos 47,0% da semana passada. O que mudou foi o <b>mix</b>: a verba saiu do Webinário (89,9% veterinários, caro) e foi para o RT Class (CPL pago 26,3% <b>menor</b>). Por isso o lead ficou pouco mais caro, mas o <b>veterinário ficou 32,2% mais caro</b>. Em volume, a queda é maior do que a da mídia paga sugere: os <b>orgânicos caíram 60,8%</b>, e o total de leads da captação recuou <b>39,9%</b> — veja a aba <b>Leads totais</b>.</p>
     </div>
     <button class="themer" id="themer" type="button">tema</button>
   </header>
 
   <div class="note">
-    <b>Três ressalvas antes de ler os números.</b>
-    <b>1.</b> O dia <b>28/08 ainda está em curso</b> — a conta registra R$ 463,09 até esta consulta, contra R$ 923,14 e R$ 944,62 nos dois dias anteriores fechados. Investimento e leads da semana atual vão <b>crescer</b>; a direção das variações é confiável, a magnitude é <b>provisória</b>.
-    <b>2.</b> As janelas são <b>fechadas nas duas pontas</b>, como nas versões anteriores desta página, então <b>21/08 aparece nas duas semanas</b>. Isso mantém a comparação com o que já foi publicado, mas não é uma partição limpa dos dias.
-    <b>3.</b> A planilha configurada do Webinário (<span class="num">[WD] MCP Meta</span>) está retornando <b>#REF!</b> na exportação inteira — não é "zero lead", é fórmula quebrada. Os leads do Webinário vieram do espelho <b>[WD] Dashboard</b>, que tem cabeçalho e primeira linha idênticos e está sincronizado até 28/08. <b>Vale consertar a planilha original.</b>
+    <b>Quatro ressalvas antes de ler os números.</b>
+    <b>1.</b> O dia <b>28/08 ainda está em curso</b> — a conta registra R$ 463,09 até esta consulta, contra R$ 923,14 e R$ 944,62 nos dois dias fechados anteriores. Investimento e leads da semana atual vão <b>crescer</b>; a direção das variações é confiável, a magnitude é <b>provisória</b>.
+    <b>2.</b> As janelas são <b>fechadas nas duas pontas</b>, como nas versões anteriores desta página, então <b>21/08 aparece nas duas semanas</b>. Mantém a comparação com o que já foi publicado, mas não é uma partição limpa dos dias.
+    <b>3.</b> A planilha configurada do Webinário (<span class="num">[WD] MCP Meta</span>) está retornando <b>#REF!</b> na exportação inteira — não é "zero lead", é fórmula quebrada. Os leads vieram do espelho <b>[WD] Dashboard</b>, com cabeçalho e primeira linha idênticos e sincronizado até 28/08. <b>Vale consertar a planilha original.</b>
+    <b>4.</b> A planilha de <b>e-books não tem coluna <span class="num">Utm Source</span></b>. Para os outros quatro funis o corte pago × orgânico é medido lead a lead; para os e-books ele <b>não existe na base</b>, então o orgânico dele aparece como <b>n/d</b> — nunca como zero.
   </div>
 
   <div class="handoff">
@@ -212,11 +213,12 @@
       <div class="lab">Passados ao comercial</div>
       <div class="big">248 leads</div>
     </div>
-    <p class="txt"><b>Dado informado pelo time comercial</b>, e o último disponível: refere-se a <b>14→21/08</b> — não houve número novo para 21→28/08, então ele <b>não</b> descreve a semana atual. Não vem quebrado por funil. Sobre a janela a que pertence, equivale a <b>37,6%</b> dos 659 leads do tráfego pago, ou <b>34,6%</b> somando também os 58 da Bolsa de Estudos. É o único número desta dashboard que cruza as duas abas.</p>
+    <p class="txt"><b>Dado informado pelo time comercial</b> para <b>21→28/08</b>: 247 → <b>248</b>, <b>+0,40%</b>. Não vem quebrado por funil, então não é possível atribuí-lo a nenhum. Como referência, sempre nas duas bases: equivale a <b>62,5%</b> dos 397 leads do tráfego (pagos + orgânicos), ou <b>57,3%</b> somando também os 36 da Bolsa de Estudos. É o único número desta dashboard que cruza as abas. <b>Atenção ao salto:</b> o comercial recebeu praticamente o mesmo volume de uma base que encolheu 39,8%, então a razão subiu de 37,5% para 62,5% — mas os dois conjuntos <b>não são necessariamente a mesma safra</b> (lead de semanas anteriores pode ser trabalhado depois), então isso não é taxa de conversão.</p>
   </div>
 
   <div class="tabs" role="tablist" aria-label="Seções da dashboard">
     <button class="tab" role="tab" id="tab-pago" aria-controls="p-pago" aria-selected="true" tabindex="0" type="button">Tráfego pago<span class="n">291 pagos</span></button>
+    <button class="tab" role="tab" id="tab-total" aria-controls="p-total" aria-selected="false" tabindex="-1" type="button">Leads totais<span class="n">393</span></button>
     <button class="tab" role="tab" id="tab-bolsa" aria-controls="p-bolsa" aria-selected="false" tabindex="-1" type="button">Bolsa de Estudos<span class="n">36</span></button>
   </div>
 
@@ -236,13 +238,15 @@
       <b>5 Aulas:</b> CPL quase estável (+6,9%), a menor deterioração entre os funis de CPL.
       E o <b>custo por lead qualificado da captação ficou parado</b>: R$ 24,40 → <b>R$ 24,44</b> (+0,2%) — a fatia de não-qualificados caiu, então o lead que interessa não ficou mais caro.
     </div>
+
     <section>
       <h2>Funil por funil</h2>
-      <p class="sub">Cada célula mostra <b>semana anterior</b>→<b>semana atual</b>. <b>CPL pago e custo por veterinário usam só os leads de mídia paga</b>; os orgânicos aparecem em coluna separada, sem entrar em nenhuma divisão de custo. Onde o funil é 100% pago, o CPL cheio e o pago são o mesmo número.</p>
+      <p class="sub">Cada célula mostra <b>semana anterior</b>→<b>semana atual</b>. <b>CPL pago e custo por veterinário usam só os leads de mídia paga</b>; os orgânicos aparecem em coluna própria e no total, sem entrar em nenhuma divisão de custo. Onde o funil é 100% pago, o CPL cheio e o pago são o mesmo número.</p>
       <div class="scroll">
         <table>
           <thead><tr>
-            <th>Funil</th><th class="r">Investimento</th><th class="r">Leads pagos</th><th class="r">Orgânicos</th>
+            <th>Funil</th><th class="r">Investimento</th><th class="r">Leads pagos</th>
+            <th class="r">Orgânicos</th><th class="r">Leads totais</th>
             <th class="r">CPL pago</th><th class="r">CPL cheio</th><th class="r">% vet no pago</th>
             <th class="r">Custo / vet pago</th><th class="r">Balanço</th>
           </tr></thead>
@@ -250,8 +254,9 @@
             <tr>
               <td><span class="fn">Webinário Diário</span></td>
               <td class="r"><span class="pair"><span class="was">R$ 4.958,07</span><span class="arrow">→</span><span class="now">R$ 3.276,80</span></span> <span class="delta down">-33,9%</span></td>
-              <td class="r"><span class="pair"><span class="was">197</span><span class="arrow">→</span><span class="now">99</span></span></td>
-              <td class="r">—</td>
+              <td class="r"><span class="pair"><span class="was">197</span><span class="arrow">→</span><span class="now">99</span></span> <span class="delta down">-49,7%</span></td>
+              <td class="r"><span class="pair"><span class="was">0</span><span class="arrow">→</span><span class="now">0</span></span><br><span class="pct">100% meta-ads</span></td>
+              <td class="r"><span class="pair"><span class="was">197</span><span class="arrow">→</span><span class="now">99</span></span> <span class="delta down">-49,7%</span></td>
               <td class="r"><span class="pair"><span class="was">R$ 25,17</span><span class="arrow">→</span><span class="now">R$ 33,10</span></span> <span class="delta down">+31,5%</span></td>
               <td class="r"><span class="pair"><span class="cost">= pago</span></span></td>
               <td class="r"><span class="pair"><span class="was">88,8%</span><span class="arrow">→</span><span class="now">89,9%</span></span> <span class="delta up">+1,1 p.p.</span></td>
@@ -261,8 +266,9 @@
             <tr>
               <td><span class="fn">5 Aulas<small>NRTC</small></span></td>
               <td class="r"><span class="pair"><span class="was">R$ 981,44</span><span class="arrow">→</span><span class="now">R$ 625,28</span></span> <span class="delta down">-36,3%</span></td>
-              <td class="r"><span class="pair"><span class="was">94</span><span class="arrow">→</span><span class="now">56</span></span></td>
-              <td class="r">—</td>
+              <td class="r"><span class="pair"><span class="was">94</span><span class="arrow">→</span><span class="now">56</span></span> <span class="delta down">-40,4%</span></td>
+              <td class="r"><span class="pair"><span class="was">0</span><span class="arrow">→</span><span class="now">0</span></span><br><span class="pct">100% meta-ads</span></td>
+              <td class="r"><span class="pair"><span class="was">94</span><span class="arrow">→</span><span class="now">56</span></span> <span class="delta down">-40,4%</span></td>
               <td class="r"><span class="pair"><span class="was">R$ 10,44</span><span class="arrow">→</span><span class="now">R$ 11,17</span></span> <span class="delta down">+6,9%</span></td>
               <td class="r"><span class="pair"><span class="cost">= pago</span></span></td>
               <td class="r"><span class="pair"><span class="was">27,7%</span><span class="arrow">→</span><span class="now">26,8%</span></span> <span class="delta down">-0,9 p.p.</span></td>
@@ -272,19 +278,21 @@
             <tr>
               <td><span class="fn">Lista de Espera<small>3 campanhas</small></span></td>
               <td class="r"><span class="pair"><span class="was">R$ 1.177,26</span><span class="arrow">→</span><span class="now">R$ 1.081,46</span></span> <span class="delta down">-8,1%</span></td>
-              <td class="r"><span class="pair"><span class="was">48</span><span class="arrow">→</span><span class="now">36</span></span></td>
-              <td class="r"><span class="pair"><span class="was">30</span><span class="arrow">→</span><span class="now">13</span></span></td>
+              <td class="r"><span class="pair"><span class="was">48</span><span class="arrow">→</span><span class="now">36</span></span> <span class="delta down">-25,0%</span></td>
+              <td class="r"><span class="pair"><span class="was">30</span><span class="arrow">→</span><span class="now">13</span></span> <span class="delta down">-56,7%</span><br><span class="pct">utm organico</span></td>
+              <td class="r"><span class="pair"><span class="was">78</span><span class="arrow">→</span><span class="now">49</span></span> <span class="delta down">-37,2%</span></td>
               <td class="r"><span class="pair"><span class="was">R$ 24,53</span><span class="arrow">→</span><span class="now">R$ 30,04</span></span> <span class="delta down">+22,5%</span></td>
               <td class="r"><span class="pair"><span class="was">R$ 15,09</span><span class="arrow">→</span><span class="now">R$ 22,07</span></span> <span class="delta down">+46,2%</span></td>
               <td class="r"><span class="pair"><span class="was">64,6%</span><span class="arrow">→</span><span class="now">58,3%</span></span> <span class="delta down">-6,3 p.p.</span></td>
               <td class="r"><span class="pair"><span class="was">R$ 37,98</span><span class="arrow">→</span><span class="now">R$ 51,50</span></span> <span class="delta down">+35,6%</span></td>
-              <td class="r"><div class="chips"><span class="chip alerta">mais caro</span> <span class="chip quieto">menos orgânico</span></div></td>
+              <td class="r"><div class="chips"><span class="chip alerta">mais caro</span> <span class="chip quieto">orgânico −56,7%</span></div></td>
             </tr>
             <tr>
               <td><span class="fn">RT Class Agosto<small>2 campanhas · pausadas em 25/08</small></span></td>
               <td class="r"><span class="pair"><span class="was">R$ 1.204,68</span><span class="arrow">→</span><span class="now">R$ 1.615,21</span></span> <span class="delta up">+34,1%</span></td>
-              <td class="r"><span class="pair"><span class="was">55</span><span class="arrow">→</span><span class="now">100</span></span></td>
-              <td class="r"><span class="pair"><span class="was">230</span><span class="arrow">→</span><span class="now">89</span></span></td>
+              <td class="r"><span class="pair"><span class="was">55</span><span class="arrow">→</span><span class="now">100</span></span> <span class="delta up">+81,8%</span></td>
+              <td class="r"><span class="pair"><span class="was">230</span><span class="arrow">→</span><span class="now">89</span></span> <span class="delta down">-61,3%</span><br><span class="pct">utm organico</span></td>
+              <td class="r"><span class="pair"><span class="was">285</span><span class="arrow">→</span><span class="now">189</span></span> <span class="delta down">-33,7%</span></td>
               <td class="r"><span class="pair"><span class="was">R$ 21,90</span><span class="arrow">→</span><span class="now">R$ 16,15</span></span> <span class="delta up">-26,3%</span></td>
               <td class="r"><span class="pair"><span class="was">R$ 4,23</span><span class="arrow">→</span><span class="now">R$ 8,55</span></span> <span class="delta down">+102,2%</span></td>
               <td class="r"><span class="pair"><span class="was">23,6%</span><span class="arrow">→</span><span class="now">22,0%</span></span> <span class="delta down">-1,6 p.p.</span></td>
@@ -294,8 +302,9 @@
             <tr>
               <td><span class="fn">E-books<small>funil de vendas</small></span></td>
               <td class="r"><span class="pair"><span class="was">R$ 1.725,88</span><span class="arrow">→</span><span class="now">R$ 755,15</span></span> <span class="delta down">-56,2%</span></td>
-              <td class="r"><span class="pair"><span class="was">5</span><span class="arrow">→</span><span class="now">4</span></span></td>
-              <td class="r">—</td>
+              <td class="r"><span class="pair"><span class="was">5</span><span class="arrow">→</span><span class="now">4</span></span> <span class="delta down">-20,0%</span></td>
+              <td class="r"><span class="pair"><span class="cost">n/d</span></span><br><span class="pct">sem coluna UTM</span></td>
+              <td class="r"><span class="pair"><span class="was">5</span><span class="arrow">→</span><span class="now">4</span></span><br><span class="pct">= só pagos</span></td>
               <td class="r"><span class="pair"><span class="cost">métrica é venda</span></span></td>
               <td class="r"><span class="pair"><span class="cost">n/a</span></span></td>
               <td class="r"><span class="pair"><span class="was">40,0%</span><span class="arrow">→</span><span class="now">0,0%</span></span> <span class="delta down">-40,0 p.p.</span></td>
@@ -306,6 +315,7 @@
               <td><span class="fn">Boletim Smart<small>engajamento / vídeo</small></span></td>
               <td class="r"><span class="pair"><span class="was">R$ 741,43</span><span class="arrow">→</span><span class="now">R$ 684,22</span></span> <span class="delta down">-7,7%</span></td>
               <td class="r"><span class="pair"><span class="cost">não capta lead</span></span></td>
+              <td class="r"><span class="pair"><span class="cost">—</span></span></td>
               <td class="r"><span class="pair"><span class="cost">—</span></span></td>
               <td class="r"><span class="pair"><span class="was">R$ 0,1223</span><span class="arrow">→</span><span class="now">R$ 0,1025</span></span> <span class="delta up">-16,2%</span><br><span class="pct">por engajamento</span></td>
               <td class="r"><span class="pair"><span class="was">R$ 1,54</span><span class="arrow">→</span><span class="now">R$ 1,14</span></span> <span class="delta up">-26,0%</span><br><span class="pct">por visual. de 50%</span></td>
@@ -319,32 +329,39 @@
             <td class="r"><span class="pair"><span class="was">R$ 8.321,45</span><span class="arrow">→</span><span class="now">R$ 6.598,75</span></span> <span class="delta down">-20,7%</span></td>
             <td class="r"><span class="pair"><span class="was">394</span><span class="arrow">→</span><span class="now">291</span></span> <span class="delta down">-26,1%</span></td>
             <td class="r"><span class="pair"><span class="was">260</span><span class="arrow">→</span><span class="now">102</span></span> <span class="delta down">-60,8%</span></td>
+            <td class="r"><span class="pair"><span class="was">654</span><span class="arrow">→</span><span class="now">393</span></span> <span class="delta down">-39,9%</span></td>
             <td class="r"><span class="pair"><span class="was">R$ 21,12</span><span class="arrow">→</span><span class="now">R$ 22,68</span></span> <span class="delta down">+7,4%</span></td>
             <td class="r"><span class="pair"><span class="was">R$ 12,72</span><span class="arrow">→</span><span class="now">R$ 16,79</span></span> <span class="delta down">+32,0%</span></td>
             <td class="r"><span class="pair"><span class="was">62,2%</span><span class="arrow">→</span><span class="now">50,5%</span></span> <span class="delta down">-11,7 p.p.</span></td>
-            <td class="r"><span class="pair"><span class="was">R$ 33,97</span><span class="arrow">→</span><span class="now">R$ 44,89</span></span> <span class="delta down">+32,1%</span></td>
-            <td class="r"><div class="chips"><span class="chip bom">custo/qualificado estável</span><span class="chip alerta">vet −40%</span></div></td>
+            <td class="r"><span class="pair"><span class="was">R$ 33,97</span><span class="arrow">→</span><span class="now">R$ 44,89</span></span> <span class="delta down">+32,2%</span></td>
+            <td class="r"><div class="chips"><span class="chip bom">custo/qualificado estável</span><span class="chip alerta">vet pago −40%</span></div></td>
           </tr></tfoot>
         </table>
       </div>
     </section>
+
     <section>
       <h2>Leads e custo por formação</h2>
-      <p class="sub">Semana <b>21→28/08</b>. Cada célula traz os <b>leads pagos</b>, quantos vieram do orgânico, a <b>fatia daquela formação dentro dos leads pagos do próprio funil</b> — <b>cada coluna soma 100%</b> — e o custo. O custo é sempre <b>verba do funil ÷ leads pagos daquela formação</b>.</p>
+      <p class="sub">Semana <b>21→28/08</b>. Cada célula traz, nesta ordem: <b>leads pagos</b>, a <b>fatia daquela formação dentro dos leads pagos do próprio funil</b> (cada coluna soma 100%), o <b>custo</b>, e por último quantos <b>leads orgânicos</b> daquela mesma formação chegaram no funil. O custo é sempre <b>verba do funil ÷ leads pagos daquela formação</b>.</p>
       <div class="note">
-        <b>O custo por formação é um rateio de leitura, não um custo medido.</b> O Meta <b>não atribui gasto por formação do lead</b> — o mesmo investimento do funil está no denominador de todas as linhas, então <b>as linhas não somam</b> e a coluna de custo não fecha com o investimento. Serve para comparar funis ("onde o veterinário sai mais barato"), não para somar. A coluna <b>Total captação</b> exclui os e-books, que são funil de venda e não entram em nenhum CPL consolidado.
+        <b>O custo por formação é um rateio de leitura, não um custo medido.</b> O Meta <b>não atribui gasto por formação do lead</b> — o mesmo investimento do funil está no denominador de todas as linhas, então <b>as linhas não somam</b> e a coluna de custo não fecha com o investimento. Serve para comparar funis ("onde o veterinário sai mais barato"), não para somar.
+        <b>Sobre o orgânico:</b> vem da coluna <span class="num">Utm Source</span> das planilhas, lead a lead. <b>Webinário e 5 Aulas são 100% <span class="num">meta-ads</span></b> — as 155 linhas das duas planilhas nesta janela têm esse valor, então o <b>0 org</b> ali é medido, não suposto. <b>Lista de Espera</b> e <b>RT Class</b> usam <span class="num">organico</span> (no RT Class, 88 <span class="num">organico</span> + 1 sem UTM). Nos <b>e-books não existe coluna <span class="num">Utm Source</span></b>, por isso <b>org n/d</b>. Orgânico <b>nunca</b> entra em denominador de custo. A coluna <b>Total captação</b> exclui os e-books, que são funil de venda.
       </div>
       <div class="scroll">
         <table>
           <thead><tr><th>Formação</th><th class="r">Webinário</th><th class="r">5 Aulas</th><th class="r">Lista de Espera</th><th class="r">RT Class</th><th class="r">E-books</th><th class="r">Total captação</th></tr></thead>
           <tbody>
-            <tr><td><span class="fn">Veterinário</span></td><td class="r"><span class="pair"><span class="now">89</span></span><br><span class="pct">89,9%</span> <span class="pair"><span class="cost">R$ 36,82</span></span></td><td class="r"><span class="pair"><span class="now">15</span></span><br><span class="pct">26,8%</span> <span class="pair"><span class="cost">R$ 41,69</span></span></td><td class="r"><span class="pair"><span class="now">21</span><span class="pct"> +6 org</span></span><br><span class="pct">58,3%</span> <span class="pair"><span class="cost">R$ 51,50</span></span></td><td class="r"><span class="pair"><span class="now">22</span><span class="pct"> +42 org</span></span><br><span class="pct">22,0%</span> <span class="pair"><span class="cost">R$ 73,42</span></span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">147</span><span class="pct"> +48 org</span></span><br><span class="pct">50,5%</span> <span class="pair"><span class="cost">R$ 44,89</span></span></td></tr>
-            <tr><td><span class="fn">Nutricionista</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">23</span></span><br><span class="pct">41,1%</span> <span class="pair"><span class="cost">R$ 27,19</span></span></td><td class="r"><span class="pair"><span class="now">9</span><span class="pct"> +6 org</span></span><br><span class="pct">25,0%</span> <span class="pair"><span class="cost">R$ 120,16</span></span></td><td class="r"><span class="pair"><span class="now">58</span><span class="pct"> +32 org</span></span><br><span class="pct">58,0%</span> <span class="pair"><span class="cost">R$ 27,85</span></span></td><td class="r"><span class="pair"><span class="now">2</span></span><br><span class="pct">50,0%</span> <span class="pair"><span class="cost">R$ 377,57</span></span></td><td class="r"><span class="pair"><span class="now">90</span><span class="pct"> +38 org</span></span><br><span class="pct">30,9%</span> <span class="pair"><span class="cost">R$ 73,32</span></span></td></tr>
-            <tr><td><span class="fn">Eng./Tecnól. Alimentos</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">8</span></span><br><span class="pct">14,3%</span> <span class="pair"><span class="cost">R$ 78,16</span></span></td><td class="r"><span class="pair"><span class="now">4</span><span class="pct"> +1 org</span></span><br><span class="pct">11,1%</span> <span class="pair"><span class="cost">R$ 270,37</span></span></td><td class="r"><span class="pair"><span class="now">7</span><span class="pct"> +9 org</span></span><br><span class="pct">7,0%</span> <span class="pair"><span class="cost">R$ 230,74</span></span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">19</span><span class="pct"> +10 org</span></span><br><span class="pct">6,5%</span> <span class="pair"><span class="cost">R$ 347,30</span></span></td></tr>
-            <tr><td><span class="fn">Outras qualificadas</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">1</span></span><br><span class="pct">2,8%</span> <span class="pair"><span class="cost">R$ 1.081,46</span></span></td><td class="r"><span class="pair"><span class="now">13</span><span class="pct"> +6 org</span></span><br><span class="pct">13,0%</span> <span class="pair"><span class="cost">R$ 124,25</span></span></td><td class="r"><span class="pair"><span class="now">2</span></span><br><span class="pct">50,0%</span> <span class="pair"><span class="cost">R$ 377,57</span></span></td><td class="r"><span class="pair"><span class="now">14</span><span class="pct"> +6 org</span></span><br><span class="pct">4,8%</span> <span class="pair"><span class="cost">R$ 471,34</span></span></td></tr>
-            <tr><td><span class="fn">Estudante / Outros</span></td><td class="r"><span class="pair"><span class="now">10</span></span><br><span class="pct">10,1%</span> <span class="pair"><span class="cost">R$ 327,68</span></span></td><td class="r"><span class="pair"><span class="now">10</span></span><br><span class="pct">17,9%</span> <span class="pair"><span class="cost">R$ 62,53</span></span></td><td class="r"><span class="pair"><span class="now">1</span></span><br><span class="pct">2,8%</span> <span class="pair"><span class="cost">R$ 1.081,46</span></span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">21</span></span><br><span class="pct">7,2%</span> <span class="pair"><span class="cost">R$ 314,23</span></span></td></tr>
-            <tr><td><span class="fn">Total</span></td><td class="r"><span class="pair"><span class="now">99</span></span><br><span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">56</span></span><br><span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">36</span><span class="pct"> +13 org</span></span><br><span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">100</span><span class="pct"> +89 org</span></span><br><span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">4</span></span><br><span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">291</span><span class="pct"> +102 org</span></span><br><span class="pct">100,0%</span></td></tr>
+            <tr><td><span class="fn">Veterinário</span></td><td class="r"><span class="pair"><span class="now">89</span></span> <span class="pct">89,9%</span><br><span class="pair"><span class="cost">R$ 36,82</span></span><br><span class="pct">0 org</span></td><td class="r"><span class="pair"><span class="now">15</span></span> <span class="pct">26,8%</span><br><span class="pair"><span class="cost">R$ 41,69</span></span><br><span class="pct">0 org</span></td><td class="r"><span class="pair"><span class="now">21</span></span> <span class="pct">58,3%</span><br><span class="pair"><span class="cost">R$ 51,50</span></span><br><span class="pct">+6 org</span></td><td class="r"><span class="pair"><span class="now">22</span></span> <span class="pct">22,0%</span><br><span class="pair"><span class="cost">R$ 73,42</span></span><br><span class="pct">+42 org</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">147</span></span> <span class="pct">50,5%</span><br><span class="pair"><span class="cost">R$ 44,89</span></span><br><span class="pct">+48 org</span></td></tr>
+            <tr><td><span class="fn">Nutricionista</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">23</span></span> <span class="pct">41,1%</span><br><span class="pair"><span class="cost">R$ 27,19</span></span><br><span class="pct">0 org</span></td><td class="r"><span class="pair"><span class="now">9</span></span> <span class="pct">25,0%</span><br><span class="pair"><span class="cost">R$ 120,16</span></span><br><span class="pct">+6 org</span></td><td class="r"><span class="pair"><span class="now">58</span></span> <span class="pct">58,0%</span><br><span class="pair"><span class="cost">R$ 27,85</span></span><br><span class="pct">+32 org</span></td><td class="r"><span class="pair"><span class="now">2</span></span> <span class="pct">50,0%</span><br><span class="pair"><span class="cost">R$ 377,57</span></span><br><span class="pct">org n/d</span></td><td class="r"><span class="pair"><span class="now">90</span></span> <span class="pct">30,9%</span><br><span class="pair"><span class="cost">R$ 73,32</span></span><br><span class="pct">+38 org</span></td></tr>
+            <tr><td><span class="fn">Eng./Tecnól. Alimentos</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">8</span></span> <span class="pct">14,3%</span><br><span class="pair"><span class="cost">R$ 78,16</span></span><br><span class="pct">0 org</span></td><td class="r"><span class="pair"><span class="now">4</span></span> <span class="pct">11,1%</span><br><span class="pair"><span class="cost">R$ 270,37</span></span><br><span class="pct">+1 org</span></td><td class="r"><span class="pair"><span class="now">7</span></span> <span class="pct">7,0%</span><br><span class="pair"><span class="cost">R$ 230,74</span></span><br><span class="pct">+9 org</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">19</span></span> <span class="pct">6,5%</span><br><span class="pair"><span class="cost">R$ 347,30</span></span><br><span class="pct">+10 org</span></td></tr>
+            <tr><td><span class="fn">Outras qualificadas</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">1</span></span> <span class="pct">2,8%</span><br><span class="pair"><span class="cost">R$ 1.081,46</span></span><br><span class="pct">0 org</span></td><td class="r"><span class="pair"><span class="now">13</span></span> <span class="pct">13,0%</span><br><span class="pair"><span class="cost">R$ 124,25</span></span><br><span class="pct">+6 org</span></td><td class="r"><span class="pair"><span class="now">2</span></span> <span class="pct">50,0%</span><br><span class="pair"><span class="cost">R$ 377,57</span></span><br><span class="pct">org n/d</span></td><td class="r"><span class="pair"><span class="now">14</span></span> <span class="pct">4,8%</span><br><span class="pair"><span class="cost">R$ 471,34</span></span><br><span class="pct">+6 org</span></td></tr>
+            <tr><td><span class="fn">Estudante / Outros</span></td><td class="r"><span class="pair"><span class="now">10</span></span> <span class="pct">10,1%</span><br><span class="pair"><span class="cost">R$ 327,68</span></span><br><span class="pct">0 org</span></td><td class="r"><span class="pair"><span class="now">10</span></span> <span class="pct">17,9%</span><br><span class="pair"><span class="cost">R$ 62,53</span></span><br><span class="pct">0 org</span></td><td class="r"><span class="pair"><span class="now">1</span></span> <span class="pct">2,8%</span><br><span class="pair"><span class="cost">R$ 1.081,46</span></span><br><span class="pct">0 org</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">21</span></span> <span class="pct">7,2%</span><br><span class="pair"><span class="cost">R$ 314,23</span></span><br><span class="pct">0 org</span></td></tr>
           </tbody>
+          <tfoot>
+            <tr><td><span class="fn">Leads pagos</span></td><td class="r"><span class="pair"><span class="now">99</span></span> <span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">56</span></span> <span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">36</span></span> <span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">100</span></span> <span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">4</span></span> <span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">291</span></span> <span class="pct">100,0%</span></td></tr>
+            <tr><td><span class="fn">Leads orgânicos<small>utm ≠ meta-ads</small></span></td><td class="r"><span class="pair"><span class="now">0</span></span></td><td class="r"><span class="pair"><span class="now">0</span></span></td><td class="r"><span class="pair"><span class="now">13</span></span></td><td class="r"><span class="pair"><span class="now">89</span></span></td><td class="r"><span class="pair"><span class="cost">n/d</span></span></td><td class="r"><span class="pair"><span class="now">102</span></span></td></tr>
+            <tr><td><span class="fn">Leads totais</span></td><td class="r"><span class="pair"><span class="now">99</span></span></td><td class="r"><span class="pair"><span class="now">56</span></span></td><td class="r"><span class="pair"><span class="now">49</span></span></td><td class="r"><span class="pair"><span class="now">189</span></span></td><td class="r"><span class="pair"><span class="now">4</span></span></td><td class="r"><span class="pair"><span class="now">393</span></span></td></tr>
+          </tfoot>
         </table>
       </div>
     </section>
@@ -358,13 +375,15 @@
             <tr><td><span class="fn">Investimento</span></td><td class="r"><span class="pair"><span class="was">R$ 8.321,45</span></span></td><td class="r"><span class="pair"><span class="now">R$ 6.598,75</span></span></td><td class="r"><span class="delta flat">-20,7%</span></td></tr>
             <tr><td><span class="fn">Leads pagos</span></td><td class="r"><span class="pair"><span class="was">394</span></span></td><td class="r"><span class="pair"><span class="now">291</span></span></td><td class="r"><span class="delta down">-26,1%</span></td></tr>
             <tr><td><span class="fn">Leads orgânicos</span></td><td class="r"><span class="pair"><span class="was">260</span></span></td><td class="r"><span class="pair"><span class="now">102</span></span></td><td class="r"><span class="delta down">-60,8%</span></td></tr>
+            <tr><td><span class="fn">Leads totais</span></td><td class="r"><span class="pair"><span class="was">654</span></span></td><td class="r"><span class="pair"><span class="now">393</span></span></td><td class="r"><span class="delta down">-39,9%</span></td></tr>
             <tr><td><span class="fn">CPL pago</span></td><td class="r"><span class="pair"><span class="was">R$ 21,12</span></span></td><td class="r"><span class="pair"><span class="now">R$ 22,68</span></span></td><td class="r"><span class="delta down">+7,4%</span></td></tr>
             <tr><td><span class="fn">CPL cheio (pagos + orgânicos)</span></td><td class="r"><span class="pair"><span class="was">R$ 12,72</span></span></td><td class="r"><span class="pair"><span class="now">R$ 16,79</span></span></td><td class="r"><span class="delta down">+32,0%</span></td></tr>
             <tr><td><span class="fn">Qualificados pagos</span></td><td class="r"><span class="pair"><span class="was">341</span></span></td><td class="r"><span class="pair"><span class="now">270</span></span></td><td class="r"><span class="delta down">-20,8%</span></td></tr>
             <tr><td><span class="fn">Custo por qualificado pago</span></td><td class="r"><span class="pair"><span class="was">R$ 24,40</span></span></td><td class="r"><span class="pair"><span class="now">R$ 24,44</span></span></td><td class="r"><span class="delta down">+0,2%</span></td></tr>
             <tr><td><span class="fn">Veterinários pagos</span></td><td class="r"><span class="pair"><span class="was">245</span></span></td><td class="r"><span class="pair"><span class="now">147</span></span></td><td class="r"><span class="delta down">-40,0%</span></td></tr>
-            <tr><td><span class="fn">Custo por veterinário pago</span></td><td class="r"><span class="pair"><span class="was">R$ 33,97</span></span></td><td class="r"><span class="pair"><span class="now">R$ 44,89</span></span></td><td class="r"><span class="delta down">+32,1%</span></td></tr>
+            <tr><td><span class="fn">Custo por veterinário pago</span></td><td class="r"><span class="pair"><span class="was">R$ 33,97</span></span></td><td class="r"><span class="pair"><span class="now">R$ 44,89</span></span></td><td class="r"><span class="delta down">+32,2%</span></td></tr>
             <tr><td><span class="fn">Fatia de veterinário no pago</span></td><td class="r"><span class="pair"><span class="was">62,2%</span></span></td><td class="r"><span class="pair"><span class="now">50,5%</span></span></td><td class="r"><span class="delta down">-11,7 p.p.</span></td></tr>
+            <tr><td><span class="fn">Fatia de orgânico no total</span></td><td class="r"><span class="pair"><span class="was">39,8%</span></span></td><td class="r"><span class="pair"><span class="now">26,0%</span></span></td><td class="r"><span class="delta down">-13,8 p.p.</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -396,20 +415,23 @@
     <section>
       <h2>O que explica a semana</h2>
       <ul class="reads">
-        <li><span class="t">A troca de mix explica quase tudo</span>
-        O Webinário, que é o funil mais caro e mais veterinário (89,9% de vet, CPL R$ 33,10), <b>encolheu 33,9%</b> em verba. O RT Class, que é o mais barato e menos veterinário (22,0% de vet, CPL pago R$ 16,15), <b>cresceu 34,1%</b>. Resultado: o <b>lead ficou só 7,4% mais caro</b>, mas o <b>veterinário ficou 32,1% mais caro</b> e a fatia de vet no pago caiu de 62,2% para 50,5%. Não é perda de qualidade de nenhum funil — é a verba tendo mudado de lugar.</li>
+        <li><span class="t">A troca de mix explica quase tudo do custo</span>
+        O Webinário, o funil mais caro e mais veterinário (89,9% de vet, CPL R$ 33,10), <b>encolheu 33,9%</b> em verba. O RT Class, o mais barato e menos veterinário no pago (22,0% de vet, CPL pago R$ 16,15), <b>cresceu 34,1%</b>. Resultado: o <b>lead pago ficou só 7,4% mais caro</b>, mas o <b>veterinário pago ficou 32,2% mais caro</b> e a fatia de vet no pago caiu de 62,2% para 50,5%. Não é perda de qualidade de nenhum funil — é a verba tendo mudado de lugar.</li>
 
         <li><span class="t">O RT Class inverteu — e está pausado</span>
-        Na semana passada era o veterinário mais caro da conta (R$ 92,67) e parecia 5× melhor do que era por causa do orgânico. Nesta semana ele <b>dobrou os leads pagos</b> (55 → 100), <b>baixou o CPL pago em 26,3%</b> e o custo por vet pago em 20,8%. Só que as <b>duas campanhas foram pausadas em 25/08</b> — o ganho apurado aqui não está rodando agora. <b>Vale decidir se volta</b>; a leitura é sua.</li>
+        Na semana passada era o veterinário mais caro da conta (R$ 92,67) e parecia 5× melhor do que era por causa do orgânico. Nesta semana <b>dobrou os leads pagos</b> (55 → 100), <b>baixou o CPL pago em 26,3%</b> e o custo por vet pago em 20,8%. Só que as <b>duas campanhas foram pausadas em 25/08</b> — o ganho apurado aqui não está rodando agora. <b>Vale decidir se volta</b>; a leitura é sua.</li>
 
-        <li><span class="t">O orgânico caiu 60,8% e isso não é problema de mídia</span>
-        Foram 260 → <b>102</b> leads orgânicos, quase todos do RT Class (230 → 89): o empurrão do evento de 19–21/08 acabou. <b>Não afeta nenhum CPL</b> (orgânico nunca entra em denominador de custo), mas afeta o volume total que chega ao comercial — e é a maior parte da queda de leads da conta.</li>
+        <li><span class="t">A queda de volume é maior que a da mídia paga</span>
+        Os leads pagos caíram 26,1% (394 → 291), mas os <b>orgânicos caíram 60,8%</b> (260 → 102), então o <b>total da captação recuou 39,9%</b> (654 → 393). Quase toda a queda do orgânico é do RT Class (230 → 89): o empurrão do evento de 19–21/08 acabou. Orgânico <b>não afeta nenhum CPL</b>, mas é o que explica o volume que chega ao comercial — detalhe na aba <b>Leads totais</b>.</li>
 
         <li><span class="t">O lead qualificado não ficou mais caro</span>
         O CPL pago subiu 7,4%, mas o <b>custo por qualificado ficou em R$ 24,44</b> contra R$ 24,40 — praticamente parado. A explicação está no Webinário e no 5 Aulas: a fatia de "Estudante/Outros" caiu nos dois, então cada real gastou menos com quem não interessa. <b>De 291 leads pagos, 270 são qualificados</b> (92,8%), contra 86,5% na semana anterior.</li>
 
         <li><span class="t">A Lista de Espera é o ponto de atenção</span>
-        Verba quase igual (−8,1%), mas <b>CPL pago de R$ 24,53 para R$ 30,04</b> (+22,5%) e custo por veterinário de R$ 37,98 para <b>R$ 51,50</b> (+35,6%), com a fatia de vet caindo de 64,6% para 58,3%. É o único funil que ficou pior em <b>todas</b> as leituras ao mesmo tempo.</li>
+        Verba quase igual (−8,1%), mas <b>CPL pago de R$ 24,53 para R$ 30,04</b> (+22,5%) e custo por veterinário de R$ 37,98 para <b>R$ 51,50</b> (+35,6%), com a fatia de vet caindo de 64,6% para 58,3%. É o único funil que ficou pior em <b>todas</b> as leituras ao mesmo tempo — e ainda perdeu 17 dos seus 30 leads orgânicos.</li>
+
+        <li><span class="t">O comercial recebeu o mesmo volume de uma base bem menor</span>
+        Foram <b>247 → 248</b> leads passados (+0,40%) enquanto o tráfego total caiu de 659 para 397 (−39,8%). A razão salta de 37,5% para <b>62,5%</b>, mas <b>não trate isso como taxa de conversão</b>: o time não informa a quebra por funil nem a data de origem, e lead de semanas anteriores pode estar sendo trabalhado agora. O que se pode afirmar é que <b>o repasse não acompanhou a queda de captação</b>.</li>
 
         <li><span class="t">Campanha nova criada em 27/08, ainda sem gasto</span>
         Apareceu na conta a <b>[27/08] [LEAD - CAPTAÇÃO] [Profissão Vet RT (L32)] [15/09]</b> (<span class="num">120253882963110728</span>), <b>ACTIVE mas com R$ 0,00</b> gastos até esta consulta — não entregou ainda. É captação para o L32 de 15/09. <b>Entra no escopo da dashboard na próxima leitura</b>, quando começar a gastar.</li>
@@ -422,7 +444,7 @@
     <section class="method">
       <p><b>De onde vem cada número.</b> <b>Leads reais vêm somente das planilhas do Google Drive</b>, nunca da contagem de conversões que o Meta reporta pelo pixel — ela infla e não bate com o formulário. <b>Do Meta vem somente investimento</b>, o status das campanhas e as métricas de vídeo do Boletim.</p>
 
-      <p><b>Custo só divide por lead pago.</b> Todo CPL, custo por qualificado e custo por veterinário divide a verba <b>apenas pelos leads cuja coluna <span class="num">Utm Source</span> é <span class="num">meta-ads</span></b>. Leads orgânicos entram como volume, em coluna própria, e nunca no denominador. Webinário, 5 Aulas e e-books são 100% <span class="num">meta-ads</span> (verificado nesta leitura: 825 de 836 linhas do Webinário têm <span class="num">meta-ads</span> e as 11 restantes são linhas de teste), então neles o CPL cheio e o pago coincidem. Lista de Espera e RT Class captam orgânico, e para eles os dois CPLs aparecem lado a lado.</p>
+      <p><b>Custo só divide por lead pago.</b> Todo CPL, custo por qualificado e custo por veterinário divide a verba <b>apenas pelos leads cuja coluna <span class="num">Utm Source</span> é <span class="num">meta-ads</span></b>. Leads orgânicos entram como volume, em coluna própria e na aba de totais, e nunca no denominador. Distribuição real medida nesta janela: <b>Webinário 99/99 <span class="num">meta-ads</span></b>, <b>5 Aulas 56/56 <span class="num">meta-ads</span></b> (zero orgânico, medido), <b>Lista de Espera</b> 36 <span class="num">meta-ads</span> + 13 <span class="num">organico</span>, <b>RT Class</b> 100 <span class="num">meta-ads</span> + 88 <span class="num">organico</span> + 1 sem UTM. A planilha de <b>e-books não tem a coluna</b>, então o funil aparece como <b>org n/d</b>.</p>
 
       <p><b>Contagem dos leads.</b> Data de referência é a coluna <span class="num">Submitted At</span>. Removidas as linhas de teste (nome ou e-mail contendo "teste", "test", "example", "matheus", "manychat", e telefones fictícios conhecidos) e deduplicadas por e-mail dentro da janela — 12 linhas de teste no total nas duas janelas. Formação: contém "veterin" → Veterinário; "nutri" → Nutricionista; "engenh"/"tecnol" + "aliment" → Eng./Tecnól. Alimentos (<b>Tecnólogo de Alimentos entra junto com Engenheiro</b>); "Estudante/Outros" e, na Lista de Espera, "Outra" → não qualificado. Qualificado é tudo exceto esses e vazio. A planilha da Lista de Espera tem duas linhas de cabeçalho; na do RT Class o e-mail está na coluna 3 e o telefone na 4, invertidos em relação às outras.</p>
 
@@ -431,6 +453,144 @@
       <p><b>Data confirmada pelo Meta, não pelo relógio do container.</b> A soma por campanha de <span class="num">date_preset: today</span> deu <b>R$ 463,09</b>, e a única linha da série diária que bate com esse valor é <b>2026-08-28</b> — é essa a data real desta leitura.</p>
 
       <p class="stamp">Investimento: Meta Ads, conta 8434968583195601 ("CA (oficial) - Food Smart"), nível campanha, série diária. Leads: planilhas [WD] Dashboard, [NRTC] Lista Leads, MCP Meta 2 - Lista de Espera, MCP Meta Visualizer - RT Class Agosto, Lista de Leads - E-books e YayForms. Janelas fechadas nas duas pontas; 28/08 parcial. Atualizado em 28/08/2026.</p>
+    </section>
+  </div>
+
+  <div role="tabpanel" id="p-total" aria-labelledby="tab-total" hidden>
+
+    <div class="note">
+      <b>Esta aba soma pagos + orgânicos dos funis de tráfego.</b> É a leitura de <b>volume</b>: quantos leads reais entraram, independentemente de terem vindo de anúncio. <b>Nenhum custo é calculado aqui</b> — CPL e custo por veterinário continuam dividindo a verba só pelos leads pagos, na aba <b>Tráfego pago</b>, porque orgânico não tem mídia a ratear.
+      Os <b>36 leads da Bolsa de Estudos seguem fora</b> destes totais: aquele funil não tem campanha no Meta e está isolado na sua própria aba. O consolidado abaixo usa os <b>4 funis de captação</b>; os e-books aparecem na tabela por funil mas ficam fora do total, e como a planilha deles <b>não tem coluna <span class="num">Utm Source</span></b>, o orgânico deles é <b>n/d</b>.
+    </div>
+
+    <section>
+      <h2>Leads totais — 21 → 28 de agosto</h2>
+      <p class="sub">Captação (Webinário, 5 Aulas, Lista de Espera e RT Class). Com os e-books, o tráfego soma 397 leads contra 659 na semana anterior.</p>
+      <div class="tiles">
+        <div class="tile"><div class="k">Leads totais</div><div class="v">393</div><div class="d"><span class="delta down">-39,9%</span> · eram 654</div></div>
+        <div class="tile"><div class="k">Pagos</div><div class="v">291</div><div class="d"><span class="delta down">-26,1%</span> · eram 394</div></div>
+        <div class="tile"><div class="k">Orgânicos</div><div class="v">102</div><div class="d"><span class="delta down">-60,8%</span> · eram 260</div></div>
+        <div class="tile"><div class="k">Fatia de orgânico</div><div class="v">26,0%</div><div class="d"><span class="delta down">-13,8 p.p.</span> · era 39,8%</div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Pagos, orgânicos e total por funil</h2>
+      <p class="sub">Células no formato <b>semana anterior</b>→<b>semana atual</b>. A origem sai da coluna <span class="num">Utm Source</span> de cada planilha, lead a lead.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Funil</th><th class="r">Pagos</th><th class="r">Orgânicos</th><th class="r">Leads totais</th><th class="r">% orgânico</th><th class="r">Origem do orgânico</th></tr></thead>
+          <tbody>
+            <tr><td><span class="fn">Webinário Diário</span></td>
+              <td class="r"><span class="pair"><span class="was">197</span><span class="arrow">→</span><span class="now">99</span></span> <span class="delta down">-49,7%</span></td>
+              <td class="r"><span class="pair"><span class="was">0</span><span class="arrow">→</span><span class="now">0</span></span></td>
+              <td class="r"><span class="pair"><span class="was">197</span><span class="arrow">→</span><span class="now">99</span></span> <span class="delta down">-49,7%</span></td>
+              <td class="r"><span class="pair"><span class="cost">sem orgânico</span></span></td>
+              <td class="r"><span class="pct">nenhum · 100% meta-ads</span></td></tr>
+            <tr><td><span class="fn">5 Aulas<small>NRTC</small></span></td>
+              <td class="r"><span class="pair"><span class="was">94</span><span class="arrow">→</span><span class="now">56</span></span> <span class="delta down">-40,4%</span></td>
+              <td class="r"><span class="pair"><span class="was">0</span><span class="arrow">→</span><span class="now">0</span></span></td>
+              <td class="r"><span class="pair"><span class="was">94</span><span class="arrow">→</span><span class="now">56</span></span> <span class="delta down">-40,4%</span></td>
+              <td class="r"><span class="pair"><span class="cost">sem orgânico</span></span></td>
+              <td class="r"><span class="pct">nenhum · 100% meta-ads</span></td></tr>
+            <tr><td><span class="fn">Lista de Espera<small>3 campanhas</small></span></td>
+              <td class="r"><span class="pair"><span class="was">48</span><span class="arrow">→</span><span class="now">36</span></span> <span class="delta down">-25,0%</span></td>
+              <td class="r"><span class="pair"><span class="was">30</span><span class="arrow">→</span><span class="now">13</span></span> <span class="delta down">-56,7%</span></td>
+              <td class="r"><span class="pair"><span class="was">78</span><span class="arrow">→</span><span class="now">49</span></span> <span class="delta down">-37,2%</span></td>
+              <td class="r"><span class="pair"><span class="was">38,5%</span><span class="arrow">→</span><span class="now">26,5%</span></span> <span class="delta down">-11,9 p.p.</span></td>
+              <td class="r"><span class="pct">utm <span class="num">organico</span></span></td></tr>
+            <tr><td><span class="fn">RT Class Agosto<small>2 campanhas · pausadas em 25/08</small></span></td>
+              <td class="r"><span class="pair"><span class="was">55</span><span class="arrow">→</span><span class="now">100</span></span> <span class="delta up">+81,8%</span></td>
+              <td class="r"><span class="pair"><span class="was">230</span><span class="arrow">→</span><span class="now">89</span></span> <span class="delta down">-61,3%</span></td>
+              <td class="r"><span class="pair"><span class="was">285</span><span class="arrow">→</span><span class="now">189</span></span> <span class="delta down">-33,7%</span></td>
+              <td class="r"><span class="pair"><span class="was">80,7%</span><span class="arrow">→</span><span class="now">47,1%</span></span> <span class="delta down">-33,6 p.p.</span></td>
+              <td class="r"><span class="pct">88 <span class="num">organico</span> + 1 sem UTM</span></td></tr>
+            <tr><td><span class="fn">E-books<small>funil de vendas</small></span></td>
+              <td class="r"><span class="pair"><span class="was">5</span><span class="arrow">→</span><span class="now">4</span></span> <span class="delta down">-20,0%</span></td>
+              <td class="r"><span class="pair"><span class="cost">n/d</span></span></td>
+              <td class="r"><span class="pair"><span class="cost">n/d</span></span></td>
+              <td class="r"><span class="pair"><span class="cost">n/d</span></span></td>
+              <td class="r"><span class="pct">planilha sem coluna Utm Source</span></td></tr>
+          </tbody>
+          <tfoot><tr>
+            <td><span class="fn">Captação<small>4 funis · sem e-books</small></span></td>
+            <td class="r"><span class="pair"><span class="was">394</span><span class="arrow">→</span><span class="now">291</span></span> <span class="delta down">-26,1%</span></td>
+            <td class="r"><span class="pair"><span class="was">260</span><span class="arrow">→</span><span class="now">102</span></span> <span class="delta down">-60,8%</span></td>
+            <td class="r"><span class="pair"><span class="was">654</span><span class="arrow">→</span><span class="now">393</span></span> <span class="delta down">-39,9%</span></td>
+            <td class="r"><span class="pair"><span class="was">39,8%</span><span class="arrow">→</span><span class="now">26,0%</span></span> <span class="delta down">-13,8 p.p.</span></td>
+            <td class="r"><span class="pct">RT Class + Lista de Espera</span></td>
+          </tr></tfoot>
+        </table>
+      </div>
+    </section>
+    <section>
+      <h2>Composição por formação — base total</h2>
+      <p class="sub">Mesma classificação da outra aba, mas somando <b>pagos + orgânicos</b>. Cada célula traz os leads totais e a fatia dentro do próprio funil (cada coluna soma 100%). <b>Sem custo</b>: parte destes leads não tem mídia a ratear.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Formação</th><th class="r">Webinário</th><th class="r">5 Aulas</th><th class="r">Lista de Espera</th><th class="r">RT Class</th><th class="r">E-books</th><th class="r">Total captação</th></tr></thead>
+          <tbody>
+            <tr><td><span class="fn">Veterinário</span></td><td class="r"><span class="pair"><span class="now">89</span></span> <span class="pct">89,9%</span></td><td class="r"><span class="pair"><span class="now">15</span></span> <span class="pct">26,8%</span></td><td class="r"><span class="pair"><span class="now">27</span></span> <span class="pct">55,1%</span></td><td class="r"><span class="pair"><span class="now">64</span></span> <span class="pct">33,9%</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">195</span></span> <span class="pct">49,6%</span></td></tr>
+            <tr><td><span class="fn">Nutricionista</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">23</span></span> <span class="pct">41,1%</span></td><td class="r"><span class="pair"><span class="now">15</span></span> <span class="pct">30,6%</span></td><td class="r"><span class="pair"><span class="now">90</span></span> <span class="pct">47,6%</span></td><td class="r"><span class="pair"><span class="now">2</span></span> <span class="pct">50,0%</span></td><td class="r"><span class="pair"><span class="now">128</span></span> <span class="pct">32,6%</span></td></tr>
+            <tr><td><span class="fn">Eng./Tecnól. Alimentos</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">8</span></span> <span class="pct">14,3%</span></td><td class="r"><span class="pair"><span class="now">5</span></span> <span class="pct">10,2%</span></td><td class="r"><span class="pair"><span class="now">16</span></span> <span class="pct">8,5%</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">29</span></span> <span class="pct">7,4%</span></td></tr>
+            <tr><td><span class="fn">Outras qualificadas</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">1</span></span> <span class="pct">2,0%</span></td><td class="r"><span class="pair"><span class="now">19</span></span> <span class="pct">10,1%</span></td><td class="r"><span class="pair"><span class="now">2</span></span> <span class="pct">50,0%</span></td><td class="r"><span class="pair"><span class="now">20</span></span> <span class="pct">5,1%</span></td></tr>
+            <tr><td><span class="fn">Estudante / Outros</span></td><td class="r"><span class="pair"><span class="now">10</span></span> <span class="pct">10,1%</span></td><td class="r"><span class="pair"><span class="now">10</span></span> <span class="pct">17,9%</span></td><td class="r"><span class="pair"><span class="now">1</span></span> <span class="pct">2,0%</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="now">21</span></span> <span class="pct">5,3%</span></td></tr>
+          </tbody>
+          <tfoot><tr><td><span class="fn">Leads totais</span></td><td class="r"><span class="pair"><span class="now">99</span></span> <span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">56</span></span> <span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">49</span></span> <span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">189</span></span> <span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">4</span></span> <span class="pct">100,0%</span></td><td class="r"><span class="pair"><span class="now">393</span></span> <span class="pct">100,0%</span></td></tr></tfoot>
+        </table>
+      </div>
+    </section>
+    <section>
+      <h2>Só os leads orgânicos — quem chegou sem anúncio</h2>
+      <p class="sub">Detalhe dos leads cuja <span class="num">Utm Source</span> <b>não é</b> <span class="num">meta-ads</span>. <b>Webinário e 5 Aulas não aparecem porque não têm nenhum</b> — as duas planilhas são 100% <span class="num">meta-ads</span> nas duas janelas. Os e-books ficam fora porque a planilha não tem a coluna.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Formação</th><th class="r">Lista de Espera</th><th class="r">RT Class</th><th class="r">Total orgânico</th><th class="r">Fatia</th></tr></thead>
+          <tbody>
+            <tr><td><span class="fn">Veterinário</span></td><td class="r"><span class="pair"><span class="was">14</span><span class="arrow">→</span><span class="now">6</span></span></td><td class="r"><span class="pair"><span class="was">80</span><span class="arrow">→</span><span class="now">42</span></span></td><td class="r"><span class="pair"><span class="was">94</span><span class="arrow">→</span><span class="now">48</span></span> <span class="delta down">-48,9%</span></td><td class="r"><span class="pair"><span class="now">47,1%</span></span></td></tr>
+            <tr><td><span class="fn">Nutricionista</span></td><td class="r"><span class="pair"><span class="was">13</span><span class="arrow">→</span><span class="now">6</span></span></td><td class="r"><span class="pair"><span class="was">107</span><span class="arrow">→</span><span class="now">32</span></span></td><td class="r"><span class="pair"><span class="was">120</span><span class="arrow">→</span><span class="now">38</span></span> <span class="delta down">-68,3%</span></td><td class="r"><span class="pair"><span class="now">37,3%</span></span></td></tr>
+            <tr><td><span class="fn">Eng./Tecnól. Alimentos</span></td><td class="r"><span class="pair"><span class="was">3</span><span class="arrow">→</span><span class="now">1</span></span></td><td class="r"><span class="pair"><span class="was">25</span><span class="arrow">→</span><span class="now">9</span></span></td><td class="r"><span class="pair"><span class="was">28</span><span class="arrow">→</span><span class="now">10</span></span> <span class="delta down">-64,3%</span></td><td class="r"><span class="pair"><span class="now">9,8%</span></span></td></tr>
+            <tr><td><span class="fn">Outras qualificadas</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="was">17</span><span class="arrow">→</span><span class="now">6</span></span></td><td class="r"><span class="pair"><span class="was">17</span><span class="arrow">→</span><span class="now">6</span></span> <span class="delta down">-64,7%</span></td><td class="r"><span class="pair"><span class="now">5,9%</span></span></td></tr>
+            <tr><td><span class="fn">Estudante / Outros</span></td><td class="r"><span class="pair"><span class="cost">—</span></span></td><td class="r"><span class="pair"><span class="was">1</span><span class="arrow">→</span><span class="now">0</span></span></td><td class="r"><span class="pair"><span class="was">1</span><span class="arrow">→</span><span class="now">0</span></span> <span class="delta down">-100,0%</span></td><td class="r"><span class="pair"><span class="now">0,0%</span></span></td></tr>
+          </tbody>
+          <tfoot><tr><td><span class="fn">Total orgânico</span></td>
+            <td class="r"><span class="pair"><span class="was">30</span><span class="arrow">→</span><span class="now">13</span></span> <span class="delta down">-56,7%</span></td>
+            <td class="r"><span class="pair"><span class="was">230</span><span class="arrow">→</span><span class="now">89</span></span> <span class="delta down">-61,3%</span></td>
+            <td class="r"><span class="pair"><span class="was">260</span><span class="arrow">→</span><span class="now">102</span></span> <span class="delta down">-60,8%</span></td>
+            <td class="r"><span class="pair"><span class="now">100,0%</span></span></td>
+          </tr></tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>O que os totais mostram</h2>
+      <ul class="reads">
+        <li><span class="t">O orgânico era 4 em cada 10 leads, agora é 1 em 4</span>
+        A fatia caiu de <b>39,8% para 26,0%</b> do total da captação. Em número absoluto, 260 → <b>102</b>. É a maior queda de qualquer linha desta dashboard, e <b>não aparece em nenhum CPL</b> — por isso a aba de tráfego pago mostra um quadro bem menos severo do que o volume real.</li>
+
+        <li><span class="t">Quase toda a queda é do RT Class</span>
+        O orgânico do RT Class foi de <b>230 para 89</b> (−61,3%), e o da Lista de Espera de 30 para 13 (−56,7%). No RT Class isso era esperado: a semana anterior tinha o empurrão do evento de 19–21/08, com convite por e-mail e Botconversa. Sem novo evento, esse canal volta ao patamar baixo.</li>
+
+        <li><span class="t">O orgânico do RT Class entrega veterinário melhor que o pago dele</span>
+        Dos 89 orgânicos, <b>42 são veterinários (47,2%)</b>. Dos 100 pagos, só <b>22 (22,0%)</b> — a mídia do RT Class está trazendo sobretudo nutricionistas (58 de 100). O canal orgânico dele tem <b>mais que o dobro da densidade de ICP</b> da mídia paga. Na Lista de Espera é o contrário: 58,3% de vet no pago contra 46,2% no orgânico.</li>
+
+        <li><span class="t">Na base total, a fatia de veterinário quase não se moveu</span>
+        Veterinários totais caíram de 339 para <b>195</b> (−42,5%), mas a <b>fatia ficou em 49,6%</b> contra 51,8% — só −2,2 p.p. No recorte pago a mesma fatia despencou 11,7 p.p. (62,2% → 50,5%). A diferença é justamente o orgânico, que é rico em veterinário: ele <b>segurou o perfil da base</b> mesmo encolhendo.</li>
+
+        <li><span class="t">39% dos leads vêm de funis sem nenhuma entrada orgânica</span>
+        Webinário (99) e 5 Aulas (56) somam <b>155 dos 393 leads</b> da captação e são <b>100% dependentes de mídia paga</b> — medido, não presumido: as duas planilhas têm <span class="num">meta-ads</span> em todas as linhas das duas janelas. Se a verba parar nesses dois, o volume deles vai a zero no mesmo dia.</li>
+
+        <li><span class="t">Nutricionista passou a pesar mais na base</span>
+        Na base total, nutricionistas foram de 27,1% para <b>32,6%</b> e veterinários de 51,8% para 49,6%. O deslocamento vem do RT Class, cujo pago é 58% nutricionista. Se o ICP da casa é veterinário, <b>é aí que a segmentação precisa de ajuste</b> — não no Webinário, que está no seu melhor perfil histórico.</li>
+      </ul>
+    </section>
+
+    <section class="method">
+      <p><b>Como o pago e o orgânico são separados.</b> Lead a lead, pela coluna <span class="num">Utm Source</span> da planilha de cada funil: <span class="num">meta-ads</span> conta como pago, qualquer outro valor conta como orgânico. Nesta janela os valores encontrados foram <span class="num">meta-ads</span>, <span class="num">organico</span> e, em uma única linha do RT Class, campo vazio — contada como orgânica por não ser mídia.</p>
+      <p><b>Por que não há custo nesta aba.</b> Dividir verba por lead orgânico produziria um custo que não existe. Os custos ficam todos na aba de tráfego pago, sempre com <b>leads pagos no denominador</b>. O <b>CPL cheio</b> que aparece lá é a única exceção, e está rotulado como tal: existe só para mostrar o tamanho da distorção quando o orgânico entra na conta.</p>
+      <p><b>Escopo.</b> Consolidado dos 4 funis de captação. E-books entram nas tabelas por funil mas não no total (funil de venda, e sem coluna de UTM). Boletim Smart não capta lead. <b>Bolsa de Estudos está fora de todos estes números</b> — aba própria.</p>
+      <p class="stamp">Leads: planilhas [WD] Dashboard, [NRTC] Lista Leads, MCP Meta 2 - Lista de Espera, MCP Meta Visualizer - RT Class Agosto e Lista de Leads - E-books. Janelas fechadas nas duas pontas; 28/08 parcial. Atualizado em 28/08/2026.</p>
     </section>
   </div>
 

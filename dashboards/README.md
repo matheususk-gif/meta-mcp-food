@@ -228,15 +228,46 @@ Boletim 21→28/08: gasto R$ 684,22 · alcance 14.568 · engajamentos 6.677 · *
 21→28/08: **36 leads** (vet 21 / 58,3%, nutri 9, eng 2, outras 4); registro ativo 26 (72,2%); começariam já 21 (58,3%); à vista só 2 (5,6%). Dois disparos: 21/08 (13) e 25/08 (10).
 ⚠️ A referência de **51 leads para 14→21/08 estava desatualizada** — fechada a janela, são **58**. O mesmo vale para os outros funis: os números medidos em 21/08 subiram depois que as planilhas terminaram de sincronizar. **Ao comparar com a semana anterior, recalcule-a; não copie o snapshot antigo.**
 
-### Leads passados ao comercial
-Continua **248**, referente a **14→21/08** — o time **não informou número novo**. Com os denominadores recalculados dessa janela: **37,6%** dos 659 leads de tráfego pago, ou **34,6%** somando os 58 da Bolsa. Não atribua à semana 21→28/08.
+### Leads passados ao comercial — corrigido pelo usuário em 28/08
+⚠️ Os **248 são da semana 21→28/08**, não de 14→21/08. O usuário confirmou: **247 → 248, +0,40%**. A referência anterior deste README (248 para 14→21/08) estava deslocada de uma semana.
+
+Bases da janela atual: **62,5%** dos 397 leads de tráfego (pagos + orgânicos), ou **57,3%** somando os 36 da Bolsa. Sempre mostre as duas.
+
+**Não chame isso de taxa de conversão.** O repasse ficou estável (+0,40%) enquanto o tráfego caiu 39,8% (659 → 397), então a razão saltou de 37,5% para 62,5%. O time não informa quebra por funil nem data de origem do lead, e lead de semana anterior pode ser trabalhado depois — os dois conjuntos não são a mesma safra.
+
+### Pago × orgânico — distribuição real medida (não presumir)
+
+A dashboard passou a ter **três abas**: Tráfego pago, **Leads totais** (pagos + orgânicos) e Bolsa de Estudos. O corte sai da coluna `Utm Source`, **lead a lead**. Medido em 21→28/08:
+
+| Funil | Pagos | Orgânicos | Total | Valores de `Utm Source` encontrados |
+|---|---|---|---|---|
+| Webinário Diário | 99 | **0** | 99 | só `meta-ads` (99/99) |
+| 5 Aulas (NRTC) | 56 | **0** | 56 | só `meta-ads` (56/56) |
+| Lista de Espera | 36 | 13 | 49 | `meta-ads`, `organico` |
+| RT Class Agosto | 100 | 89 | 189 | `meta-ads`, `organico` (88) + **1 linha sem UTM** |
+| E-books | 4 | **n/d** | — | **planilha não tem a coluna `Utm Source`** |
+| **Captação (4 funis)** | **291** | **102** | **393** | |
+
+Três regras que saíram disso:
+1. **Webinário e 5 Aulas têm zero orgânico medido**, não ausência de dado — escreva `0`, e diga que é medido. Nas duas janelas todas as linhas são `meta-ads`.
+2. **E-books é `n/d`, nunca `0`.** A planilha não tem a coluna, então não há como afirmar que não houve orgânico.
+3. Linha sem UTM conta como **orgânico** (não é mídia), mas **declare** — no RT Class desta janela é 1 de 89.
+
+Totais da captação: **654 → 393 (−39,9%)** · pagos 394 → 291 (−26,1%) · **orgânicos 260 → 102 (−60,8%)** · fatia de orgânico **39,8% → 26,0%**.
+
+Orgânicos por formação (21→28/08, só Lista de Espera + RT Class): vet 48 (47,1%), nutri 38 (37,3%), eng 10 (9,8%), outras 6 (5,9%).
+
+**Achado que vale repetir:** o **orgânico do RT Class entrega veterinário melhor que a mídia paga dele** — 42 de 89 (47,2%) contra 22 de 100 (22,0%). Na Lista de Espera é o inverso (58,3% pago × 46,2% orgânico). E na base total a fatia de veterinário quase não se moveu (51,8% → **49,6%**, −2,2 p.p.) enquanto no recorte pago caiu 11,7 p.p. — o orgânico, rico em vet, é o que segurou o perfil.
+
+⚠️ **Não calcule custo na aba de totais.** CPL, custo por qualificado e custo por veterinário continuam dividindo a verba **só pelos leads pagos**. O "CPL cheio" é a única exceção e existe apenas para mostrar o tamanho da distorção.
 
 ### Recomendações registradas (não executadas — sessão de leitura)
 1. **Consertar a planilha `[WD] MCP Meta`** ou trocar a configuração para `[WD] Dashboard`.
 2. **Decidir sobre o RT Class**: foi o único funil que melhorou CPL pago e custo por vet, e está pausado desde 25/08.
 3. **Lista de Espera** piorou em todas as leituras ao mesmo tempo — vale revisar.
 4. **E-books**: sem a base de vendas não há como avaliar; ou se liga essa fonte, ou o funil segue sem métrica de decisão.
-5. Atualizar o texto da Routine `trig_01TTPnrcRqR7hpeadS6AhHvZ`, que ainda manda editar a seção "Hoje" — ela não existe desde 21/08.
+5. **RT Class:** o canal orgânico dele tem o dobro da densidade de veterinário da mídia paga (47,2% × 22,0%) — a segmentação paga está puxando nutricionista (58 de 100). Vale revisar público antes de reativar.
+6. Atualizar o texto da Routine `trig_01TTPnrcRqR7hpeadS6AhHvZ`, que ainda manda editar a seção "Hoje" — ela não existe desde 21/08.
 
 ---
 
