@@ -94,7 +94,7 @@ Os leads da Bolsa não entram em nenhum total, CPL ou composição por formaçã
 - Colunas: formação de base na **6**, concluiu graduação **7**, registro no conselho **8**, perfil **9**, formato de pagamento **13**, quando começaria **14**, quem decide **15**.
 - Formulário longo: dá para ler **intenção de compra**, não só volume. Use isso.
 
-Referência 14→21/08: **51 leads reais** (53 brutos − 1 teste − 1 duplicado), todos entre 19 e 21/08 (26 no dia 19 — padrão de **disparo pontual**, não fluxo). Veterinário 22 (43,1%), Eng./Tecnól. Alimentos 12 (23,5%), Nutricionista 11 (21,6%), Outras 6 (11,8%). Com registro ativo no conselho: 38 (74,5%). Começariam imediatamente: 39 (76,5%). Pagariam à vista: apenas 3 (5,9%) — **70,6% têm restrição de fluxo de caixa**.
+Referência 14→21/08: **58 leads reais** com a janela fechada (o valor **51**, medido em 21/08, era leitura de planilha ainda sincronizando), todos entre 19 e 21/08 (26 no dia 19 — padrão de **disparo pontual**, não fluxo). Veterinário 22 (43,1%), Eng./Tecnól. Alimentos 12 (23,5%), Nutricionista 11 (21,6%), Outras 6 (11,8%). Com registro ativo no conselho: 38 (74,5%). Começariam imediatamente: 39 (76,5%). Pagariam à vista: apenas 3 (5,9%) — **70,6% têm restrição de fluxo de caixa**.
 
 ## Leads passados ao comercial
 
@@ -186,6 +186,59 @@ Passo a passo:
 5. **Substitua** o `#daySnapshot` pelo snapshot de **hoje** (mesmo formato JSON), para que a execução de amanhã use os números de hoje como "ontem".
 6. Sentido das cores (classes `.delta`/`.val`): investimento usa `flat` (neutro, é só informativo). Leads, qualificados e veterinários usam `up` quando sobem (bom). CPL, custo por qualificado e custo/ThruPlay usam `up` quando **caem** (bom, fica mais barato) e `down` quando sobem (fica mais caro) — o sinal da cor é sobre o que é bom/ruim pro negócio, não sobre a seta do número.
 7. Se por algum motivo não houver `#daySnapshot` no arquivo (primeira execução após uma mudança estrutural), registre isso na dashboard em vez de travar, e apenas grave o snapshot de hoje normalmente.
+
+## ⚠️ Achados da execução de 28/08 — ler antes da próxima
+
+### A planilha do Webinário quebrou
+A planilha configurada `10TAoNrbs3kvAvYFVUt12R8vffcS3EuMB0vbrQJHOX1A` ("[WD] MCP Meta") **retorna `#REF!` na exportação inteira** — CSV e `read_file_content` devolvem só isso. Não é ausência de dados, é fórmula quebrada; o arquivo não é modificado desde 24/07.
+
+**Substituto usado:** `19be-4RV6C-j4B4SM1N8aWet5Q3cBVeos7cxq5-A8XoY` ("[WD] Dashboard"), modificado no mesmo dia e **com cabeçalho e primeira linha idênticos** ao snippet em cache do arquivo quebrado — é o mesmo dataset. Índices: nome 2, telefone 3, e-mail 4, formação 5, **`Utm Source` 9** (atenção: no [NRTC] o `Utm Source` está na coluna 12).
+
+Antes de trocar de novo, confira se a original voltou. Se as duas estiverem vivas, prefira a configurada.
+
+### Campanha nova, ainda sem gasto
+`120253882963110728` — **[27/08] [LEAD - CAPTAÇÃO] [Profissão Vet RT (L32)] [15/09]**, `ACTIVE`, **R$ 0,00** em 14→28/08. Criada em 27/08 e ainda não entregou. **Entra no escopo quando começar a gastar.**
+
+### Mudanças de status dentro da janela
+- **RT Class Agosto** (as 2 campanhas): gastaram até **25/08** e estão **PAUSED**.
+- **E-books**: **3 das 5 pausadas**; seguem ativas só `120253729485470728` (Check List Fiscalização) e `120253731689630728` (Consultoria Lucrativa).
+
+### Convenção de janela — confirmada empiricamente
+As janelas são **fechadas nas duas pontas** e **compartilham o dia de fronteira**. Confirmado: o Webinário publicado como R$ 4.905 para 14→21/08 corresponde ao 14..21 inclusive recalculado (R$ 4.958,07 — a diferença é o assentamento da atribuição). Mantenha isso, mas **diga na página** que o dia de fronteira entra nas duas e que o último dia é parcial.
+
+### Números de referência — 14→21/08 (fechado) vs 21→28/08 (28/08 parcial)
+
+| Funil | Inv. 14→21 | Inv. 21→28 | Pagos | Orgânicos | CPL pago | Custo/vet pago |
+|---|---|---|---|---|---|---|
+| Webinário Diário | R$ 4.958,07 | R$ 3.276,80 | 197 → 99 | — | R$ 25,17 → **R$ 33,10** | R$ 28,33 → R$ 36,82 |
+| 5 Aulas (NRTC) | R$ 981,44 | R$ 625,28 | 94 → 56 | — | R$ 10,44 → **R$ 11,17** | R$ 37,75 → R$ 41,69 |
+| Lista de Espera | R$ 1.177,26 | R$ 1.081,46 | 48 → 36 | 30 → 13 | R$ 24,53 → **R$ 30,04** | R$ 37,98 → R$ 51,50 |
+| RT Class Agosto | R$ 1.204,68 | R$ 1.615,21 | 55 → 100 | 230 → 89 | R$ 21,90 → **R$ 16,15** | R$ 92,67 → R$ 73,42 |
+| E-books | R$ 1.725,88 | R$ 755,15 | 5 → 4 | — | n/a (venda) | n/a |
+| Boletim Smart | R$ 741,43 | R$ 684,22 | — | — | — | — |
+| **Total conta** | **R$ 10.788,76** | **R$ 8.038,12** | | | | |
+
+Captação (4 funis): R$ 8.321,45 → **R$ 6.598,75** (−20,7%) · pagos 394 → **291** (−26,1%) · orgânicos 260 → **102** · **CPL pago R$ 21,12 → R$ 22,68 (+7,4%)** · qualificados 341 → 270 · **custo/qualificado R$ 24,40 → R$ 24,44 (+0,2%, estável)** · vets pagos 245 → **147** · custo/vet R$ 33,97 → **R$ 44,89** (+32,1%) · fatia vet no pago 62,2% → **50,5%**.
+
+**A leitura da semana:** a verba saiu do Webinário (89,9% vet, caro) para o RT Class (22,0% vet, barato). Por isso o **CPL subiu pouco (+7,4%) e o custo por veterinário subiu muito (+32,1%)**. Não foi perda de qualidade de nenhum funil — foi mudança de mix. Sempre separe esses dois efeitos.
+
+Boletim 21→28/08: gasto R$ 684,22 · alcance 14.568 · engajamentos 6.677 · **custo/engajamento R$ 0,1025 (−16,2%)** · p25 1.309 · p50 602 · **custo/visualização 50% R$ 1,14 (−26,0%)** · retenção 25→50 **46,0%** (era 43,4%) · p100 225. Primeira semana em que as duas métricas melhoram juntas.
+
+### Bolsa de Estudos
+21→28/08: **36 leads** (vet 21 / 58,3%, nutri 9, eng 2, outras 4); registro ativo 26 (72,2%); começariam já 21 (58,3%); à vista só 2 (5,6%). Dois disparos: 21/08 (13) e 25/08 (10).
+⚠️ A referência de **51 leads para 14→21/08 estava desatualizada** — fechada a janela, são **58**. O mesmo vale para os outros funis: os números medidos em 21/08 subiram depois que as planilhas terminaram de sincronizar. **Ao comparar com a semana anterior, recalcule-a; não copie o snapshot antigo.**
+
+### Leads passados ao comercial
+Continua **248**, referente a **14→21/08** — o time **não informou número novo**. Com os denominadores recalculados dessa janela: **37,6%** dos 659 leads de tráfego pago, ou **34,6%** somando os 58 da Bolsa. Não atribua à semana 21→28/08.
+
+### Recomendações registradas (não executadas — sessão de leitura)
+1. **Consertar a planilha `[WD] MCP Meta`** ou trocar a configuração para `[WD] Dashboard`.
+2. **Decidir sobre o RT Class**: foi o único funil que melhorou CPL pago e custo por vet, e está pausado desde 25/08.
+3. **Lista de Espera** piorou em todas as leituras ao mesmo tempo — vale revisar.
+4. **E-books**: sem a base de vendas não há como avaliar; ou se liga essa fonte, ou o funil segue sem métrica de decisão.
+5. Atualizar o texto da Routine `trig_01TTPnrcRqR7hpeadS6AhHvZ`, que ainda manda editar a seção "Hoje" — ela não existe desde 21/08.
+
+---
 
 ## Regras gerais
 - ⚠️ **NUNCA confie no relógio do container.** Ele já errou duas vezes: marcou 12/08 quando era 14/08, e 17/08 quando era **21/08**. Ancore a data chamando `ads_get_ad_entities` com `date_preset: today` e cruze o resultado com a série diária (`time_increment: 1`) — a linha que bate exatamente com o total de `today` é a data real de hoje.
