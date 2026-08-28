@@ -6,6 +6,10 @@ Copie o bloco abaixo inteiro e cole como primeira mensagem da nova sessão (com 
 
 Você vai atualizar a dashboard de campanhas da Foodsmart. O repositório é `meta-mcp-food` e o arquivo fonte é `dashboards/campanhas-ativas.html`. **Antes de qualquer coisa, leia `dashboards/README.md`** — ele tem a metodologia completa e o histórico de erros já cometidos. O que está abaixo é o essencial; o README é a fonte de verdade.
 
+## ⛔ Somente leitura
+
+Esta sessão é de **análise, não de operação**. Não pause, não reative, não altere orçamento, nome, segmentação ou qualquer outro campo de campanha, conjunto ou anúncio. As únicas ferramentas do Meta que você deve usar são as de **leitura** (`ads_get_ad_entities`, `ads_get_field_context`). Se durante a análise você concluir que alguma campanha deveria ser pausada ou ajustada, **escreva a recomendação e pare por aí** — quem decide e executa é o usuário.
+
 ## Divisão de fontes — isso não é negociável
 
 - **Leads reais vêm SOMENTE das planilhas do Google Drive.** Nunca use a contagem de leads/conversões que o Meta reporta pelo pixel — ela infla e não bate com o formulário.
@@ -96,10 +100,6 @@ Colunas dessa planilha: formação de base 6, concluiu graduação 7, registro n
 2. Atualize a dashboard rolando as janelas para **21→28/08 vs 14→21/08**, com os leads reais das planilhas e o investimento do Meta, seguindo tudo acima.
 3. Republique com a ferramenta Artifact usando `file_path: dashboards/campanhas-ativas.html` e `url: https://claude.ai/code/artifact/6aad9990-1a8a-4d94-b29a-74f2e8d19a32` (mesma URL, mantém o link).
 4. Commit e push na branch `claude/analise-campanhas-julho-24-31-qblarr`.
-
-## Pendência operacional separada
-
-A campanha do **Webinário Diário (`120252983859150728`) precisa ser pausada** — o pedido foi feito e não chegou a ser executado porque o MCP da Meta ficou sem permissão. Depois de pausar, **confirme lendo `status` e `effective_status`** de volta, e verifique também os conjuntos: ativar/pausar a campanha pai não altera automaticamente os filhos.
 
 ---
 
