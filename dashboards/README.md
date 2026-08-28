@@ -271,6 +271,34 @@ Orgânicos por formação (21→28/08, só Lista de Espera + RT Class): vet 48 (
 
 ---
 
+## Estrutura da página — reescrita em 28/08 (feedback: "bagunçado, poluído")
+
+O usuário reclamou de duas coisas: **não achava o investimento por funil** (estava na 1ª coluna de uma tabela de 10 colunas — presente, mas invisível) e a página estava **poluída de texto**. A correção:
+
+**1. "Investimento por funil" é seção própria e vem primeiro**, logo após a faixa de indicadores. Colunas: funil · semana anterior · semana atual · variação · **% da conta**. Com rodapé de Captação e Total da conta. A coluna de % da conta é o que mostra a realocação de verba — a história da semana.
+
+**2. A tabela de 10 colunas virou três tabelas estreitas**, uma pergunta cada:
+- **Investimento por funil** (5 colunas)
+- **Leads por funil** (4) — pagos · orgânicos · total
+- **Custo por funil** (6) — CPL pago · CPL cheio · % vet · custo/vet · chip de situação
+
+Nenhuma tabela passa de 7 colunas (antes: 10). **Não volte a juntar tudo numa tabela só.**
+
+**3. Texto cortado a ~60%.** A página caiu de 83,5 KB para ~61 KB e de ~4.000 para ~2.570 palavras. O que foi enxugado:
+- As "4 ressalvas" viraram **um parágrafo de 3 linhas**.
+- As notas de ganhos viraram **uma frase cada**.
+- "O que explica a semana": de 8 itens longos para **5 curtos** (1–2 frases).
+- Metodologia: de 6 parágrafos longos para **4 curtos**.
+- Aba de totais e aba da Bolsa: mesma poda.
+- A coluna "Balanço" com 2 chips por linha foi removida das tabelas de investimento e leads; sobrou **1 chip** só na tabela de custo.
+
+**Regra para as próximas execuções:** número em tabela, interpretação em "O que explica a semana" — e no máximo 1–2 frases por item. Se uma nota passar de 3 linhas, ela está longa.
+
+### Precisão que precisa ser mantida
+- **% da conta do Webinário é 46,0%** em 14→21/08 (4.958,07 / 10.788,76 = 45,955%). Uma versão escreveu 45,9% no texto e 46,0% na tabela.
+- **Custo por veterinário pago da captação: +32,2%**, não +32,1% (44,8894 / 33,9651). Arredondar os operandos antes de dividir dá o valor errado.
+- **E-books: o total é conhecido, a divisão pago × orgânico não.** São 4 leads na janela — isso é fato. O que falta é a coluna `Utm Source`. Então **total = 4**, **orgânico = n/d**, e os 4 entram como pagos por verificação anterior, dito explicitamente. Marcar o *total* como n/d é erro: joga fora dado que existe.
+
 ## Regras gerais
 - ⚠️ **NUNCA confie no relógio do container.** Ele já errou duas vezes: marcou 12/08 quando era 14/08, e 17/08 quando era **21/08**. Ancore a data chamando `ads_get_ad_entities` com `date_preset: today` e cruze o resultado com a série diária (`time_increment: 1`) — a linha que bate exatamente com o total de `today` é a data real de hoje.
 - **Rode a consulta sem filtro a cada execução.** O escopo da conta muda sem aviso. Em 21/08 apareceram, todas `ACTIVE` e fora da dashboard: **RT-Class Agosto 26** (2 campanhas, RT Class retomado depois de meses) e um **funil novo de venda de e-books** (5 campanhas criadas em 17/08) — juntas, 42% do gasto do dia.
