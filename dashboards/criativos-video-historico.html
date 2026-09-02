@@ -1,0 +1,481 @@
+<title>Criativos de Vídeo — Histórico Food Smart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#F1F4F3;
+    --surface:#FFFFFF;
+    --surface-2:#E9EEEC;
+    --ink:#141918;
+    --ink-2:#4A5654;
+    --ink-3:#77837F;
+    --line:#D3DAD8;
+    --line-strong:#B4BFBC;
+    --accent:#0F5B57;
+    --accent-soft:#D8E7E5;
+    --good:#2E6F40;
+    --warn:#9A6612;
+    --crit:#8E2F2A;
+    --shadow:0 1px 2px rgba(20,25,24,.06);
+    --f-display:"Bitter",Georgia,"Times New Roman",serif;
+    --f-body:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+    --f-data:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0F1413;
+      --surface:#161C1B;
+      --surface-2:#1E2625;
+      --ink:#E7ECEA;
+      --ink-2:#AAB6B3;
+      --ink-3:#7C8885;
+      --line:#2A3433;
+      --line-strong:#3C4746;
+      --accent:#54B8B0;
+      --accent-soft:#1B2E2D;
+      --good:#63B87A;
+      --warn:#D3A34B;
+      --crit:#D97A72;
+      --shadow:0 1px 2px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0F1413;
+    --surface:#161C1B;
+    --surface-2:#1E2625;
+    --ink:#E7ECEA;
+    --ink-2:#AAB6B3;
+    --ink-3:#7C8885;
+    --line:#2A3433;
+    --line-strong:#3C4746;
+    --accent:#54B8B0;
+    --accent-soft:#1B2E2D;
+    --good:#63B87A;
+    --warn:#D3A34B;
+    --crit:#D97A72;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);
+    font-family:var(--f-body);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px 96px}
+  .col{max-width:68ch}
+
+  /* ---------- header ---------- */
+  header.top{border-bottom:1px solid var(--line);margin-bottom:40px;padding:56px 0 32px}
+  .eyebrow{
+    font-family:var(--f-data);font-size:11.5px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 18px
+  }
+  h1{
+    font-family:var(--f-display);font-weight:700;font-size:clamp(2rem,4.6vw,3.15rem);
+    line-height:1.08;letter-spacing:-.015em;margin:0 0 18px;text-wrap:balance
+  }
+  .lede{font-size:1.14rem;color:var(--ink-2);margin:0;max-width:62ch}
+  .scope{
+    display:flex;flex-wrap:wrap;gap:0;margin-top:34px;
+    border:1px solid var(--line);border-radius:3px;background:var(--surface);overflow:hidden
+  }
+  .scope div{
+    flex:1 1 168px;padding:14px 18px;border-right:1px solid var(--line);
+  }
+  .scope div:last-child{border-right:0}
+  .scope dt{
+    font-family:var(--f-data);font-size:10.5px;font-weight:600;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-3);margin:0 0 5px
+  }
+  .scope dd{margin:0;font-family:var(--f-data);font-size:1.06rem;font-weight:500;font-variant-numeric:tabular-nums}
+  .scope dd small{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:400;color:var(--ink-3);letter-spacing:0}
+
+  /* ---------- sections ---------- */
+  section{margin:0 0 68px;scroll-margin-top:24px}
+  h2{
+    font-family:var(--f-display);font-weight:700;font-size:1.72rem;line-height:1.2;
+    letter-spacing:-.01em;margin:0 0 6px;text-wrap:balance
+  }
+  h2 .num{
+    font-family:var(--f-data);font-size:.72em;font-weight:500;color:var(--accent);
+    margin-right:.55em;letter-spacing:.02em
+  }
+  h3{
+    font-family:var(--f-body);font-weight:600;font-size:1.02rem;margin:38px 0 4px;
+    color:var(--ink)
+  }
+  .sub{color:var(--ink-2);margin:0 0 18px;max-width:66ch}
+  h3 + .sub{font-size:.94rem;margin-bottom:12px}
+  p{margin:0 0 15px}
+  a{color:var(--accent)}
+
+  /* ---------- method panel ---------- */
+  .panel{
+    background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:2px;padding:22px 24px;margin:0 0 40px
+  }
+  .panel h2{font-size:1.16rem;margin-bottom:12px}
+  .panel ul{margin:0;padding-left:1.15em}
+  .panel li{margin-bottom:9px;color:var(--ink-2)}
+  .panel li:last-child{margin-bottom:0}
+  .panel li b{color:var(--ink);font-weight:600}
+  .flag{
+    display:inline-block;font-family:var(--f-data);font-size:10.5px;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--crit);
+    border:1px solid currentColor;border-radius:2px;padding:1px 6px;margin-right:8px;vertical-align:1px
+  }
+
+  /* ---------- benchmark strip ---------- */
+  .bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:2px;margin:0 0 22px}
+  .bench article{background:var(--surface);padding:16px 18px}
+  .bench h4{
+    font-family:var(--f-body);font-size:.95rem;font-weight:600;margin:0 0 3px
+  }
+  .bench .meta{font-family:var(--f-data);font-size:11.5px;color:var(--ink-3);margin:0 0 12px;font-variant-numeric:tabular-nums}
+  .bench dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0;font-family:var(--f-data);font-size:12.5px;font-variant-numeric:tabular-nums}
+  .bench dt{color:var(--ink-3)}
+  .bench dd{margin:0;text-align:right;font-weight:500}
+
+  /* ---------- tables ---------- */
+  .tscroll{overflow-x:auto;border:1px solid var(--line);border-radius:2px;background:var(--surface);margin:0 0 8px}
+  table{border-collapse:collapse;width:100%;min-width:830px;font-size:13.5px}
+  caption{text-align:left;padding:0;caption-side:top}
+  thead th{
+    font-family:var(--f-data);font-size:10.5px;font-weight:600;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--ink-3);text-align:right;
+    padding:11px 12px 9px;border-bottom:1px solid var(--line-strong);white-space:nowrap;
+    background:var(--surface-2)
+  }
+  thead th:first-child{text-align:left}
+  tbody td{
+    padding:9px 12px;border-bottom:1px solid var(--line);text-align:right;
+    font-family:var(--f-data);font-variant-numeric:tabular-nums;white-space:nowrap
+  }
+  tbody tr:last-child td{border-bottom:0}
+  tbody td:first-child{
+    text-align:left;font-family:var(--f-body);font-size:13.8px;white-space:normal;
+    min-width:236px;max-width:320px;line-height:1.35
+  }
+  tbody tr:nth-child(odd) td{background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+  .rank{
+    display:inline-block;width:1.5em;color:var(--ink-3);font-family:var(--f-data);
+    font-size:11.5px;font-weight:500
+  }
+  td .tag{
+    display:block;font-family:var(--f-data);font-size:10.5px;color:var(--ink-3);
+    letter-spacing:.03em;margin-top:2px
+  }
+  .hi{color:var(--accent);font-weight:600}
+  .good{color:var(--good);font-weight:600}
+  .bad{color:var(--crit);font-weight:600}
+  .nil{color:var(--ink-3)}
+
+  /* retention ramp: 25 / 50 / 100 % da audiência que chegou lá */
+  .ramp{display:inline-flex;align-items:flex-end;gap:2px;height:22px;vertical-align:-6px}
+  .ramp i{
+    display:block;width:6px;background:var(--accent);opacity:.9;border-radius:1px 1px 0 0;
+    height:calc(var(--h) * 22px);min-height:1.5px
+  }
+  .ramp i:nth-child(2){opacity:.62}
+  .ramp i:nth-child(3){opacity:.38}
+  .rampkey{
+    font-family:var(--f-data);font-size:10.5px;color:var(--ink-3);letter-spacing:.04em
+  }
+  .note{font-size:12.5px;color:var(--ink-3);margin:8px 0 0;max-width:74ch}
+
+  /* ---------- findings ---------- */
+  .finds{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:2px}
+  .finds article{background:var(--surface);padding:20px 22px}
+  .finds h4{
+    font-family:var(--f-display);font-size:1.06rem;font-weight:700;margin:0 0 7px;letter-spacing:-.005em
+  }
+  .finds p{margin:0;color:var(--ink-2);font-size:.96rem}
+  .finds p + p{margin-top:9px}
+  .finds b{color:var(--ink)}
+  .stat{font-family:var(--f-data);font-variant-numeric:tabular-nums;font-weight:500;color:var(--ink)}
+
+  footer{border-top:1px solid var(--line);padding-top:26px;color:var(--ink-3);font-size:13px}
+  footer p{margin:0 0 8px;max-width:80ch}
+  footer .stamp{font-family:var(--f-data);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  @media (max-width:640px){
+    header.top{padding-top:36px}
+    .wrap{padding:0 16px 64px}
+    .scope div{flex-basis:50%;border-bottom:1px solid var(--line)}
+  }
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Food Smart · Meta Ads · Leitura de histórico completo</p>
+  <h1>Os vídeos que mais renderam em três anos de campanha</h1>
+  <p class="lede">Todo o histórico de anúncios das contas Food Smart, agregado por criativo — qual vídeo prendeu audiência, qual custou menos por audiência retida, e quais nunca receberam a verba que a performance justificava.</p>
+
+  <dl class="scope">
+    <div><dt>Período</dt><dd>ago/2023 → set/2026<small>36 meses de veiculação</small></dd></div>
+    <div><dt>Investimento total</dt><dd>R$ 987.244<small>5 contas com histórico</small></dd></div>
+    <div><dt>Em criativo de vídeo</dt><dd>R$ 535.187<small>3.279 anúncios de vídeo</small></dd></div>
+    <div><dt>Criativos distintos</dt><dd>576<small>mesmo vídeo somado entre anúncios</small></dd></div>
+  </dl>
+</header>
+
+<section class="panel">
+  <h2>Como ler estes números</h2>
+  <ul>
+    <li><b>Nada foi alterado.</b> Consulta somente de leitura: nenhuma campanha, conjunto ou anúncio foi pausado, reativado ou editado.</li>
+    <li><b>Um "criativo" agrega todos os anúncios que usaram o mesmo vídeo.</b> O mesmo filme costuma rodar em vários conjuntos e campanhas — somar é o que revela o desempenho real dele. A coluna <span class="rampkey">ADS</span> mostra em quantos anúncios ele rodou.</li>
+    <li><b>Retenção é lida sobre quem deu play</b>, não sobre impressão: <span class="rampkey">25% / 50% / 100%</span> = fatia de quem iniciou o vídeo e chegou àquele ponto. As três barras (<span class="ramp"><i style="--h:.9"></i><i style="--h:.5"></i><i style="--h:.22"></i></span>) são essa escada, na escala de cada seção.</li>
+    <li><b>Só entrou quem é vídeo de fato.</b> 444 criativos em que o play foi residual (imagem e carrossel com vídeo de capa) ficaram fora — eram R$ 144.114 que não pertencem a uma leitura de vídeo. Sem esse corte, uma imagem como <i>“IMG - Procura-se Vet disponível 1”</i> (R$ 7.648) apareceria como vídeo campeão.</li>
+    <li><span class="flag">Atenção</span><b>O CPL aqui é o do pixel do Meta, não o lead real da planilha.</b> As planilhas de lead não carregam identificação de criativo, então não existe CPL real por vídeo. Use a coluna CPL só para comparar criativos <i>entre si</i> — nunca como custo por lead verdadeiro. (No grupo de conteúdo a coluna nem aparece: ali o resultado otimizado é engajamento.)</li>
+    <li><b>Cobertura da leitura:</b> 96% do investimento da conta de Distribuição de Conteúdo, 90% da Food Smart (Campanhas) e 77% da CA oficial. O que ficou fora são campanhas de cauda, nenhuma acima de R$ 3 mil.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">01</span>A régua de cada objetivo</h2>
+  <p class="sub">Vídeo de captação, de venda e de conteúdo não competem na mesma pista: um vídeo de conteúdo orgânico impulsionado retém quatro vezes mais que um vídeo de captação de lead frio, porque o público já escolheu assistir. Cada ranking adiante é comparado contra a média da própria pista, ponderada por play.</p>
+  <div class="bench">
+    <article>
+      <h4>Captação de leads</h4>
+      <p class="meta">166 criativos · R$ 277.066</p>
+      <dl>
+        <dt>Chegou a 25%</dt><dd>11,5%</dd>
+        <dt>Chegou a 50%</dt><dd>6,4%</dd>
+        <dt>Assistiu até o fim</dt><dd>2,5%</dd>
+        <dt>CPM médio</dt><dd>R$ 12,65</dd>
+        <dt>Custo/ThruPlay</dt><dd>R$ 0,29</dd>
+      </dl>
+    </article>
+    <article>
+      <h4>Vendas</h4>
+      <p class="meta">67 criativos · R$ 76.766</p>
+      <dl>
+        <dt>Chegou a 25%</dt><dd>6,0%</dd>
+        <dt>Chegou a 50%</dt><dd>2,5%</dd>
+        <dt>Assistiu até o fim</dt><dd>0,8%</dd>
+        <dt>CPM médio</dt><dd>R$ 11,84</dd>
+        <dt>Custo/ThruPlay</dt><dd>R$ 0,28</dd>
+      </dl>
+    </article>
+    <article>
+      <h4>Conteúdo e engajamento</h4>
+      <p class="meta">343 criativos · R$ 181.355</p>
+      <dl>
+        <dt>Chegou a 25%</dt><dd>21,9%</dd>
+        <dt>Chegou a 50%</dt><dd>11,4%</dd>
+        <dt>Assistiu até o fim</dt><dd>2,9%</dd>
+        <dt>CPM médio</dt><dd>R$ 6,38</dd>
+        <dt>Custo/ThruPlay</dt><dd>R$ 0,03</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">02</span>Captação de leads</h2>
+  <p class="sub">É onde está a maior parte da verba de vídeo (R$ 277 mil) e onde a diferença entre criativos foi mais caro-barata: o melhor e o pior dos grandes investimentos separam-se por <b>4,3× no custo por audiência retida</b>.</p>
+
+  <h3>Os mais investidos — escala já comprovada</h3>
+  <p class="sub">Ordenado por verba acumulada. Escala é confiança: estes são os únicos números com volume para sustentar decisão.</p>
+  <div class="tscroll">
+    <table>
+      <thead><tr>
+        <th>Criativo</th><th>Investido</th><th>Plays</th><th>Retenção</th><th>25%</th><th>50%</th><th>Fim</th><th>CPM</th><th>R$/ThruPlay</th><th>CTR</th><th>CPL pixel</th><th>Ads</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><span class="rank">1</span>VD - Chamada direta<span class="tag">9 campanhas · o cavalo de batalha da casa</span></td><td class="hi">R$ 36.266</td><td>3.628.698</td><td><span class="ramp"><i style="--h:.94"></i><i style="--h:.54"></i><i style="--h:.24"></i></span></td><td>15,0%</td><td class="good">8,6%</td><td class="good">3,8%</td><td>R$ 8,49</td><td class="good">R$ 0,20</td><td>1,75%</td><td>R$ 8,32</td><td>40</td></tr>
+        <tr><td><span class="rank">2</span>VD - GANCHO PAULA “SE VOCÊ É VETERINÁRIO”</td><td>R$ 12.776</td><td>888.965</td><td><span class="ramp"><i style="--h:.63"></i><i style="--h:.26"></i><i style="--h:.11"></i></span></td><td>10,1%</td><td>4,2%</td><td>1,7%</td><td>R$ 11,72</td><td class="bad">R$ 0,53</td><td>1,15%</td><td class="bad">R$ 17,01</td><td>57</td></tr>
+        <tr><td><span class="rank">3</span>TRÁFEGO_VD - Veterinário, você pode atuar com…</td><td>R$ 12.194</td><td>1.664.295</td><td><span class="ramp"><i style="--h:.9"></i><i style="--h:.46"></i><i style="--h:.13"></i></span></td><td>14,4%</td><td class="good">7,4%</td><td>2,1%</td><td class="good">R$ 6,26</td><td class="good">R$ 0,22</td><td>0,92%</td><td class="good">R$ 6,13</td><td>18</td></tr>
+        <tr><td><span class="rank">4</span>VDObjetivosdoAPPCC</td><td>R$ 10.766</td><td>393.413</td><td><span class="ramp"><i style="--h:.5"></i><i style="--h:.29"></i><i style="--h:.09"></i></span></td><td>8,0%</td><td>4,7%</td><td>1,4%</td><td class="bad">R$ 19,58</td><td>R$ 0,34</td><td>1,26%</td><td>R$ 7,40</td><td>21</td></tr>
+        <tr><td><span class="rank">5</span>VD Maysa: Você está desperdiçando seu CRMV</td><td>R$ 9.576</td><td>500.008</td><td><span class="ramp"><i style="--h:.73"></i><i style="--h:.29"></i><i style="--h:.12"></i></span></td><td>11,7%</td><td>4,7%</td><td>2,0%</td><td>R$ 17,79</td><td class="bad">R$ 0,56</td><td>1,04%</td><td class="bad">R$ 17,22</td><td>20</td></tr>
+        <tr><td><span class="rank">6</span>META_VD 5 — Lista de Espera, roteiro da Paula</td><td>R$ 8.831</td><td>1.130.240</td><td><span class="ramp"><i style="--h:.63"></i><i style="--h:.37"></i><i style="--h:.14"></i></span></td><td>10,1%</td><td>6,0%</td><td>2,3%</td><td class="good">R$ 6,68</td><td class="good">R$ 0,14</td><td>1,63%</td><td>R$ 11,47</td><td>5</td></tr>
+        <tr><td><span class="rank">7</span>VD - Vaga de 10 mil para vets - PAULA</td><td>R$ 8.656</td><td>262.826</td><td><span class="ramp"><i style="--h:.59"></i><i style="--h:.35"></i><i style="--h:.13"></i></span></td><td>9,5%</td><td>5,5%</td><td>2,1%</td><td class="bad">R$ 22,05</td><td class="bad">R$ 0,56</td><td>1,23%</td><td class="bad">R$ 31,82</td><td>37</td></tr>
+        <tr><td><span class="rank">8</span>Como fazer?</td><td>R$ 7.532</td><td>367.569</td><td><span class="ramp"><i style="--h:.79"></i><i style="--h:.4"></i><i style="--h:.16"></i></span></td><td>12,7%</td><td>6,3%</td><td>2,5%</td><td>R$ 15,21</td><td>R$ 0,49</td><td>1,05%</td><td>R$ 7,97</td><td>25</td></tr>
+        <tr><td><span class="rank">9</span>VD_01_PROFISSÃO VET_CHAMADA PAULA<span class="tag">melhor conjunto de métricas da conta</span></td><td>R$ 7.079</td><td>1.042.072</td><td><span class="ramp"><i style="--h:.99"></i><i style="--h:.66"></i><i style="--h:.33"></i></span></td><td class="good">15,8%</td><td class="good">10,5%</td><td class="good">5,3%</td><td class="good">R$ 6,04</td><td class="good">R$ 0,10</td><td>1,66%</td><td class="good">R$ 6,97</td><td>18</td></tr>
+        <tr><td><span class="rank">10</span>Chamada direta</td><td>R$ 6.739</td><td>247.483</td><td><span class="ramp"><i style="--h:.6"></i><i style="--h:.29"></i><i style="--h:.13"></i></span></td><td>9,7%</td><td>4,6%</td><td>2,0%</td><td class="bad">R$ 19,05</td><td class="bad">R$ 0,51</td><td>1,07%</td><td>R$ 8,78</td><td>17</td></tr>
+        <tr><td><span class="rank">11</span>VDQuantoganhaumRTdealimentos?</td><td>R$ 6.363</td><td>210.867</td><td><span class="ramp"><i style="--h:.62"></i><i style="--h:.33"></i><i style="--h:.06"></i></span></td><td>9,9%</td><td>5,3%</td><td>1,0%</td><td class="bad">R$ 24,52</td><td>R$ 0,43</td><td>1,47%</td><td>R$ 7,21</td><td>19</td></tr>
+        <tr><td><span class="rank">12</span>VD - LISTA DE ESPERA - PAULA VET — “eu vou te explicar de forma bem prática”<span class="tag">pior retenção entre os grandes</span></td><td>R$ 6.340</td><td>245.489</td><td><span class="ramp"><i style="--h:.24"></i><i style="--h:.12"></i><i style="--h:.05"></i></span></td><td class="bad">3,8%</td><td class="bad">1,9%</td><td class="bad">0,8%</td><td>R$ 16,85</td><td class="bad">R$ 0,52</td><td>1,04%</td><td class="bad">R$ 36,02</td><td>11</td></tr>
+        <tr><td><span class="rank">13</span>VD - Vet, vou te levar no chão de fábrica - PAULA<span class="tag">13 campanhas — o mais reaproveitado</span></td><td>R$ 6.166</td><td>478.018</td><td><span class="ramp"><i style="--h:.91"></i><i style="--h:.54"></i><i style="--h:.21"></i></span></td><td>14,5%</td><td class="good">8,7%</td><td class="good">3,3%</td><td>R$ 10,86</td><td>R$ 0,39</td><td>1,08%</td><td class="bad">R$ 17,72</td><td>55</td></tr>
+        <tr><td><span class="rank">14</span>AD5 - VET: vet de clínica e vet de alimentos</td><td>R$ 6.110</td><td>541.975</td><td><span class="ramp"><i style="--h:.35"></i><i style="--h:.22"></i><i style="--h:.08"></i></span></td><td>5,5%</td><td>3,5%</td><td>1,3%</td><td>R$ 10,90</td><td>R$ 0,24</td><td>1,32%</td><td>R$ 16,38</td><td>5</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Escala das barras: 16% da audiência que deu play. Verde = melhor que a média da pista; vermelho = pior. “CPL pixel” é comparativo relativo, não lead real.</p>
+
+  <h3>Quem prendeu a audiência até o fim</h3>
+  <p class="sub">Entre os criativos com pelo menos R$ 1.000 investidos. Retenção até o fim é o sinal mais próximo de “a mensagem foi absorvida”.</p>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>Criativo</th><th>Investido</th><th>Plays</th><th>Retenção</th><th>25%</th><th>50%</th><th>Fim</th><th>CPM</th><th>R$/ThruPlay</th><th>CPL pixel</th><th>Ads</th></tr></thead>
+      <tbody>
+        <tr><td><span class="rank">1</span>VD_01_PROFISSÃO VET_CHAMADA PAULA</td><td>R$ 7.079</td><td>1.042.072</td><td><span class="ramp"><i style="--h:.99"></i><i style="--h:.66"></i><i style="--h:.33"></i></span></td><td>15,8%</td><td class="good">10,5%</td><td class="good">5,3%</td><td class="good">R$ 6,04</td><td class="good">R$ 0,10</td><td class="good">R$ 6,97</td><td>18</td></tr>
+        <tr><td><span class="rank">2</span>VD - Chamada direta</td><td>R$ 36.266</td><td>3.628.698</td><td><span class="ramp"><i style="--h:.94"></i><i style="--h:.54"></i><i style="--h:.24"></i></span></td><td>15,0%</td><td>8,6%</td><td class="good">3,8%</td><td>R$ 8,49</td><td class="good">R$ 0,20</td><td>R$ 8,32</td><td>40</td></tr>
+        <tr><td><span class="rank">3</span>CONCURSO_META_VD_03 — Oportunidade real<span class="tag">retenção alta, entrega caríssima</span></td><td>R$ 1.040</td><td>22.473</td><td><span class="ramp"><i style="--h:1"></i><i style="--h:.5"></i><i style="--h:.23"></i></span></td><td class="good">17,0%</td><td>7,9%</td><td class="good">3,6%</td><td class="bad">R$ 28,24</td><td class="bad">R$ 1,05</td><td class="bad">R$ 35,86</td><td>6</td></tr>
+        <tr><td><span class="rank">4</span>VDObjetivodoManualBPFV2</td><td>R$ 6.038</td><td>245.567</td><td><span class="ramp"><i style="--h:.93"></i><i style="--h:.49"></i><i style="--h:.21"></i></span></td><td>14,8%</td><td>7,8%</td><td class="good">3,4%</td><td class="bad">R$ 19,70</td><td>R$ 0,47</td><td class="good">R$ 6,30</td><td>16</td></tr>
+        <tr><td><span class="rank">5</span>VD - Vet, vou te levar no chão de fábrica - PAULA</td><td>R$ 6.166</td><td>478.018</td><td><span class="ramp"><i style="--h:.91"></i><i style="--h:.54"></i><i style="--h:.21"></i></span></td><td>14,5%</td><td>8,7%</td><td>3,3%</td><td>R$ 10,86</td><td>R$ 0,39</td><td class="bad">R$ 17,72</td><td>55</td></tr>
+        <tr><td><span class="rank">6</span>TRÁFEGO_VD - Vet, vou te levar no chão de fábrica<span class="tag">mesmo filme, contexto melhor: CPL 2,4× menor</span></td><td>R$ 3.346</td><td>323.705</td><td><span class="ramp"><i style="--h:.86"></i><i style="--h:.51"></i><i style="--h:.19"></i></span></td><td>13,8%</td><td>8,2%</td><td>3,1%</td><td class="good">R$ 8,90</td><td>R$ 0,33</td><td class="good">R$ 7,50</td><td>18</td></tr>
+        <tr><td><span class="rank">7</span>TRÁFEGO_VD - áreas de atuação para vet</td><td>R$ 1.238</td><td>63.833</td><td><span class="ramp"><i style="--h:.69"></i><i style="--h:.44"></i><i style="--h:.17"></i></span></td><td>11,0%</td><td>7,0%</td><td>2,7%</td><td>R$ 17,17</td><td class="good">R$ 0,21</td><td class="good">R$ 7,03</td><td>11</td></tr>
+        <tr><td><span class="rank">8</span>Como fazer?</td><td>R$ 7.532</td><td>367.569</td><td><span class="ramp"><i style="--h:.79"></i><i style="--h:.4"></i><i style="--h:.16"></i></span></td><td>12,7%</td><td>6,3%</td><td>2,5%</td><td>R$ 15,21</td><td>R$ 0,49</td><td>R$ 7,97</td><td>25</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Menor custo por lead reportado pelo pixel</h3>
+  <p class="sub">Mínimo de 30 resultados e R$ 500 investidos, para não premiar acidente estatístico. Leia como ordem relativa entre criativos — o número absoluto de lead do pixel infla.</p>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>Criativo</th><th>Investido</th><th>Plays</th><th>Retenção</th><th>25%</th><th>50%</th><th>CPM</th><th>R$/ThruPlay</th><th>CTR</th><th>CPL pixel</th><th>Ads</th></tr></thead>
+      <tbody>
+        <tr><td><span class="rank">1</span>Vid_ang.ChaD_var.material.bonus_test.A</td><td>R$ 1.199</td><td>51.177</td><td><span class="ramp"><i style="--h:.36"></i><i style="--h:.21"></i><i style="--h:.06"></i></span></td><td>5,7%</td><td>3,3%</td><td>R$ 16,44</td><td>R$ 0,40</td><td>1,02%</td><td class="good">R$ 3,18</td><td>7</td></tr>
+        <tr><td><span class="rank">2</span>VDVagade10milparaVets</td><td>R$ 2.509</td><td>122.850</td><td><span class="ramp"><i style="--h:.38"></i><i style="--h:.26"></i><i style="--h:.07"></i></span></td><td>6,1%</td><td>4,2%</td><td>R$ 17,01</td><td>R$ 0,35</td><td>1,67%</td><td class="good">R$ 3,76</td><td>22</td></tr>
+        <tr><td><span class="rank">3</span>VD - Objetivo do APPCC</td><td>R$ 3.960</td><td>143.336</td><td><span class="ramp"><i style="--h:.58"></i><i style="--h:.36"></i><i style="--h:.08"></i></span></td><td>9,2%</td><td>5,7%</td><td class="bad">R$ 20,52</td><td>R$ 0,30</td><td>1,47%</td><td class="good">R$ 3,97</td><td>8</td></tr>
+        <tr><td><span class="rank">4</span>VDVagade10mil</td><td>R$ 5.012</td><td>208.364</td><td><span class="ramp"><i style="--h:.58"></i><i style="--h:.42"></i><i style="--h:.11"></i></span></td><td>9,2%</td><td>6,7%</td><td class="bad">R$ 21,51</td><td>R$ 0,27</td><td>1,80%</td><td class="good">R$ 3,97</td><td>17</td></tr>
+        <tr><td><span class="rank">5</span>VD - Quanto ganha um RT de alimentos?</td><td>R$ 2.863</td><td>126.282</td><td><span class="ramp"><i style="--h:.59"></i><i style="--h:.33"></i><i style="--h:.06"></i></span></td><td>9,4%</td><td>5,3%</td><td>R$ 19,25</td><td>R$ 0,29</td><td>1,56%</td><td class="good">R$ 4,19</td><td>8</td></tr>
+        <tr><td><span class="rank">6</span>VDVagade10milparaNutris</td><td>R$ 2.830</td><td>93.249</td><td><span class="ramp"><i style="--h:.56"></i><i style="--h:.4"></i><i style="--h:.13"></i></span></td><td>9,0%</td><td>6,4%</td><td class="bad">R$ 26,41</td><td>R$ 0,36</td><td class="good">2,11%</td><td class="good">R$ 4,26</td><td>18</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Onde a verba rendeu menos</h3>
+  <p class="sub">Criativos com mais de R$ 3.000 investidos e o pior CPL relativo. Não é recomendação de pausa — é onde vale olhar antes do próximo teste.</p>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>Criativo</th><th>Investido</th><th>Plays</th><th>25%</th><th>50%</th><th>Fim</th><th>CPM</th><th>R$/ThruPlay</th><th>CPL pixel</th><th>Ads</th></tr></thead>
+      <tbody>
+        <tr><td>Vídeo 2: Convite direto e reto</td><td>R$ 3.634</td><td>135.011</td><td class="bad">6,2%</td><td class="bad">2,9%</td><td>1,1%</td><td class="bad">R$ 24,81</td><td class="bad">R$ 1,16</td><td class="bad">R$ 191,24</td><td>12</td></tr>
+        <tr><td>Vídeo 4: O que cabe em 8 anos?</td><td>R$ 3.637</td><td>126.089</td><td>9,1%</td><td>5,4%</td><td>1,5%</td><td class="bad">R$ 26,40</td><td class="bad">R$ 1,26</td><td class="bad">R$ 93,25</td><td>12</td></tr>
+        <tr><td>VD - LISTA DE ESPERA - PAULA VET — “de forma bem prática”</td><td>R$ 6.340</td><td>245.489</td><td class="bad">3,8%</td><td class="bad">1,9%</td><td class="bad">0,8%</td><td>R$ 16,85</td><td class="bad">R$ 0,52</td><td class="bad">R$ 36,02</td><td>11</td></tr>
+        <tr><td>VD - Vaga de 10 mil para vets - PAULA</td><td>R$ 8.656</td><td>262.826</td><td>9,5%</td><td>5,5%</td><td>2,1%</td><td class="bad">R$ 22,05</td><td class="bad">R$ 0,56</td><td class="bad">R$ 31,82</td><td>37</td></tr>
+        <tr><td>VD Maysa: Você está vendo isso aqui ao meu redor?</td><td>R$ 3.231</td><td>322.097</td><td>8,1%</td><td>3,3%</td><td>1,2%</td><td class="good">R$ 9,62</td><td>R$ 0,32</td><td class="bad">R$ 17,95</td><td>6</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">O contraste mais instrutivo da conta: <b>“Vaga de 10 mil”</b> aparece nas duas listas. Como <i>VD - Vaga de 10 mil para vets - PAULA</i> custou R$ 31,82 por lead do pixel; como <i>VDVagade10mil</i>, R$ 3,97 — 8× mais barato. O conceito funciona; a montagem e o contexto de campanha decidiram o resultado.</p>
+</section>
+
+<section>
+  <h2><span class="num">03</span>Vendas</h2>
+  <p class="sub">Pista menor (R$ 76.766) e com lógica invertida: os dois maiores investimentos têm retenção baixíssima e ainda assim foram os melhores — são cortes de live longos, em que o objetivo é o clique, não a assistida. O CTR conta a história que a retenção esconde.</p>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>Criativo</th><th>Investido</th><th>Plays</th><th>Retenção</th><th>25%</th><th>50%</th><th>Fim</th><th>CPM</th><th>R$/ThruPlay</th><th>CTR</th><th>Ads</th></tr></thead>
+      <tbody>
+        <tr><td><span class="rank">1</span>VENDAS VD - Live 1: estação de poder<span class="tag">maior criativo de vendas do histórico</span></td><td class="hi">R$ 23.348</td><td>2.142.412</td><td><span class="ramp"><i style="--h:.31"></i><i style="--h:.09"></i><i style="--h:.02"></i></span></td><td>5,2%</td><td>1,4%</td><td>0,3%</td><td class="good">R$ 8,63</td><td class="good">R$ 0,18</td><td class="good">3,59%</td><td>6</td></tr>
+        <tr><td><span class="rank">2</span>VENDAS VD - Live 1: maior erro do RT</td><td>R$ 10.324</td><td>1.160.400</td><td><span class="ramp"><i style="--h:.16"></i><i style="--h:.04"></i><i style="--h:.01"></i></span></td><td class="bad">2,7%</td><td class="bad">0,7%</td><td>0,2%</td><td class="good">R$ 7,26</td><td class="good">R$ 0,22</td><td class="good">2,10%</td><td>6</td></tr>
+        <tr><td><span class="rank">3</span>VD - Paula na indústria 4</td><td>R$ 2.433</td><td>60.019</td><td><span class="ramp"><i style="--h:.66"></i><i style="--h:.41"></i><i style="--h:.12"></i></span></td><td class="good">11,1%</td><td class="good">6,9%</td><td class="good">2,0%</td><td class="bad">R$ 28,90</td><td>R$ 0,41</td><td>1,57%</td><td>19</td></tr>
+        <tr><td><span class="rank">4</span>VD - O que é o Mapa</td><td>R$ 2.305</td><td>144.651</td><td><span class="ramp"><i style="--h:.32"></i><i style="--h:.27"></i><i style="--h:.1"></i></span></td><td>5,4%</td><td class="good">4,6%</td><td class="good">1,7%</td><td>R$ 15,01</td><td>R$ 0,40</td><td>1,12%</td><td>4</td></tr>
+        <tr><td><span class="rank">5</span>ADS - Aula prática + materiais de apoio</td><td>R$ 2.123</td><td>146.973</td><td><span class="ramp"><i style="--h:.57"></i><i style="--h:.26"></i><i style="--h:.08"></i></span></td><td class="good">9,5%</td><td class="good">4,4%</td><td>1,3%</td><td>R$ 10,97</td><td class="good">R$ 0,24</td><td>1,27%</td><td>2</td></tr>
+        <tr><td><span class="rank">6</span>VD Impactante<span class="tag">CTR de 12,90% — o mais alto do histórico</span></td><td>R$ 1.007</td><td>62.073</td><td><span class="ramp"><i style="--h:.99"></i><i style="--h:.66"></i><i style="--h:.41"></i></span></td><td class="good">16,5%</td><td class="good">11,0%</td><td class="good">6,8%</td><td>R$ 15,15</td><td class="good">R$ 0,10</td><td class="good">12,90%</td><td>4</td></tr>
+        <tr><td><span class="rank">7</span>3 VDs: animações - 01</td><td>R$ 1.575</td><td>93.746</td><td><span class="ramp"><i style="--h:1"></i><i style="--h:.63"></i><i style="--h:.17"></i></span></td><td class="good">24,1%</td><td class="good">10,5%</td><td class="good">2,9%</td><td>R$ 14,54</td><td>R$ 0,37</td><td class="good">5,70%</td><td>4</td></tr>
+        <tr><td><span class="rank">8</span>VD - Paula na indústria 3</td><td>R$ 2.086</td><td>65.931</td><td><span class="ramp"><i style="--h:.5"></i><i style="--h:.33"></i><i style="--h:.09"></i></span></td><td>8,3%</td><td class="good">5,4%</td><td>1,4%</td><td class="bad">R$ 23,70</td><td>R$ 0,45</td><td>1,47%</td><td>20</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Escala das barras: 25% da audiência. <b>VD Impactante</b> é o achado desta pista: melhor retenção até o fim (6,8%), menor custo por ThruPlay (R$ 0,10) e CTR de 12,90% — com apenas R$ 1.007 investidos em 4 anúncios. Nunca foi escalado.</p>
+</section>
+
+<section>
+  <h2><span class="num">04</span>Conteúdo e engajamento</h2>
+  <p class="sub">Conta de Distribuição de Conteúdo: R$ 181 mil, o melhor CPM da casa (R$ 6,38) e retenção em outro patamar. Aqui o vídeo não pede lead — ele compra atenção barata, e é onde estão as retenções mais altas de todo o histórico.</p>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>Criativo</th><th>Investido</th><th>Plays</th><th>Retenção</th><th>25%</th><th>50%</th><th>Fim</th><th>CPM</th><th>R$/ThruPlay</th><th>Ads</th></tr></thead>
+      <tbody>
+        <tr><td><span class="rank">1</span>Corte de carne na indústria<span class="tag">recorde absoluto de retenção · 1 anúncio, nunca repetido</span></td><td>R$ 1.398</td><td>697.648</td><td><span class="ramp"><i style="--h:1"></i><i style="--h:.75"></i><i style="--h:.19"></i></span></td><td class="good">82,3%</td><td class="good">62,0%</td><td class="good">15,6%</td><td class="good">R$ 1,98</td><td class="good">R$ 0,004</td><td>1</td></tr>
+        <tr><td><span class="rank">2</span>1Mi oportunidades</td><td>R$ 4.596</td><td>306.560</td><td><span class="ramp"><i style="--h:.55"></i><i style="--h:.25"></i><i style="--h:.2"></i></span></td><td class="good">45,2%</td><td class="good">20,3%</td><td class="good">16,5%</td><td>R$ 14,15</td><td>R$ 0,04</td><td>6</td></tr>
+        <tr><td><span class="rank">3</span>Paula: por que você decidiu seguir essa área</td><td>R$ 6.794</td><td>671.209</td><td><span class="ramp"><i style="--h:.52"></i><i style="--h:.26"></i><i style="--h:.17"></i></span></td><td class="good">42,7%</td><td class="good">21,0%</td><td class="good">14,1%</td><td>R$ 9,63</td><td class="good">R$ 0,03</td><td>8</td></tr>
+        <tr><td><span class="rank">4</span>NUTRI: top 3 habilidades especiais</td><td class="hi">R$ 6.940</td><td>643.346</td><td><span class="ramp"><i style="--h:.41"></i><i style="--h:.19"></i><i style="--h:.04"></i></span></td><td class="good">33,5%</td><td class="good">15,6%</td><td>3,3%</td><td>R$ 10,26</td><td class="good">R$ 0,03</td><td>9</td></tr>
+        <tr><td><span class="rank">5</span>Vet pode trabalhar em cozinha</td><td>R$ 6.072</td><td>1.417.242</td><td><span class="ramp"><i style="--h:.26"></i><i style="--h:.17"></i><i style="--h:.09"></i></span></td><td>21,1%</td><td class="good">13,6%</td><td class="good">7,4%</td><td class="good">R$ 4,02</td><td class="good">R$ 0,02</td><td>8</td></tr>
+        <tr><td><span class="rank">6</span>Contaminação cruzada</td><td>R$ 5.978</td><td>1.458.204</td><td><span class="ramp"><i style="--h:.43"></i><i style="--h:.18"></i><i style="--h:.05"></i></span></td><td class="good">35,6%</td><td class="good">14,8%</td><td>3,9%</td><td class="good">R$ 3,93</td><td class="good">R$ 0,01</td><td>10</td></tr>
+        <tr><td><span class="rank">7</span>O que é proibido em embutidos?</td><td>R$ 5.946</td><td>1.381.734</td><td><span class="ramp"><i style="--h:.38"></i><i style="--h:.16"></i><i style="--h:.03"></i></span></td><td class="good">31,4%</td><td class="good">13,4%</td><td>2,8%</td><td class="good">R$ 4,12</td><td class="good">R$ 0,01</td><td>9</td></tr>
+        <tr><td><span class="rank">8</span>O que faz um Consultor de Alimentos</td><td>R$ 3.534</td><td>143.118</td><td><span class="ramp"><i style="--h:.36"></i><i style="--h:.27"></i><i style="--h:.13"></i></span></td><td class="good">29,4%</td><td class="good">22,3%</td><td class="good">10,5%</td><td class="bad">R$ 19,54</td><td>R$ 0,12</td><td>6</td></tr>
+        <tr><td><span class="rank">9</span>Cortes de carne na prática</td><td>R$ 1.490</td><td>472.075</td><td><span class="ramp"><i style="--h:.34"></i><i style="--h:.28"></i><i style="--h:.07"></i></span></td><td class="good">27,6%</td><td class="good">23,4%</td><td class="good">6,0%</td><td class="good">R$ 3,08</td><td class="good">R$ 0,02</td><td>1</td></tr>
+        <tr><td><span class="rank">10</span>5 locais para trabalhar como RT</td><td>R$ 1.265</td><td>91.211</td><td><span class="ramp"><i style="--h:.5"></i><i style="--h:.4"></i><i style="--h:.05"></i></span></td><td class="good">41,1%</td><td class="good">33,2%</td><td>3,8%</td><td>R$ 13,29</td><td class="good">R$ 0,04</td><td>1</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Escala das barras: 82% da audiência. Um recorte de processo industrial (corte de carne, câmara fria, higienização) retém de 3 a 8× mais que um vídeo de convite falado — e a R$ 2 de CPM.</p>
+</section>
+
+<section>
+  <h2><span class="num">05</span>As joias que nunca foram escaladas</h2>
+  <p class="sub">Criativos com menos de R$ 1.500 investidos, mais de 15 mil plays e retenção a 50% acima de 12%. Têm volume para provar que funcionam e nunca receberam verba proporcional.</p>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>Criativo</th><th>Conta</th><th>Investido</th><th>Plays</th><th>25%</th><th>50%</th><th>Fim</th><th>CPM</th><th>Ads</th></tr></thead>
+      <tbody>
+        <tr><td>Corte de carne na indústria</td><td>Distribuição</td><td>R$ 1.398</td><td>697.648</td><td class="good">82,3%</td><td class="good">62,0%</td><td class="good">15,6%</td><td class="good">R$ 1,98</td><td>1</td></tr>
+        <tr><td>Carr_ang.ChaD_var.eventoGeral</td><td>CA oficial</td><td>R$ 954</td><td>32.303</td><td class="good">62,5%</td><td class="good">36,4%</td><td class="good">18,4%</td><td>R$ 18,17</td><td>7</td></tr>
+        <tr><td>5 locais para trabalhar como RT</td><td>Distribuição</td><td>R$ 1.265</td><td>91.211</td><td class="good">41,1%</td><td class="good">33,2%</td><td>3,8%</td><td>R$ 13,29</td><td>1</td></tr>
+        <tr><td>Pode ter ralo na câmara fria?</td><td>Distribuição</td><td>R$ 57</td><td>22.548</td><td class="good">48,6%</td><td class="good">32,3%</td><td>0,8%</td><td class="good">R$ 2,51</td><td>1</td></tr>
+        <tr><td>ADSCar: Brasil é o supermercado do mundo</td><td>CA oficial</td><td>R$ 725</td><td>45.522</td><td class="good">56,8%</td><td class="good">29,7%</td><td class="good">13,5%</td><td>R$ 11,25</td><td>1</td></tr>
+        <tr><td>Publicação do Instagram: a contaminação cruzada é…</td><td>Distribuição</td><td>R$ 227</td><td>74.330</td><td class="good">39,8%</td><td class="good">28,3%</td><td>3,5%</td><td class="good">R$ 2,99</td><td>1</td></tr>
+        <tr><td>Pode usar pano de tecido?</td><td>Distribuição</td><td>R$ 56</td><td>22.251</td><td class="good">40,9%</td><td class="good">24,8%</td><td>0,9%</td><td class="good">R$ 2,51</td><td>1</td></tr>
+        <tr><td>Cortes de carne na prática</td><td>Distribuição</td><td>R$ 1.490</td><td>472.075</td><td class="good">27,6%</td><td class="good">23,4%</td><td class="good">6,0%</td><td class="good">R$ 3,08</td><td>1</td></tr>
+        <tr><td>Estrutura da área de manipulação</td><td>Distribuição</td><td>R$ 135</td><td>33.079</td><td class="good">30,8%</td><td class="good">23,3%</td><td>1,3%</td><td class="good">R$ 4,01</td><td>2</td></tr>
+        <tr><td>FALTAM 2 DIAS</td><td>CA oficial</td><td>R$ 1.128</td><td>59.423</td><td class="good">36,4%</td><td class="good">22,0%</td><td class="good">4,8%</td><td>R$ 16,14</td><td>3</td></tr>
+        <tr><td>Passo a passo: higienização na área de alimentos</td><td>Distribuição</td><td>R$ 57</td><td>24.011</td><td class="good">36,1%</td><td class="good">20,6%</td><td>0,5%</td><td class="good">R$ 2,36</td><td>1</td></tr>
+        <tr><td>Uso de touca é obrigatório?</td><td>Distribuição</td><td>R$ 79</td><td>31.355</td><td class="good">25,1%</td><td class="good">19,2%</td><td>0,7%</td><td class="good">R$ 2,49</td><td>1</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">A maioria rodou em <b>um único anúncio</b>. Alguns custaram menos de R$ 100 e entregaram mais de 20 mil plays — o que significa que a hipótese está testada, mas nunca foi levada a orçamento de escala nem adaptada para captação.</p>
+</section>
+
+<section>
+  <h2><span class="num">06</span>O que os vencedores têm em comum</h2>
+  <div class="finds">
+    <article>
+      <h4>Mostrar o trabalho vence falar sobre o trabalho</h4>
+      <p>Os quatro maiores índices de retenção do histórico são recortes de processo dentro da indústria — corte de carne, câmara fria, área de manipulação, higienização. <b>Corte de carne na indústria</b> levou <span class="stat">82,3%</span> da audiência ao primeiro quarto e <span class="stat">62,0%</span> até a metade, com CPM de <span class="stat">R$ 1,98</span>.</p>
+      <p>Na outra ponta, o pior desempenho entre os grandes investimentos é um vídeo que <i>explica</i> a oferta falando à câmera: <b>“eu vou te explicar de forma bem prática o que ela entrega”</b> retém <span class="stat">3,8%</span> a 25% — um quinto do que a média da pista entrega.</p>
+    </article>
+    <article>
+      <h4>O gancho de identidade profissional é o mais consistente</h4>
+      <p>Os criativos que abrem nomeando quem está do outro lado — <b>“se você é veterinário”</b>, <b>“veterinário, você pode atuar com…”</b>, <b>“vet de clínica e vet de alimentos”</b> — sustentaram quase R$ 40 mil de investimento com CPM entre <span class="stat">R$ 6</span> e <span class="stat">R$ 12</span>. O melhor deles, <b>VD_01_PROFISSÃO VET_CHAMADA PAULA</b>, é o único da conta a combinar as três coisas ao mesmo tempo: retenção até o fim de <span class="stat">5,3%</span> (2,1× a média), o menor CPM (<span class="stat">R$ 6,04</span>) e o menor custo por ThruPlay (<span class="stat">R$ 0,10</span>) entre os criativos de escala.</p>
+    </article>
+    <article>
+      <h4>O mesmo filme muda de resultado conforme o contexto</h4>
+      <p>“Vaga de 10 mil” e “Chão de fábrica” aparecem duas vezes cada, em montagens e campanhas diferentes, com resultados muito distantes: <span class="stat">R$ 31,82</span> contra <span class="stat">R$ 3,97</span> por lead do pixel no primeiro caso; <span class="stat">R$ 17,72</span> contra <span class="stat">R$ 7,50</span> no segundo. A versão vencedora não é a mais bem produzida — é a que rodou na campanha de tráfego com CPM mais baixo.</p>
+      <p>Consequência prática: comparar criativos entre campanhas de estruturas diferentes mede a campanha, não o vídeo. As duas leituras precisam andar juntas.</p>
+    </article>
+    <article>
+      <h4>Em vendas, retenção não é a métrica</h4>
+      <p>Os dois maiores criativos de venda (<span class="stat">R$ 33,7 mil</span> somados) retêm <span class="stat">1,4%</span> e <span class="stat">0,7%</span> até a metade — abaixo de quase tudo no histórico — e ainda assim entregam CTR de <span class="stat">3,59%</span> e <span class="stat">2,10%</span>, o dobro da média de captação. São cortes de live longos em que o clique acontece nos primeiros segundos. Julgá-los por retenção levaria à conclusão errada.</p>
+    </article>
+    <article>
+      <h4>A audiência retida mais barata da casa está fora da captação</h4>
+      <p>Um ThruPlay custa <span class="stat">R$ 0,29</span> em captação e <span class="stat">R$ 0,03</span> em conteúdo — <b>uma diferença de 10×</b>. Parte disso é estrutural (otimização por engajamento compra atenção mais barata que otimização por lead), mas a distância é grande o bastante para justificar testar os ganchos de conteúdo campeões dentro dos funis de captação, que é a ponte que o histórico nunca atravessou.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">07</span>Limites desta leitura</h2>
+  <p class="sub">Três coisas que este relatório não pode afirmar, e que valem registro para não serem lidas como omissão.</p>
+  <div class="finds">
+    <article>
+      <h4>Não existe lead real por criativo</h4>
+      <p>Os leads verdadeiros vivem nas planilhas do Drive, e elas não guardam identificação do anúncio que originou o cadastro. O único sinal de conversão disponível no nível do criativo é o do pixel do Meta, que infla e não bate com o formulário. Por isso todo CPL aqui é <b>ordenação relativa</b>, nunca custo por lead. Para virar leitura de negócio, seria preciso passar a marcar o criativo na URL de destino (um parâmetro por anúncio) e trazer esse campo para as planilhas.</p>
+    </article>
+    <article>
+      <h4>A planilha do Webinário está quebrada</h4>
+      <p>Ao tentar cruzar lead real com criativo, a planilha do funil de Webinário Diário retornou <b><span class="stat">#REF!</span></b> em vez de dados — a exportação está com referência rompida. Não afeta as conclusões deste relatório (que se apoia em métricas do Meta), mas afeta qualquer dashboard que leia esse funil.</p>
+    </article>
+    <article>
+      <h4>Cobertura de 77% na conta principal</h4>
+      <p>As 300 campanhas mapeadas cobrem <span class="stat">99%</span> do investimento histórico da CA oficial, e a leitura no nível de anúncio alcançou <span class="stat">77%</span> desse valor — a API paginou de forma irregular nessa conta e a ordenação por gasto não foi respeitada. Todas as campanhas acima de R$ 3 mil foram lidas individualmente, então nenhum criativo grande ficou fora; o que resta são caudas pequenas, onde pode haver mais joias do tipo listado na seção 05.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <p><b>Método.</b> Fonte: Meta Ads, <span class="stat">date_preset = maximum</span>, nível de anúncio, agregado por nome de criativo (variações “cópia” unificadas). Contas lidas: CA (oficial) — Food Smart, BM1CA2 — Distribuição de Conteúdo, Food Smart (Campanhas), Food Smart Academy e CA — INSITEC. Consideramos vídeo o criativo cujos plays cobriram ao menos metade das impressões. Retenção calculada sobre plays; ThruPlay conforme definição do Meta (15 s ou conclusão). Valores em BRL, sem correção inflacionária ao longo dos 36 meses.</p>
+  <p class="stamp">Leitura somente de consulta · nenhuma campanha alterada · 02 de setembro de 2026</p>
+</footer>
+
+</div>
